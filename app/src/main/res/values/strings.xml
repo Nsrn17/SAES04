@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">SAE-S04</string>
+    <string name="r_sum_des_dons">Résumé des Dons</string>
+    <string name="total_des_dons">Total des dons</string>
+    <string name="_500">500 €</string>
+    <string name="_6_donations">6 donations</string>
+    <string name="ann_e">Année</string>
+    <string name="nombre_de_dons">Nombre de Dons</string>
+    <string name="montant_total">Montant Total</string>
+    <string name="dons_par_ann_e">Dons par Année</string>
+    <string name="fr_quence">Fréquence</string>
+    <string name="dons_r_currents">Dons récurrents</string>
 </resources>
