@@ -1,10 +1,13 @@
 package iut.dam.sae_s04;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.text.TextWatcher;
@@ -17,7 +20,7 @@ import java.util.List;
 
 import iut.dam.sae_s04.CarouselAdapter;
 
-public class AcceuilActivity extends AppCompatActivity {
+public class AcceuilActivity extends  BaseActivity {
 
     private ViewPager2 viewPager;
     private CarouselAdapter carouselAdapter;
@@ -56,6 +59,17 @@ public class AcceuilActivity extends AppCompatActivity {
         searchResults.setAdapter(adapter);
 
         setupSearch();
+         //Barre de navigation
+        Button walletButton = findViewById(R.id.wallet_button);
+        Button homeButton = findViewById(R.id.home_button);
+       // Button addRingButton = findViewById(R.id.add_ring_button);
+        Button userButton = findViewById(R.id.user_button);
+
+
+        navigateToActivity(walletButton, ResumeActivity.class);
+        navigateToActivity(homeButton, AcceuilActivity.class);
+       // navigateToActivity(addRingButton, AddRingActivity.class);
+        navigateToActivity(userButton, LoginActivity.class);
     }
     private void setupSearch() {
         // Écouter les changements de texte dans l'EditText

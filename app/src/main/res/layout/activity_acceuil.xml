@@ -1,5 +1,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -93,5 +94,8 @@
             android:backgroundTint="@color/primary"
             android:textColor="@android:color/white"
             android:layout_marginTop="16dp"/>
+        <include
+            android:id="@+id/navigation_buttons"
+            layout="@layout/navigation" />
     </LinearLayout>
 </ScrollView>

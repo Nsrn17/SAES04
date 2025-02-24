@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ResumeActivity extends AppCompatActivity {
+public class ResumeActivity extends  BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,16 @@ public class ResumeActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+        //Barre de navigation
+        Button walletButton = findViewById(R.id.wallet_button);
+        Button homeButton = findViewById(R.id.home_button);
+        // Button addRingButton = findViewById(R.id.add_ring_button);
+        Button userButton = findViewById(R.id.user_button);
 
+
+        navigateToActivity(walletButton, ResumeActivity.class);
+        navigateToActivity(homeButton, AcceuilActivity.class);
+        // navigateToActivity(addRingButton, AddRingActivity.class);
+        navigateToActivity(userButton, LoginActivity.class);
     }
 }

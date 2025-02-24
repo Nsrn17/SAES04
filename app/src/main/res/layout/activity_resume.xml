@@ -417,42 +417,9 @@
         android:layout_marginStart="35sp"
         android:orientation="horizontal">
 
-        <Button
-            android:layout_width="34dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="40dp"
-            android:background="@drawable/wallet"
-            app:backgroundTint="@null">
 
-        </Button>
-
-        <Button
-            android:layout_width="34dp"
-
-            android:layout_height="36dp"
-            android:layout_marginStart="40dp"
-            android:background="@drawable/home"
-            app:backgroundTint="@null">
-
-        </Button>
-
-        <Button
-            android:layout_width="34dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="40dp"
-            android:background="@drawable/add_ring"
-
-            app:backgroundTint="@null">
-
-        </Button>
-
-        <Button
-            android:layout_width="34dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="40dp"
-            android:background="@drawable/user_alt"
-            app:backgroundTint="@null">
-
-        </Button>
+        <include
+            android:id="@+id/navigation_buttons"
+            layout="@layout/navigation" />
     </LinearLayout>
 </LinearLayout>
