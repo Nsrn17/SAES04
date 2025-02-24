@@ -18,19 +18,9 @@
         android:adjustViewBounds="true"
         android:layout_marginBottom="32dp" />
 
-    <!--<TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_identification"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:fontFamily="sans-serif-light"
-        android:textColor="@color/blue"
-        android:layout_marginBottom="16dp"/>-->
-
 
     <EditText
-        android:id="@+id/et_identifiant"
+        android:id="@+id/idRegister"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginBottom="20dp"
@@ -43,7 +33,7 @@
         android:padding="12dp" />
 
     <EditText
-        android:id="@+id/et_mot_de_passe"
+        android:id="@+id/passwordRegister"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginBottom="20dp"
@@ -55,17 +45,31 @@
         android:inputType="textPassword"
         android:padding="12dp" />
 
-    <!-- Lien "Mot de passe oublié ?" -->
-    <TextView
-        android:id="@+id/tv_mot_de_passe_oublie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_mot_de_passe_oublie"
-        android:textColor="@color/orange"
+    <EditText
+        android:id="@+id/nameRegister"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/edittext_background"
+        android:hint="@string/tv_nom_complet"
+        android:textSize="15sp"
         android:fontFamily="sans-serif-medium"
-        android:textSize="14sp"
-        android:layout_marginBottom="24dp"
-        android:layout_gravity="center" />
+        android:textColorHint="@color/white"
+        android:inputType="textPersonName"
+        android:padding="12dp" />
+
+    <EditText
+        android:id="@+id/usernameRegister"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/edittext_background"
+        android:hint="@string/tv_username"
+        android:textSize="15sp"
+        android:fontFamily="sans-serif-medium"
+        android:textColorHint="@color/white"
+        android:inputType="textPassword"
+        android:padding="12dp" />
 
     <!-- Bouton "SE CONNECTER" -->
     <Button
@@ -74,7 +78,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/orange"
         android:text="@string/btn_se_connecter"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="20dp"
         android:textColor="@android:color/white"
         android:fontFamily="sans-serif-condensed-medium"
         android:textStyle="bold"
@@ -91,7 +95,7 @@
             android:id="@+id/tv_pas_de_compte"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tv_pas_de_compte"
+            android:text="@string/tv_deja_compte"
             android:textSize="14sp"
             android:textColor="@android:color/black" />
 
@@ -101,10 +105,10 @@
             android:text=" " />
 
         <Button
-            android:id="@+id/btn_inscrivez_vous"
+            android:id="@+id/btn_connectez_vous"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:text="@string/btn_inscrivez_vous"
+            android:text="@string/btn_connectez_vous"
             android:textColor="@color/orange"
             android:textStyle="bold"
             android:textSize="14sp"
