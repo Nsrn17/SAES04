@@ -7,7 +7,15 @@
     <string name="ann_e">Année</string>
     <string name="nombre_de_dons">Nombre de Dons</string>
     <string name="montant_total">Montant Total</string>
-    <string name="dons_par_ann_e">Dons par Année</string>
+    <string name="dons_par_ann_e">DONS PAR ANNEE</string>
     <string name="fr_quence">Fréquence</string>
-    <string name="dons_r_currents">Dons récurrents</string>
+    <string name="dons_r_currents">DONS RECURRENT</string>
+
+    <string-array name="country_codes">
+        <item> selectionnez une association ↴ </item>
+        <item> Association 1 </item>
+        <item> Association 2 </item>
+        <item> Association 3 </item>
+
+    </string-array>
 </resources>
