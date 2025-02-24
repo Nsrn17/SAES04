@@ -90,8 +90,8 @@
             android:layout_height="wrap_content"
             android:text="Faire un don"
             android:textSize="16sp"
-            android:backgroundTint="@color/primary"
-            android:textColor="@android:color/white"
+            android:backgroundTint="@color/blue"
+            android:textColor="@color/white"
             android:layout_marginTop="16dp"/>
     </LinearLayout>
 </ScrollView>
