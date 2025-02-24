@@ -34,7 +34,7 @@ public class ResumeActivity extends  BaseActivity {
         Spinner spinner = findViewById(R.id.spinner_association);
 
 // Charger les éléments depuis le fichier XML
-        String[] originalItems = getResources().getStringArray(R.array.country_codes);
+        String[] originalItems = getResources().getStringArray(R.array.association);
         List<String> filteredItems = new ArrayList<>(Arrays.asList(originalItems));
 
 // Créer l'adaptateur personnalisé

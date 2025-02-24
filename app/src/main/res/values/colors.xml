@@ -2,22 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
-
-        <!-- Couleurs principales de l'application -->
-        <color name="primary">#0077B6</color> <!-- Bleu principal -->
-        <color name="primary_dark">#023E8A</color> <!-- Bleu foncé -->
-        <color name="accent">#F15A24</color> <!-- Orange accent -->
-
-        <!-- Couleurs pour les textes -->
-        <color name="text_primary">#333333</color>
-        <color name="text_secondary">#666666</color>
-
-        <!-- Fond de l'application -->
-        <color name="background">#F5F5F5</color>
-
-        <!-- Couleur des boutons -->
-        <color name="button_background">#0077B6</color>
-        <color name="button_text">#FFFFFF</color>
-    </resources>
-
+    <color name="orange">#EB563A</color>
+    <color name="blue">#00A9B3</color>
+    <color name="lightblue">#6FCFD3</color>
+</resources>
