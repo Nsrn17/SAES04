@@ -15,12 +15,7 @@
         tools:ignore="ExtraText">
 
         <!-- Logo -->
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/lofofs" />
+
 
         <!-- Bannière -->
 
@@ -29,10 +24,11 @@
 
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="500dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="vertical"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="4dp"
             android:layout_marginBottom="24dp">
 
             <!-- Boîte de recherche -->
@@ -71,24 +67,27 @@
         <!-- Résultats de recherche (masqué par défaut) -->
         <ListView
             android:id="@+id/search_results"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_width="500dp"
+            android:layout_height="90dp"
+            android:layout_gravity="center"
             android:visibility="gone"
             android:layout_marginTop="8dp" />
 
         <!-- Carrousel -->
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="166dp"
+            android:layout_width="350dp"
+            android:layout_gravity="center"
+            android:layout_height="150dp"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp" />
 
         <!-- Bouton "Faire un don" -->
         <Button
             android:id="@+id/btn_don"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Faire un don"
             android:textSize="16sp"
             android:backgroundTint="@color/blue"

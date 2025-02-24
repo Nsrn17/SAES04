@@ -14,6 +14,7 @@ public class LoginActivity extends  BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
         //Barre de navigation
         Button walletButton = findViewById(R.id.wallet_button);
         Button homeButton = findViewById(R.id.home_button);
