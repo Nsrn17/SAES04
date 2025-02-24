@@ -1,0 +1,8 @@
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#008D99"> <!-- Couleur primaire foncée pour l'effet de clic -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#00BCD4" /> <!-- Couleur primaire -->
+        </shape>
+    </item>
+</ripple>
