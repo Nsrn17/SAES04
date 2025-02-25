@@ -3,12 +3,6 @@ package iut.dam.sae_s04;
 import android.os.Bundle;
 import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 public class LoginActivity extends  BaseActivity {
 
     @Override
@@ -23,7 +17,7 @@ public class LoginActivity extends  BaseActivity {
 
 
         navigateToActivity(walletButton, ResumeActivity.class);
-        navigateToActivity(homeButton, AcceuilActivity.class);
+        navigateToActivity(homeButton, AccueilActivity.class);
         // navigateToActivity(addRingButton, AddRingActivity.class);
         navigateToActivity(userButton, LoginActivity.class);
     }

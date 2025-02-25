@@ -1,26 +1,20 @@
 package iut.dam.sae_s04;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.text.TextWatcher;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import iut.dam.sae_s04.CarouselAdapter;
-
-public class AcceuilActivity extends  BaseActivity {
+public class AccueilActivity extends  BaseActivity {
 
     private ViewPager2 viewPager;
     private CarouselAdapter carouselAdapter;
@@ -32,7 +26,7 @@ public class AcceuilActivity extends  BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_acceuil);
+        setContentView(R.layout.activity_accueil);
 
         // Configurer le ViewPager2
         viewPager = findViewById(R.id.viewPager);
@@ -67,7 +61,7 @@ public class AcceuilActivity extends  BaseActivity {
 
 
         navigateToActivity(walletButton, ResumeActivity.class);
-        navigateToActivity(homeButton, AcceuilActivity.class);
+        navigateToActivity(homeButton, AccueilActivity.class);
        // navigateToActivity(addRingButton, AddRingActivity.class);
         navigateToActivity(userButton, LoginActivity.class);
     }

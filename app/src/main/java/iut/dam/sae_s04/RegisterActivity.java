@@ -19,7 +19,7 @@ public class RegisterActivity extends BaseActivity {
 
 
         navigateToActivity(walletButton, ResumeActivity.class);
-        navigateToActivity(homeButton, AcceuilActivity.class);
+        navigateToActivity(homeButton, AccueilActivity.class);
         navigateToActivity(addRingButton, RegisterActivity.class);
         navigateToActivity(userButton, LoginActivity.class);
     }

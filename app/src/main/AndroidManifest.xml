@@ -16,7 +16,7 @@
             android:name=".InfosBancairesActivity"
             android:exported="false" />
         <activity
-            android:name=".AcceuilActivity"
+            android:name=".AccueilActivity"
             android:exported="false" />
         <activity
             android:name=".DonUniqueActivity"
