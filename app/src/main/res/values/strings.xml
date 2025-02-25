@@ -21,6 +21,26 @@
     <string name="tv_deja_compte">Vous avez déjà un compte ? </string>
     <string name="btn_inscrivez_vous"> Inscrivez-vous</string>
     <string name="btn_connectez_vous"> Connectez-vous</string>
+    <string name="selectionnezmodepaiement">Sélectionnez un mode de paiement</string>
+    <string name="nomtitulaire">Nom du titulaire de la carte</string>
+    <string name="numerocarte">Numéro de carte</string>
+    <string name="dateexpiration">Date d\'expiration</string>
+    <string name="ccv">CCV</string>
+    <string name="enregistrerinfos">Enregistrer mes informations</string>
+    <string name="annuler">Annuler</string>
+    <string name="suivant">Suivant</string>
+    <string name="confirmer">Confirmer</string>
+    <string name="donunique">Unique</string>
+    <string name="donrecurrent">Récurrent</string>
+    <string name="cinqeuros">5€</string>
+    <string name="dixeuros">10€</string>
+    <string name="vingteuros">20€</string>
+    <string name="entrersommeperso">Entrer une somme personnalisée :</string>
+    <string name="donanonyme">Effectuer le don anonymemeny</string>
+    <string name="realiserdon">Réaliser un don</string>
+    <string name="annuel">Annuel</string>
+    <string name="mensuel">Mensuel</string>
+    <string name="entrezccv">Entrez le ccv</string>
     <string-array name="association">
         <item> selectionnez une association</item>
         <item> Association 1 </item>

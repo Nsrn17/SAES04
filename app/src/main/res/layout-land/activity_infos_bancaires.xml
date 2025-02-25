@@ -1,0 +1,219 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/selectionnezmodepaiement"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColorHint="@color/black"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginEnd="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/nomtitulaire"
+                    android:textSize="16sp"
+                    android:textColorHint="@color/black"
+                    android:layout_marginBottom="8dp"/>
+
+                <EditText
+                    android:id="@+id/edit_card_holder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/nomtitulaire"
+                    android:textSize="16sp"
+                    android:padding="12dp"
+                    android:background="@drawable/champsaisie"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/numerocarte"
+                        android:textSize="16sp"
+                        android:textColorHint="@color/black"/>
+
+                    <ImageView
+                        android:id="@+id/logo_mastercard"
+                        android:layout_width="200dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/credit_card_logos"/>
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/edit_card_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/numerocarte"
+                    android:textSize="16sp"
+                    android:padding="12dp"
+                    android:background="@drawable/champsaisie"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginEnd="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/dateexpiration"
+                    android:textSize="16sp"
+                    android:textColorHint="@color/black"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/spinner_month"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/champsaisie"
+                        android:padding="12dp"
+                        android:layout_marginEnd="8dp"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_year"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/champsaisie"
+                        android:padding="12dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/ccv"
+                    android:textSize="16sp"
+                    android:textColorHint="@color/black"
+                    android:layout_marginBottom="8dp"/>
+
+                <EditText
+                    android:id="@+id/edit_ccv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/entrezccv"
+                    android:textSize="16sp"
+                    android:padding="12dp"
+                    android:background="@drawable/champsaisie"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <CheckBox
+                android:id="@+id/check_save_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/blue"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/enregistrerinfos"
+                android:textSize="16sp"
+                android:textColorHint="@color/black"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:weightSum="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/annuler"
+                android:textSize="16sp"
+                android:textColorHint="@color/blue"
+                android:background="@drawable/bouton_annuler"
+                android:padding="16dp"
+                android:layout_marginEnd="8dp"
+                android:textAllCaps="false"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_next"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/suivant"
+                android:textSize="16sp"
+                android:textColorHint="@android:color/white"
+                android:background="@drawable/bouton_confirmer"
+                android:padding="16dp"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

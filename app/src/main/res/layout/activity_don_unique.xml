@@ -1,0 +1,190 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/realiserdon"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColorHint="@color/black"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_unique"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/donunique"
+                android:background="@color/blue"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/white"
+                android:padding="16dp"
+                android:textAllCaps="false"
+                android:textSize="16sp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_recurrent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/donrecurrent"
+                android:background="@drawable/boutondonvide"
+                android:textColor="@color/blue"
+                android:textColorHint="@color/blue"
+                android:padding="16dp"
+                android:textAllCaps="false"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="24dp">
+
+            <RadioButton
+                android:id="@+id/radio_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/cinqeuros"
+                android:textSize="26sp"
+                android:textColorHint="@color/black"
+                android:buttonTint="@color/blue"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioButton
+                android:id="@+id/radio_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/dixeuros"
+                android:textSize="26sp"
+                android:textColorHint="@color/black"
+                android:buttonTint="@color/blue"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioButton
+                android:id="@+id/radio_20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/vingteuros"
+                android:textSize="26sp"
+                android:textColorHint="@color/black"
+                android:buttonTint="@color/blue"/>
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/entrersommeperso"
+            android:textSize="18sp"
+            android:textColorHint="@color/blue"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="8dp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/edit_custom_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/montant_total"
+            android:inputType="numberDecimal"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:background="@drawable/champsaisie"
+            android:layout_marginBottom="24dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <CheckBox
+                android:id="@+id/check_save_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/blue"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/enregistrerinfos"
+                android:textSize="16sp"
+                android:textColorHint="@color/black"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/check_anonymous"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/blue"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/donanonyme"
+                android:textSize="16sp"
+                android:textColorHint="@color/black"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="24dp"
+            android:weightSum="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/annuler"
+                android:textSize="16sp"
+                android:textColorHint="@color/blue"
+                android:background="@drawable/bouton_annuler"
+                android:padding="16dp"
+                android:layout_marginEnd="8dp"
+                android:textAllCaps="false"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_confirm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/confirmer"
+                android:textSize="16sp"
+                android:textColorHint="@android:color/white"
+                android:background="@drawable/bouton_confirmer"
+                android:padding="16dp"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
