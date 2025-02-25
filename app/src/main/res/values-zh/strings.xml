@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SAE-S04</string>
+    <string name="r_sum_des_dons">捐赠摘要</string>
+    <string name="total_des_dons">捐赠总额</string>
+    <string name="_500">500 €</string>
+    <string name="_6_donations">6 笔捐赠</string>
+    <string name="ann_e">年</string>
+    <string name="nombre_de_dons">捐赠数量</string>
+    <string name="montant_total">总金额</string>
+    <string name="dons_par_ann_e">每年捐赠</string>
+    <string name="fr_quence">频率</string>
+    <string name="dons_r_currents">定期捐赠</string>
+    <string name="tv_identification">请登录！</string>
+    <string name="hint_id">电子邮件、用户名或电话号码</string>
+    <string name="hint_mot_de_passe">密码</string>
+    <string name="tv_nom_complet">全名</string>
+    <string name="tv_username">用户名</string>
+    <string name="tv_mot_de_passe_oublie">忘记密码？</string>
+    <string name="btn_se_connecter">登录</string>
+    <string name="tv_pas_de_compte">没有账户？</string>
+    <string name="tv_deja_compte">已有账户？</string>
+    <string name="btn_inscrivez_vous">注册</string>
+    <string name="btn_connectez_vous">登录</string>
+    <string name="selectionnezmodepaiement">选择支付方式</string>
+    <string name="nomtitulaire">持卡人姓名</string>
+    <string name="numerocarte">卡号</string>
+    <string name="dateexpiration">有效期</string>
+    <string name="ccv">CVV</string>
+    <string name="enregistrerinfos">保存我的信息</string>
+    <string name="annuler">取消</string>
+    <string name="suivant">下一步</string>
+    <string name="confirmer">确认</string>
+    <string name="donunique">一次性</string>
+    <string name="donrecurrent">定期</string>
+    <string name="cinqeuros">5€</string>
+    <string name="dixeuros">10€</string>
+    <string name="vingteuros">20€</string>
+    <string name="entrersommeperso">输入自定义金额：</string>
+    <string name="donanonyme">匿名捐赠</string>
+    <string name="realiserdon">进行捐赠</string>
+    <string name="annuel">年度</string>
+    <string name="mensuel">月度</string>
+    <string name="entrezccv">输入CVV</string>
+    <string-array name="association">
+        <item> 选择一个协会</item>
+        <item> 协会 1 </item>
+        <item> 协会 2 </item>
+        <item> 协会 3 </item>
+    </string-array>
+</resources>

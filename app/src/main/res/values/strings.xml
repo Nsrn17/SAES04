@@ -2,7 +2,7 @@
     <string name="app_name">SAE-S04</string>
     <string name="r_sum_des_dons">Résumé des Dons</string>
     <string name="total_des_dons">Total des dons</string>
-    <string name="_500">500 €</string>
+    <string name="_500" translatable="false">500 €</string>
     <string name="_6_donations">6 donations</string>
     <string name="ann_e">Année</string>
     <string name="nombre_de_dons">Nombre de Dons</string>
@@ -32,11 +32,11 @@
     <string name="confirmer">Confirmer</string>
     <string name="donunique">Unique</string>
     <string name="donrecurrent">Récurrent</string>
-    <string name="cinqeuros">5€</string>
-    <string name="dixeuros">10€</string>
-    <string name="vingteuros">20€</string>
+    <string name="cinqeuros" translatable="false">5€</string>
+    <string name="dixeuros" translatable="false">10€</string>
+    <string name="vingteuros" translatable="false">20€</string>
     <string name="entrersommeperso">Entrer une somme personnalisée :</string>
-    <string name="donanonyme">Effectuer le don anonymemeny</string>
+    <string name="donanonyme">Effectuer le don anonymement</string>
     <string name="realiserdon">Réaliser un don</string>
     <string name="annuel">Annuel</string>
     <string name="mensuel">Mensuel</string>
