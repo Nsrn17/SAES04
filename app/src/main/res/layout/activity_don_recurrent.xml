@@ -200,7 +200,7 @@
                 android:layout_weight="1"
                 android:hint="@string/annuler"
                 android:textSize="16sp"
-                android:textColor="@color/blue"
+                android:textColorHint="@color/blue"
                 android:background="@drawable/bouton_annuler"
                 android:padding="16dp"
                 android:layout_marginEnd="8dp"
@@ -213,7 +213,7 @@
                 android:layout_weight="1"
                 android:hint="@string/confirmer"
                 android:textSize="16sp"
-                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
                 android:background="@drawable/bouton_confirmer"
                 android:padding="16dp"
                 android:textAllCaps="false"/>
