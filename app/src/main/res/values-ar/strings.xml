@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SAE-S04</string>
+    <string name="r_sum_des_dons">ملخص التبرعات</string>
+    <string name="total_des_dons">المجموع الكلي للتبرعات</string>
+    <string name="_500">500 يورو</string>
+    <string name="_6_donations">6 تبرعات</string>
+    <string name="ann_e">السنة</string>
+    <string name="nombre_de_dons">عدد التبرعات</string>
+    <string name="montant_total">المبلغ الكلي</string>
+    <string name="dons_par_ann_e">التبرعات في السنة</string>
+    <string name="fr_quence">التردد</string>
+    <string name="dons_r_currents">تبرعات دورية</string>
+    <string name="tv_identification">عرف نفسك!</string>
+    <string name="hint_id">البريد الإلكتروني، اسم المستخدم أو رقم الهاتف</string>
+    <string name="hint_mot_de_passe">كلمة السر</string>
+    <string name="tv_nom_complet">الاسم الكامل</string>
+    <string name="tv_username">اسم المستخدم</string>
+    <string name="tv_mot_de_passe_oublie">نسيت كلمة السر؟</string>
+    <string name="btn_se_connecter">دخول</string>
+    <string name="tv_pas_de_compte">ما عندكش حساب؟ </string>
+    <string name="tv_deja_compte">عندك حساب؟ </string>
+    <string name="btn_inscrivez_vous"> سجل</string>
+    <string name="btn_connectez_vous"> دخول</string>
+    <string name="selectionnezmodepaiement">اختر طريقة الدفع</string>
+    <string name="nomtitulaire">اسم صاحب البطاقة</string>
+    <string name="numerocarte">رقم البطاقة</string>
+    <string name="dateexpiration">تاريخ الانتهاء</string>
+    <string name="ccv">CVV</string>
+    <string name="enregistrerinfos">احفظ معلوماتي</string>
+    <string name="annuler">إلغاء</string>
+    <string name="suivant">التالي</string>
+    <string name="confirmer">تأكيد</string>
+    <string name="donunique">مرة واحدة</string>
+    <string name="donrecurrent">دوري</string>
+    <string name="cinqeuros">5 يورو</string>
+    <string name="dixeuros">10 يورو</string>
+    <string name="vingteuros">20 يورو</string>
+    <string name="entrersommeperso">أدخل مبلغ مخصص:</string>
+    <string name="donanonyme">تبرع بشكل مجهول</string>
+    <string name="realiserdon">تبرع الآن</string>
+    <string name="annuel">سنوي</string>
+    <string name="mensuel">شهري</string>
+    <string name="entrezccv">أدخل الـ CVV</string>
+    <string name="appliquerparametres">Appliquer</string>
+    <string name="parametres">Paramètres</string>
+    <string name="modedaltonien">Mode daltonien</string>
+    <string name="tailledutexte">Taille du texte</string>
+    <string-array name="association">
+        <item> اختر جمعية</item>
+        <item> الجمعية 1 </item>
+        <item> الجمعية 2 </item>
+        <item> الجمعية 3 </item>
+    </string-array>
+</resources>
