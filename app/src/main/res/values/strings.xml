@@ -41,6 +41,10 @@
     <string name="annuel">Annuel</string>
     <string name="mensuel">Mensuel</string>
     <string name="entrezccv">Entrez le ccv</string>
+    <string name="appliquerparametres">Appliquer</string>
+    <string name="parametres">Paramètres</string>
+    <string name="modedaltonien">Mode daltonien</string>
+    <string name="tailledutexte">Taille du texte</string>
     <string-array name="association">
         <item> selectionnez une association</item>
         <item> Association 1 </item>

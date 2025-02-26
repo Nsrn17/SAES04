@@ -42,6 +42,10 @@
     <string name="annuel">سنوي</string>
     <string name="mensuel">شهري</string>
     <string name="entrezccv">أدخل الـ CVV</string>
+    <string name="appliquerparametres">Appliquer</string>
+    <string name="parametres">Paramètres</string>
+    <string name="modedaltonien">Mode daltonien</string>
+    <string name="tailledutexte">Taille du texte</string>
     <string-array name="association">
         <item> اختر جمعية</item>
         <item> الجمعية 1 </item>

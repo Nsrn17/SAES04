@@ -42,6 +42,10 @@
     <string name="annuel">年度</string>
     <string name="mensuel">月度</string>
     <string name="entrezccv">输入CVV</string>
+    <string name="appliquerparametres">Appliquer</string>
+    <string name="parametres">Paramètres</string>
+    <string name="modedaltonien">Mode daltonien</string>
+    <string name="tailledutexte">Taille du texte</string>
     <string-array name="association">
         <item> 选择一个协会</item>
         <item> 协会 1 </item>

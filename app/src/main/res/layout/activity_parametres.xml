@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/parametres"
+            android:textColorHint="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/modedaltonien"
+            android:textColorHint="@color/black"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+
+        <Spinner
+            android:id="@+id/spinner_daltonien"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/champsaisie"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/tailledutexte"
+            android:textColorHint="@color/black"
+            android:textSize="18sp"
+            android:layout_marginBottom="8dp"/>
+
+        <SeekBar
+            android:id="@+id/seekbar_taille_texte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="4"
+            android:progress="2"
+            android:layout_marginBottom="24dp"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_appliquer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/appliquerparametres"
+            android:textColorHint="@color/white"
+            android:textSize="16sp"
+            android:background="@drawable/bouton_confirmer"
+            android:padding="16dp"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+</ScrollView>

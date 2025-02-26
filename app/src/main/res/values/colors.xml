@@ -3,7 +3,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#EB563A</color>
-        <color name="blue">#00A9B3</color>
+    <color name="blue">#00A9B3</color>
     <color name="lightblue">#6FCFD3</color>
-
+    <color name="normal">#FFFFFF</color>
+    <color name="protanopie">#FFCCCC</color>
+    <color name="deuteranopie">#CCFFCC</color>
+    <color name="tritanopie">#CCCCFF</color>
 </resources>
