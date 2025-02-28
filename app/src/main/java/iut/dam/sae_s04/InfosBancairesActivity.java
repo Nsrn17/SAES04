@@ -24,5 +24,7 @@ public class InfosBancairesActivity extends AppCompatActivity {
                 this, R.array.years, R.layout.custom_spinner_item);
         yearAdapter.setDropDownViewResource(R.layout.custom_spinner_item);
         spinnerYear.setAdapter(yearAdapter);
+
+
     }
 }

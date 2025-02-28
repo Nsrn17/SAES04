@@ -6,7 +6,7 @@
     android:background="@android:color/white"
     android:gravity="top|center_horizontal"
     android:orientation="vertical"
-   >
+    android:padding="24dp">
 
     <!-- Logo en haut -->
     <ImageView

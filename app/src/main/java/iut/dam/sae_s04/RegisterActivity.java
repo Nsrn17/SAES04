@@ -16,11 +16,15 @@ public class RegisterActivity extends BaseActivity {
         Button homeButton = findViewById(R.id.home_button);
         Button addRingButton = findViewById(R.id.add_ring_button);
         Button userButton = findViewById(R.id.user_button);
+        Button settingButton =findViewById(R.id.settings);
+        Button sigin=findViewById(R.id.btn_connectez_vous);
 
 
         navigateToActivity(walletButton, ResumeActivity.class);
         navigateToActivity(homeButton, AccueilActivity.class);
-        navigateToActivity(addRingButton, RegisterActivity.class);
+        navigateToActivity(addRingButton, DonUniqueActivity.class);
         navigateToActivity(userButton, LoginActivity.class);
+        navigateToActivity(sigin , LoginActivity.class);
+        navigateToActivity(settingButton, ParametresActivity.class);
     }
 }

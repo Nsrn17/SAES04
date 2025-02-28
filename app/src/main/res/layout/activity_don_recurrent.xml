@@ -218,5 +218,8 @@
                 android:padding="16dp"
                 android:textAllCaps="false"/>
         </LinearLayout>
+        <include
+            android:id="@+id/navigation_buttons"
+            layout="@layout/navigation" />
     </LinearLayout>
 </ScrollView>
