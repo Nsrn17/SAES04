@@ -2,12 +2,18 @@ package iut.dam.sae_s04;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 public class DonRecurrentActivity extends BaseActivity {
+
+    private Spinner spinnerAssociation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,5 +56,39 @@ public class DonRecurrentActivity extends BaseActivity {
         navigateToActivity(addRingButton, DonUniqueActivity.class);
         navigateToActivity(userButton, LoginActivity.class);
         navigateToActivity(settingButton, ParametresActivity.class);
+
+        setContentView(R.layout.activity_don_recurrent);
+
+        // Initialiser le Spinner
+        spinnerAssociation = findViewById(R.id.spinner_association);
+
+        // Remplir le Spinner avec les associations
+        remplirSpinnerAssociations();
+
+        // Gestion de la sélection dans le Spinner
+        spinnerAssociation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedAssociation = parent.getItemAtPosition(position).toString();
+                // Faire quelque chose avec l'association sélectionnée
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Ne rien faire
+            }
+        });
+
+
+    }
+    private void remplirSpinnerAssociations() {
+        // Remplir le Spinner avec les associations
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this,
+                R.array.associations, // Référence au tableau de chaînes dans strings.xml
+                android.R.layout.simple_spinner_item
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAssociation.setAdapter(adapter);
     }
 }

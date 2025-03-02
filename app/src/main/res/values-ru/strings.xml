@@ -69,7 +69,8 @@
     <string name="parametres">Настройки</string>
     <string name="modedaltonien">Режим для дальтоников</string>
     <string name="tailledutexte">Размер текста</string>
-    <string-array name="association" >
+    <string name="choisirasso">Choisir une association</string>
+    <string-array name="associations" >
         <item>Выберите ассоциацию</item>
         <item> Ассоциация 1 </item>
         <item> Ассоциация 2 </item>

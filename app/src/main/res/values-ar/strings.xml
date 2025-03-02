@@ -69,7 +69,8 @@
     <string name="parametres">Paramètres</string>
     <string name="modedaltonien">Mode daltonien</string>
     <string name="tailledutexte">Taille du texte</string>
-    <string-array name="association">
+    <string name="choisirasso">Choisir une association</string>
+    <string-array name="associations">
         <item> اختر جمعية</item>
         <item> الجمعية 1 </item>
         <item> الجمعية 2 </item>

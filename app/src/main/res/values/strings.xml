@@ -68,13 +68,14 @@
     <string name="parametres">Paramètres</string>
     <string name="modedaltonien">Mode daltonien</string>
     <string name="tailledutexte">Taille du texte</string>
-    <string-array name="association">
+    <string name="choisirasso">Choisir une association</string>
+    <string-array name="associations">
         <item> Sélectionnez une association</item>
         <item> Association 1 </item>
         <item> Association 2 </item>
         <item> Association 3 </item>
     </string-array>
-    <string name="vousvoulez" translatable="false">Vous voulezz faire undon mas vous ne savez pas
+    <string name="vousvoulez" translatable="false">Vous voulez faire un don mas vous ne savez pas
 a quelle association ? Chercher un mot clé dans la barre de recherche ou consultez les associations par themes</string>
     <string name="motcle" translatable="false">Rechercher unmot cle</string>
 </resources>

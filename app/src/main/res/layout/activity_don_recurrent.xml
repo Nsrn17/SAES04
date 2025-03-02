@@ -31,9 +31,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="@string/donunique"
-                android:background="@color/blue"
-                android:textColor="@android:color/white"
-                android:textColorHint="@color/white"
+                android:background="@drawable/boutondonvide"
+                android:textColor="@color/blue"
+                android:textColorHint="@color/blue"
                 android:padding="16dp"
                 android:textAllCaps="false"
                 android:textSize="16sp"/>
@@ -44,9 +44,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="@string/donrecurrent"
-                android:background="@drawable/boutondonvide"
-                android:textColor="@color/blue"
-                android:textColorHint="@color/blue"
+                android:background="@color/blue"
+                android:textColor="@android:color/white"
+                android:textColorHint="@color/white"
                 android:padding="16dp"
                 android:textAllCaps="false"
                 android:textSize="16sp"/>
@@ -83,6 +83,22 @@
                 android:padding="16dp"
                 android:textAllCaps="false"/>
         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/choisirasso"
+            android:textSize="18sp"
+            android:textColorHint="@color/black"
+            android:layout_marginBottom="8dp"/>
+
+        <Spinner
+            android:id="@+id/spinner_association"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/champsaisie"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp"/>
 
         <RadioGroup
             android:id="@+id/radio_group"
@@ -137,6 +153,7 @@
             android:id="@+id/edit_custom_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autofillHints=""
             android:hint="@string/montant_total"
             android:inputType="numberDecimal"
             android:textSize="16sp"
@@ -218,6 +235,7 @@
                 android:padding="16dp"
                 android:textAllCaps="false"/>
         </LinearLayout>
+
         <include
             android:id="@+id/navigation_buttons"
             layout="@layout/navigation" />
