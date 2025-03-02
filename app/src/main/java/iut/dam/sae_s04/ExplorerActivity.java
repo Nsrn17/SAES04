@@ -2,22 +2,21 @@ package iut.dam.sae_s04;
 
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.text.TextWatcher;
 
-import androidx.viewpager2.widget.ViewPager2;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccueilActivity extends  BaseActivity {
-
-    private ViewPager2 viewPager;
-    private CarouselAdapter carouselAdapter;
+public class ExplorerActivity extends BaseActivity {
     private EditText searchInput;
     private ListView searchResults;
     private List<String> dataList; // Liste complète des données
@@ -26,10 +25,23 @@ public class AccueilActivity extends  BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_accueil);
-        viewPager = findViewById(R.id.viewPager);
-        carouselAdapter = new CarouselAdapter();
-        viewPager.setAdapter(carouselAdapter);
+        setContentView(R.layout.activity_explorer);
+
+
+        LinearLayout logosSante = findViewById(R.id.logos_sante);
+        LinearLayout logosMentale = findViewById(R.id.logos_mentale);
+        LinearLayout logosFamille = findViewById(R.id.logos_famille);
+        //Barre de navigation
+        Button walletButton = findViewById(R.id.wallet_button);
+        Button homeButton = findViewById(R.id.home_button);
+        Button addRingButton = findViewById(R.id.add_ring_button);
+        Button userButton = findViewById(R.id.user_button);
+        Button settingButton =findViewById(R.id.settings);
+        navigateToActivity(walletButton, ResumeActivity.class);
+        navigateToActivity(homeButton, AccueilActivity.class);
+        navigateToActivity(addRingButton, DonUniqueActivity.class);
+        navigateToActivity(userButton, LoginActivity.class);
+        navigateToActivity(settingButton, ParametresActivity.class);
         searchInput = findViewById(R.id.search_input);
         searchResults = findViewById(R.id.search_results);
 
@@ -59,19 +71,32 @@ public class AccueilActivity extends  BaseActivity {
         });
 
         setupSearch();
-         //Barre de navigation
-        Button walletButton = findViewById(R.id.wallet_button);
-        Button homeButton = findViewById(R.id.home_button);
-        Button addRingButton = findViewById(R.id.add_ring_button);
-        Button userButton = findViewById(R.id.user_button);
-        Button settingButton =findViewById(R.id.settings);
-        Button searchButton =findViewById(R.id.search);
-        navigateToActivity(searchButton, ExplorerActivity.class);
-        navigateToActivity(walletButton, ResumeActivity.class);
-        navigateToActivity(homeButton, AccueilActivity.class);
-        navigateToActivity(addRingButton, DonUniqueActivity.class);
-        navigateToActivity(userButton, LoginActivity.class);
-        navigateToActivity(settingButton, ParametresActivity.class);
+
+
+
+
+        for (Association assoc : associations) {
+            ImageView logo = new ImageView(this);
+            logo.setImageResource(assoc.getLogoResId());
+
+
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(200, 200);
+            params.setMargins(8, 0, 8, 0);
+            logo.setLayoutParams(params);
+            logo.setOnClickListener(v -> NavigationUtils.openDetailActivity(this, assoc));
+
+            switch (assoc.getCat().toLowerCase()) {
+                case "santé":
+                    logosSante.addView(logo);
+                    break;
+                case "mentale":
+                    logosMentale.addView(logo);
+                    break;
+                case "famille":
+                    logosFamille.addView(logo);
+                    break;
+            }
+        }
     }
     private void setupSearch() {
 
@@ -113,3 +138,4 @@ public class AccueilActivity extends  BaseActivity {
 
 
     }}
+

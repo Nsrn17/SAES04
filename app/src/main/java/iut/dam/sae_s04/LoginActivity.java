@@ -16,7 +16,8 @@ public class LoginActivity extends  BaseActivity {
         Button userButton = findViewById(R.id.user_button);
         Button signup= findViewById(R.id.btn_signup);
         Button settingButton =findViewById(R.id.settings);
-
+        Button searchButton =findViewById(R.id.search);
+        navigateToActivity(searchButton, ExplorerActivity.class);
 
         navigateToActivity(walletButton, ResumeActivity.class);
         navigateToActivity(homeButton, AccueilActivity.class);

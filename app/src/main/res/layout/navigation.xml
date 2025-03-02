@@ -4,17 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Icône de recherche en haut à droite -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/search"
+        android:layout_width="34dp"
+        android:layout_height="36dp"
+        android:background="@drawable/search"
+        android:contentDescription="search"
+        android:layout_gravity="end|top"
+        android:layout_marginTop="30dp"
+         />
+
+    <!-- Espace vide pour pousser la barre en bas -->
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
+    <!-- Barre avec les autres boutons (restera en bas) -->
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-       >
+        android:gravity="center">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/wallet_button"
@@ -26,7 +38,6 @@
         <Space
             android:layout_width="55dp"
             android:layout_height="match_parent" />
-
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/add_ring_button"
@@ -56,9 +67,11 @@
             android:layout_height="36dp"
             android:background="@drawable/user"
             android:contentDescription="User" />
+
         <Space
             android:layout_width="55dp"
             android:layout_height="match_parent" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/settings"
             android:layout_width="34dp"
@@ -66,4 +79,5 @@
             android:background="@drawable/settings"
             android:contentDescription="Settings" />
     </LinearLayout>
+
 </LinearLayout>

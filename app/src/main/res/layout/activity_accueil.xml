@@ -1,4 +1,4 @@
-<LinearLayout
+    <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,8 +8,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".AccueilActivity">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
 
-    <!-- Contenu principal scrollable -->
+            <include
+                android:id="@+id/navigation_buttons"
+                layout="@layout/navigation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp" />
+        </RelativeLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
@@ -18,9 +30,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+          >
 
-            <!-- Logo -->
+
             <ImageView
                 android:layout_width="130dp"
                 android:layout_height="130dp"
@@ -30,8 +42,9 @@
 
             <!-- Boîte de recherche -->
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="400dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="24dp"
                 android:orientation="vertical">
@@ -85,29 +98,19 @@
             <!-- Bouton "Faire un don" -->
             <Button
                 android:id="@+id/btn_don"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/blue"
                 android:text="@string/btn_don"
                 android:textColor="@color/white"
+                android:layout_gravity="center"
                 android:textSize="16sp" />
 
         </LinearLayout>
     </ScrollView>
 
+
+
     <!-- Barre de navigation FIXE en bas -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/white">
 
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/navigation_buttons"
-            android:layout_marginBottom="20dp"
-            layout="@layout/navigation" />
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

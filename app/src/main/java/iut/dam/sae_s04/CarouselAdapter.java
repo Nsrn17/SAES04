@@ -1,6 +1,5 @@
 package iut.dam.sae_s04;
 
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,11 +7,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import java.util.List;
 
 public class CarouselAdapter extends RecyclerView.Adapter<CarouselAdapter.CarouselViewHolder> {
 
-    private int[] images = {R.drawable.image1, R.drawable.image22, R.drawable.image33};
-    private String[] titles = {"Titre 1", "Titre 2", "Titre 3"};
+    private List<Association> associations;
+
+    public CarouselAdapter() {
+        this.associations = AssociationData.getInstance().getAssociations();
+    }
 
     @NonNull
     @Override
@@ -23,13 +26,14 @@ public class CarouselAdapter extends RecyclerView.Adapter<CarouselAdapter.Carous
 
     @Override
     public void onBindViewHolder(@NonNull CarouselViewHolder holder, int position) {
-        holder.imageView.setImageResource(images[position]);
-        holder.textView.setText(titles[position]);
+        Association association = associations.get(position);
+        holder.imageView.setImageResource(association.getLogoResId());
+        holder.textView.setText(association.getTitle());
     }
 
     @Override
     public int getItemCount() {
-        return images.length;
+        return associations.size();
     }
 
     public static class CarouselViewHolder extends RecyclerView.ViewHolder {

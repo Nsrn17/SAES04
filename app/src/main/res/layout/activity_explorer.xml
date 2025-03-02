@@ -1,0 +1,162 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ExplorerActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+    <!-- Boîte de recherche -->
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginTop="24dp"
+android:layout_marginBottom="24dp"
+android:orientation="vertical">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:background="@drawable/search_box_background"
+    android:orientation="horizontal"
+    android:padding="4dp">
+
+    <EditText
+        android:id="@+id/search_input"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_weight="1"
+        android:background="@null"
+        android:hint="@string/motcle"
+        android:outlineProvider="none"
+        android:padding="12dp"
+        android:textSize="16sp" />
+
+    <ImageButton
+        android:id="@+id/search_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/search_button_background"
+        android:contentDescription="@string/search_button"
+        android:padding="12dp"
+        android:src="@drawable/ic_search" />
+</LinearLayout>
+
+</LinearLayout>
+
+    <!-- Résultats de recherche -->
+<ListView
+android:id="@+id/search_results"
+android:layout_width="match_parent"
+android:layout_height="150dp"
+android:layout_marginTop="8dp"
+android:visibility="gone" />
+
+            <LinearLayout
+
+                android:layout_width="353dp"
+                android:layout_height="152dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/bgex"
+                android:elevation="8dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:outlineProvider="background">
+
+
+                <ImageView
+                    android:id="@+id/icon_heart"
+                    android:layout_width="38dp"
+                    android:layout_height="50dp"
+                    android:contentDescription="Icône de cœur"
+                    android:src="@drawable/coeuric" />
+
+                <TextView
+                    android:id="@+id/hero_text"
+                    android:layout_width="339dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/vousvoulez"
+                    android:textColor="#2C3E50"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Santé"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <LinearLayout
+                android:id="@+id/logos_sante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mentale"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <LinearLayout
+                android:id="@+id/logos_mentale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Famille"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <LinearLayout
+                android:id="@+id/logos_famille"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="8dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/navigation_buttons"
+            android:layout_marginBottom="20dp"
+            layout="@layout/navigation" />
+
+
+    </LinearLayout>
+</LinearLayout>
