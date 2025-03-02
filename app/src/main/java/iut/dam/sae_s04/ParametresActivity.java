@@ -1,16 +1,16 @@
 package iut.dam.sae_s04;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Spinner;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 
-public class ParametresActivity extends AppCompatActivity {
+public class ParametresActivity extends BaseActivity {
     private Spinner spinnerDaltonien;
     private SeekBar seekBarTailleTexte;
     private Button btnAppliquer;
@@ -18,7 +18,21 @@ public class ParametresActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("DEBUG", "ParametresActivity créée !");
         setContentView(R.layout.activity_parametres);
+        //Barre de navigation
+        Button walletButton = findViewById(R.id.wallet_button);
+        Button homeButton = findViewById(R.id.home_button);
+        Button addRingButton = findViewById(R.id.add_ring_button);
+        Button userButton = findViewById(R.id.user_button);
+        Button settingButton =findViewById(R.id.settings);
+
+
+        navigateToActivity(walletButton, ResumeActivity.class);
+        navigateToActivity(homeButton, AccueilActivity.class);
+        navigateToActivity(addRingButton, DonUniqueActivity.class);
+        navigateToActivity(userButton, LoginActivity.class);
+        navigateToActivity(settingButton, ParametresActivity.class);
 
         spinnerDaltonien = findViewById(R.id.spinner_daltonien);
         seekBarTailleTexte = findViewById(R.id.seekbar_taille_texte);

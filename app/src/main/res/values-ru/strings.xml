@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SAE-S04</string>
+    <string name="r_sum_des_dons">Сводка пожертвований</string>
+    <string name="total_des_dons">Общая сумма пожертвований</string>
+    <string name="_500">500€</string>
+    <string name="_6_donations">6 пожертвований</string>
+    <string name="ann_e">Год</string>
+    <string name="nombre_de_dons">Количество пожертвований</string>
+    <string name="montant_total">Общая сумма</string>
+    <string name="dons_par_ann_e">Пожертвования за год</string>
+    <string name="fr_quence">Частота</string>
+    <string name="dons_r_currents">Регулярные пожертвования</string>
+    <string name="hint_id">Адрес электронной почты, имя пользователя или номер телефона</string>
+    <string name="hint_id_register">Адрес электронной почты или номер телефона</string>
+    <string name="hint_password">Пароль</string>
+    <string name="tv_full_name">Полное имя</string>
+    <string name="tv_username">Имя пользователя</string>
+    <string name="tv_forgot_password">Забыли пароль ?</string>
+    <string name="btn_login">ВОЙТИ</string>
+    <string name="tv_no_account">У вас нету аккаунта ?</string>
+    <string name="tv_have_account">У вас уже есть аккаунт ?</string>
+    <string name="btn_signup">ЗАРЕГИСТРИРОВАТЬСЯ</string>
+    <string name="search_input">Найдите ассоциацию…</string>
+    <string name="search_button">Начать поиск</string>
+    <string name="btn_don">Сделать пожертвование</string>
+    <string name="_2024">2024</string>
+    <string name="_4">4</string>
+    <string name="_170_00">170€</string>
+    <string name="_2023">2023</string>
+    <string name="_2">2</string>
+    <string name="_100_00">100 €</string>
+    <string name="ann_e_2024">Год 2024</string>
+    <string name="_4_me_dons">4-е пожертвование</string>
+    <string name="_170_euros">170 евро</string>
+    <string name="ann_e_2023">Год 2023</string>
+    <string name="_2_eme_dons">2-е пожертвование</string>
+    <string name="_100_euros">100 евро</string>
+    <string name="nombre_de_dons_par_ann_e">Количество пожертвований в год</string>
+    <string name="montant_total_par_ann_e">Общая сумма за год</string>
+    <string name="fr_quence_en_2024">Частота в 2024 году</string>
+    <string name="fr_quence_en_2023">Частота в 2023 году</string>
+    <string name="nombre_de_dons_r_currents">Количество регулярных пожертвований</string>
+    <string name="_4_eme_dons_par_ann_ee_en_2024">4-е пожертвование в год в 2024 году</string>
+    <string name="_170_euros_par_ann_e">170 евро в год</string>
+    <string name="_100_euros_par_ann_e">100 евро в год</string>
+    <string name="calendrier">Календарь</string>
+    <string name="selectionnezmodepaiement">Выберите способ оплаты</string>
+    <string name="nomtitulaire">Имя владельца карты</string>
+    <string name="numerocarte">Номер карты</string>
+    <string name="dateexpiration">Дата истечения</string>
+    <string name="ccv">CCV</string>
+    <string name="enregistrerinfos">Сохранить мои данные</string>
+    <string name="annuler">Отменить</string>
+    <string name="suivant">Далее</string>
+    <string name="confirmer">Подтвердить</string>
+    <string name="donunique">Разовое</string>
+    <string name="donrecurrent">Регулярное</string>
+    <string name="cinqeuros">5€</string>
+    <string name="dixeuros">10€</string>
+    <string name="vingteuros">20€</string>
+    <string name="entrersommeperso">Введите сумму вручную :</string>
+    <string name="donanonyme">Сделать пожертвование анонимно</string>
+    <string name="realiserdon">Сделать пожертвовани</string>
+    <string name="annuel">Ежегодный</string>
+    <string name="mensuel">Ежемесячный</string>
+    <string name="entrezccv">Введите CVV</string>
+    <string name="appliquerparametres">Применить</string>
+    <string name="parametres">Настройки</string>
+    <string name="modedaltonien">Режим для дальтоников</string>
+    <string name="tailledutexte">Размер текста</string>
+    <string-array name="association" >
+        <item>Выберите ассоциацию</item>
+        <item> Ассоциация 1 </item>
+        <item> Ассоциация 2 </item>
+        <item> Ассоциация 3 </item>
+    </string-array>
+</resources>

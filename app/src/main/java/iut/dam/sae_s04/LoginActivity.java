@@ -14,7 +14,7 @@ public class LoginActivity extends  BaseActivity {
         Button homeButton = findViewById(R.id.home_button);
         Button addRingButton = findViewById(R.id.add_ring_button);
         Button userButton = findViewById(R.id.user_button);
-        Button signup= findViewById(R.id.btn_inscrivez_vous);
+        Button signup= findViewById(R.id.btn_signup);
         Button settingButton =findViewById(R.id.settings);
 
 

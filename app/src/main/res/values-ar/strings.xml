@@ -33,6 +33,7 @@
     <string name="fr_quence">التردد</string>
     <string name="dons_r_currents">تبرعات دورية</string>
     <string name="hint_id">البريد الإلكتروني، اسم المستخدم أو رقم الهاتف</string>
+    <string name="hint_id_register">عنوان البريد الإلكتروني أو رقم الهاتف.</string>
     <string name="hint_password">كلمة السر</string>
     <string name="tv_full_name">الاسم الكامل</string>
     <string name="tv_username">اسم المستخدم</string>

@@ -33,6 +33,7 @@
     <string name="fr_quence">频率</string>
     <string name="dons_r_currents">定期捐赠</string>
     <string name="hint_id">电子邮件、用户名或电话号码</string>
+    <string name="hint_id_register">Adresse e-mail ou numéro de tél.</string>
     <string name="hint_password">密码</string>
     <string name="tv_full_name">全名</string>
     <string name="tv_username">用户名</string>

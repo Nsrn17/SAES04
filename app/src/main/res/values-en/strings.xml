@@ -33,6 +33,7 @@
     <string name="fr_quence">Frequency</string>
     <string name="dons_r_currents">Recurring Donations</string>
     <string name="hint_id">Email address, username or phone number</string>
+    <string name="hint_id_register">Email address or phone number.</string>
     <string name="hint_password">Password</string>
     <string name="tv_full_name">Full Name</string>
     <string name="tv_username">Username</string>

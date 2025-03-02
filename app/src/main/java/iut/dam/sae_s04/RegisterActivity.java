@@ -17,7 +17,7 @@ public class RegisterActivity extends BaseActivity {
         Button addRingButton = findViewById(R.id.add_ring_button);
         Button userButton = findViewById(R.id.user_button);
         Button settingButton =findViewById(R.id.settings);
-        Button sigin=findViewById(R.id.btn_connectez_vous);
+        Button sigin=findViewById(R.id.btn_login);
 
 
         navigateToActivity(walletButton, ResumeActivity.class);

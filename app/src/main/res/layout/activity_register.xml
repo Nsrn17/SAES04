@@ -35,7 +35,7 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/edittext_background"
                 android:fontFamily="sans-serif-medium"
-                android:hint="@string/hint_id"
+                android:hint="@string/hint_id_register"
                 android:inputType="textEmailAddress"
                 android:padding="12dp"
                 android:textColorHint="@color/white"
