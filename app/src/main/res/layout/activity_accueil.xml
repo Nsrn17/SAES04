@@ -12,9 +12,7 @@
     <!-- Contenu principal scrollable -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        >
+        android:layout_height="wrap_content" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,11 +22,11 @@
 
             <!-- Logo -->
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/lofofs" />
+                android:layout_marginTop="30dp"
+                android:src="@drawable/logoassos" />
 
             <!-- Boîte de recherche -->
             <LinearLayout
@@ -49,20 +47,20 @@
                     <EditText
                         android:id="@+id/search_input"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
                         android:layout_weight="1"
                         android:background="@null"
-                        android:hint="Rechercher une association..."
+                        android:hint="@string/search_input"
                         android:outlineProvider="none"
                         android:padding="12dp"
                         android:textSize="16sp" />
 
                     <ImageButton
                         android:id="@+id/search_button"
-                        android:layout_width="46dp"
-                        android:layout_height="46dp"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:background="@drawable/search_button_background"
-                        android:contentDescription="Lancer la recherche"
+                        android:contentDescription="@string/search_button"
                         android:padding="12dp"
                         android:src="@drawable/ic_search" />
                 </LinearLayout>
@@ -90,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/blue"
-                android:text="Faire un don"
+                android:text="@string/btn_don"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
@@ -102,11 +100,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/white"
-        android:padding="20dp">
+        android:background="@color/white">
 
         <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:id="@+id/navigation_buttons"
+            android:layout_marginBottom="20dp"
             layout="@layout/navigation" />
     </LinearLayout>
 

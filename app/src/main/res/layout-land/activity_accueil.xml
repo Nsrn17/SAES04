@@ -44,22 +44,22 @@
                 <EditText
                     android:id="@+id/search_input"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:layout_weight="1"
                     android:background="@null"
                     android:padding="12dp"
                     android:textSize="16sp"
-                    android:hint="Rechercher une association..."
+                    android:hint="@string/search_input"
                     android:outlineProvider="none" />
 
                 <!-- Bouton de recherche -->
                 <ImageButton
                     android:id="@+id/search_button"
-                    android:layout_width="46dp"
-                    android:layout_height="46dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:background="@drawable/search_button_background"
                     android:src="@drawable/ic_search"
-                    android:contentDescription="Lancer la recherche"
+                    android:contentDescription="@string/search_button"
                     android:padding="12dp" />
             </LinearLayout>
         </LinearLayout>
@@ -88,7 +88,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Faire un don"
+            android:text="@string/btn_don"
             android:textSize="16sp"
             android:backgroundTint="@color/blue"
             android:textColor="@color/white"

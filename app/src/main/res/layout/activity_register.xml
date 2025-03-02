@@ -18,19 +18,18 @@
             android:background="@android:color/white"
             android:padding="24dp">
 
-            <!-- Logo en haut -->
             <ImageView
                 android:id="@+id/logoassos"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
+                android:src="@drawable/logoassos"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="32dp"
                 android:adjustViewBounds="true"
-                android:src="@drawable/logoassos" />
+                android:layout_marginBottom="20dp" />
 
 
             <EditText
-                android:id="@+id/idRegister"
+                android:id="@+id/et_id_register"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginBottom="20dp"
@@ -43,33 +42,33 @@
                 android:textSize="15sp" />
 
             <EditText
-                android:id="@+id/passwordRegister"
+                android:id="@+id/et_password_register"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/edittext_background"
                 android:fontFamily="sans-serif-medium"
-                android:hint="@string/hint_mot_de_passe"
+                android:hint="@string/hint_password"
                 android:inputType="textPassword"
                 android:padding="12dp"
                 android:textColorHint="@color/white"
                 android:textSize="15sp" />
 
             <EditText
-                android:id="@+id/nameRegister"
+                android:id="@+id/et_name_register"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/edittext_background"
                 android:fontFamily="sans-serif-medium"
-                android:hint="@string/tv_nom_complet"
+                android:hint="@string/tv_full_name"
                 android:inputType="textPersonName"
                 android:padding="12dp"
                 android:textColorHint="@color/white"
                 android:textSize="15sp" />
 
             <EditText
-                android:id="@+id/usernameRegister"
+                android:id="@+id/et_username_register"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginBottom="20dp"
@@ -81,16 +80,15 @@
                 android:textColorHint="@color/white"
                 android:textSize="15sp" />
 
-            <!-- Bouton "SE CONNECTER" -->
             <Button
-                android:id="@+id/btn_se_connecter"
+                android:id="@+id/btn_signup"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="@color/orange"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:padding="12dp"
-                android:text="@string/btn_se_connecter"
+                android:text="@string/btn_signup"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
 
@@ -102,10 +100,10 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tv_pas_de_compte"
+                    android:id="@+id/tv_have_account"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tv_deja_compte"
+                    android:text="@string/tv_have_account"
                     android:textColor="@android:color/black"
                     android:textSize="14sp" />
 
@@ -114,17 +112,17 @@
                     android:layout_height="wrap_content" />
 
                 <Button
-                    android:id="@+id/btn_connectez_vous"
+                    android:id="@+id/btn_login"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:background="@android:color/transparent"
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
-                    android:padding="0dp"
-                    android:text="@string/btn_connectez_vous"
+                    android:text="@string/btn_login"
                     android:textColor="@color/orange"
+                    android:textStyle="bold"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:background="@android:color/transparent"
+                    android:padding="5dp"
+                    android:minHeight="0dp"
+                    android:minWidth="0dp" />
             </LinearLayout>
 
 
