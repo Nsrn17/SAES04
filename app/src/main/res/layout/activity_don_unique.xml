@@ -7,6 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="@color/white"
         android:padding="16dp">
 
         <TextView
@@ -55,9 +56,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Choisir une association"
+            android:hint="@string/choisirasso"
             android:textSize="18sp"
-            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:layout_marginBottom="8dp"/>
 
         <Spinner
@@ -112,7 +113,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/entrersommeperso"
             android:textSize="18sp"
-            android:textColorHint="@color/blue"
+            android:textColorHint="@color/black"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp"
             android:textStyle="bold"/>
@@ -122,6 +123,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/montant_total"
+            android:textColorHint="@color/black"
             android:inputType="numberDecimal"
             android:textSize="16sp"
             android:padding="12dp"
@@ -138,7 +140,7 @@
                 android:id="@+id/check_save_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/blue"/>
+                android:buttonTint="@color/orange"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -158,7 +160,7 @@
                 android:id="@+id/check_anonymous"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/blue"/>
+                android:buttonTint="@color/orange"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -184,7 +186,7 @@
                 android:layout_weight="1"
                 android:hint="@string/annuler"
                 android:textSize="16sp"
-                android:textColorHint="@color/blue"
+                android:textColorHint="@color/orange"
                 android:background="@drawable/bouton_annuler"
                 android:padding="16dp"
                 android:layout_marginEnd="8dp"

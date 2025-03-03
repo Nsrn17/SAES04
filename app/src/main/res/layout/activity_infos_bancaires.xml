@@ -7,6 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <TextView
@@ -32,9 +33,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nomtitulaire"
+            android:textColorHint="@color/black"
             android:textSize="16sp"
             android:padding="12dp"
-            android:background="@drawable/champsaisie"
+            android:background="@drawable/champsaisiebancaire"
             android:layout_marginBottom="24dp"/>
 
         <LinearLayout
@@ -64,9 +66,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/numerocarte"
+            android:textColorHint="@color/black"
             android:textSize="16sp"
             android:padding="12dp"
-            android:background="@drawable/champsaisie"
+            android:background="@drawable/champsaisiebancaire"
             android:layout_marginBottom="24dp"/>
 
 
@@ -89,7 +92,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/champsaisie"
+                android:background="@drawable/champsaisiebancaire"
                 android:padding="12dp"
                 android:layout_marginEnd="8dp"/>
 
@@ -98,7 +101,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@drawable/champsaisie"
+                android:background="@drawable/champsaisiebancaire"
                 android:padding="12dp"/>
         </LinearLayout>
 
@@ -116,9 +119,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/entrezccv"
+            android:textColorHint="@color/black"
             android:textSize="16sp"
             android:padding="12dp"
-            android:background="@drawable/champsaisie"
+            android:background="@drawable/champsaisiebancaire"
             android:layout_marginBottom="24dp"/>
 
 
@@ -132,7 +136,7 @@
                 android:id="@+id/check_save_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/blue"/>
+                android:buttonTint="@color/orange"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -157,7 +161,7 @@
                 android:layout_weight="1"
                 android:hint="@string/annuler"
                 android:textSize="16sp"
-                android:textColorHint="@color/blue"
+                android:textColorHint="@color/orange"
                 android:background="@drawable/bouton_annuler"
                 android:padding="16dp"
                 android:layout_marginEnd="8dp"

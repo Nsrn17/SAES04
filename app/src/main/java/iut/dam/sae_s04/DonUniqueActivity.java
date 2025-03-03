@@ -2,11 +2,14 @@ package iut.dam.sae_s04;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.Spinner;
 import androidx.appcompat.widget.AppCompatButton;
+
+import java.util.List;
 
 public class DonUniqueActivity extends BaseActivity {
 
@@ -17,6 +20,18 @@ public class DonUniqueActivity extends BaseActivity {
 
         RadioGroup radioGroup = findViewById(R.id.radio_group);
         AppCompatButton btnRecurrent = findViewById(R.id.btn_recurrent);
+        Spinner spinnerAssociation = findViewById(R.id.spinner_association);
+
+        AssociationData associationData = AssociationData.getInstance();
+        List<Association> associations = associationData.getAssociations();
+
+        ArrayAdapter<Association> adapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_spinner_item,
+                associations
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerAssociation.setAdapter(adapter);
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -35,10 +50,9 @@ public class DonUniqueActivity extends BaseActivity {
         Button homeButton = findViewById(R.id.home_button);
         Button addRingButton = findViewById(R.id.add_ring_button);
         Button userButton = findViewById(R.id.user_button);
-        Button settingButton =findViewById(R.id.settings);
-        Button searchButton =findViewById(R.id.search);
+        Button settingButton = findViewById(R.id.settings);
+        Button searchButton = findViewById(R.id.search);
         navigateToActivity(searchButton, ExplorerActivity.class);
-
         navigateToActivity(walletButton, ResumeActivity.class);
         navigateToActivity(homeButton, AccueilActivity.class);
         navigateToActivity(addRingButton, DonUniqueActivity.class);
