@@ -4,5 +4,5 @@
     android:textColor="@android:color/white"
     android:textSize="16sp"
     android:padding="8dp"
-    android:background="#D05D44"
+    android:background="?attr/colorPrimary"
     android:gravity="center"/>

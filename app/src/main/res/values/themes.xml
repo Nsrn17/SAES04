@@ -1,9 +1,44 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.SAES04" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Theme.SAES04" parent="Theme.Material3.DayNight.NoActionBar">
+
     </style>
 
-    <style name="Theme.SAES04" parent="Base.Theme.SAES04" />
+    <!--<style name="Theme.SAES04" parent="Base.Theme.SAES04" /> -->
+
+    <!-- Mode Normal -->
+    <style name="Colors_Normal">
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryVariant">@color/blue</item>
+        <item name="colorSecondary">@color/lightblue</item>
+        <item name="colorSecondaryVariant">@color/lighterblue</item>
+    </style>
+
+    <!-- Mode Protanopie -->
+    <style name="Colors_Protanopie">
+        <item name="colorPrimary">@color/pro_orange</item>
+        <item name="colorPrimaryVariant">@color/pro_blue</item>
+        <item name="colorSecondary">@color/pro_lightblue</item>
+        <item name="colorSecondaryVariant">@color/pro_lighterblue</item>
+    </style>
+
+    <!-- Mode Deutéranopie -->
+    <style name="Colors_Deuteranopie">
+        <item name="colorPrimary">@color/deu_orange</item>
+        <item name="colorPrimaryVariant">@color/deu_blue</item>
+        <item name="colorSecondary">@color/deu_lightblue</item>
+        <item name="colorSecondaryVariant">@color/deu_lighterblue</item>
+    </style>
+
+    <!-- Mode Tritanopie -->
+    <style name="Colors_Tritanopie">
+        <item name="colorPrimary">@color/tri_orange</item>
+        <item name="colorPrimaryVariant">@color/tri_blue</item>
+        <item name="colorSecondary">@color/tri_lightblue</item>
+        <item name="colorSecondaryVariant">@color/tri_lighterblue</item>
+    </style>
+
+
+
+
 </resources>

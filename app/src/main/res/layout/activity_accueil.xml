@@ -8,19 +8,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".AccueilActivity">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:orientation="vertical">
 
-            <include
-                android:id="@+id/navigation_buttons"
-                layout="@layout/navigation"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp" />
-        </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -93,23 +81,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginBottom="16dp"
+
+                />
 
             <!-- Bouton "Faire un don" -->
             <Button
                 android:id="@+id/btn_don"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/blue"
+
+                android:backgroundTint="?attr/colorPrimaryVariant"
                 android:text="@string/btn_don"
                 android:textColor="@color/white"
                 android:layout_gravity="center"
                 android:textSize="16sp" />
-
+            <!--android:backgroundTint="@color/blue"-->
         </LinearLayout>
     </ScrollView>
 
 
+            <include
+                android:id="@+id/navigation_buttons"
+                layout="@layout/navigation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="20dp" />
+     
 
     <!-- Barre de navigation FIXE en bas -->
 

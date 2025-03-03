@@ -176,7 +176,7 @@
                 android:id="@+id/check_save_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/orange"/>
+                android:buttonTint="?attr/colorPrimary"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -201,7 +201,7 @@
                 android:layout_weight="1"
                 android:hint="@string/annuler"
                 android:textSize="16sp"
-                android:textColorHint="@color/blue"
+                android:textColorHint="?attr/colorPrimaryVariant"
                 android:background="@drawable/bouton_annuler"
                 android:padding="16dp"
                 android:layout_marginEnd="8dp"

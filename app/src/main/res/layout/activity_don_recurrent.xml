@@ -33,8 +33,8 @@
                 android:layout_weight="1"
                 android:hint="@string/donunique"
                 android:background="@drawable/boutondonvide"
-                android:textColor="@color/blue"
-                android:textColorHint="@color/blue"
+                android:textColor="?attr/colorPrimaryVariant"
+                android:textColorHint="?attr/colorPrimaryVariant"
                 android:padding="16dp"
                 android:textAllCaps="false"
                 android:textSize="16sp"/>
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="@string/donrecurrent"
-                android:background="@color/blue"
+                android:background="?attr/colorPrimaryVariant"
                 android:textColor="@android:color/white"
                 android:textColorHint="@color/white"
                 android:padding="16dp"
@@ -67,7 +67,7 @@
                 android:layout_weight="1"
                 android:hint="@string/annuel"
                 android:textSize="16sp"
-                android:textColorHint="@color/blue"
+                android:textColorHint="?attr/colorPrimaryVariant"
                 android:background="@drawable/bouton_annuel"
                 android:padding="16dp"
                 android:textAllCaps="false"/>
@@ -117,7 +117,7 @@
                 android:hint="@string/cinqeuros"
                 android:textSize="26sp"
                 android:textColorHint="@color/black"
-                android:buttonTint="@color/blue"
+                android:buttonTint="?attr/colorPrimaryVariant"
                 android:layout_marginBottom="8dp"/>
 
             <RadioButton
@@ -127,7 +127,7 @@
                 android:hint="@string/dixeuros"
                 android:textSize="26sp"
                 android:textColorHint="@color/black"
-                android:buttonTint="@color/blue"
+                android:buttonTint="?attr/colorPrimaryVariant"
                 android:layout_marginBottom="8dp"/>
 
             <RadioButton
@@ -137,7 +137,7 @@
                 android:hint="@string/vingteuros"
                 android:textSize="26sp"
                 android:textColorHint="@color/black"
-                android:buttonTint="@color/blue"/>
+                android:buttonTint="?attr/colorPrimaryVariant"/>
         </RadioGroup>
 
         <TextView
@@ -173,7 +173,7 @@
                 android:id="@+id/check_save_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/orange" />
+                android:buttonTint="?attr/colorPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -193,7 +193,7 @@
                 android:id="@+id/check_anonymous"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:buttonTint="@color/orange"/>
+                android:buttonTint="?attr/colorPrimary"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -219,7 +219,7 @@
                 android:layout_weight="1"
                 android:hint="@string/annuler"
                 android:textSize="16sp"
-                android:textColorHint="@color/orange"
+                android:textColorHint="?attr/colorPrimary"
                 android:background="@drawable/bouton_annuler"
                 android:padding="16dp"
                 android:layout_marginEnd="8dp"

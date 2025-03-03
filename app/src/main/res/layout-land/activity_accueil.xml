@@ -90,7 +90,7 @@
             android:layout_gravity="center"
             android:text="@string/btn_don"
             android:textSize="16sp"
-            android:backgroundTint="@color/blue"
+            android:backgroundTint="?attr/colorPrimaryVariant"
             android:textColor="@color/white"
             android:layout_marginTop="16dp"/>
         <include
