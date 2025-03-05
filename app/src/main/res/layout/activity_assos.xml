@@ -1,61 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
     android:orientation="vertical"
+    android:background="@color/white"
    >
 
-
-
-    <!-- Nom de l'association -->
-    <TextView
-        android:id="@+id/association_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="52sp"
-        android:textStyle="bold"
-        android:textColor="?attr/colorPrimaryVariant"
-        android:layout_marginTop="56dp"/>
-
-
-    <!-- Description de l'association -->
-
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_marginTop="55dp">
+
 
         <ImageView
             android:id="@+id/association_image"
-            android:layout_width="244dp"
-            android:layout_height="258dp"
-
-            android:layout_marginTop="190dp" />
-
+            android:layout_width="411dp"
+            android:layout_height="208dp"
+            android:layout_marginTop="10dp" />
 
         <TextView
-            android:id="@+id/association_description"
-            android:layout_width="wrap_content"
+            android:id="@+id/association_title"
+
+            android:layout_width="361dp"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="56dp"
+            android:background="@drawable/rounded_background"
+            android:backgroundTint="#ECF7F8"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
-            />
 
+
+            <TextView
+                android:id="@+id/association_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+
+                />
+
+
+        <Space
+            android:layout_width="95dp"
+            android:layout_height="41dp" />
 
         <Button
             android:id="@+id/btn_don"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="204dp"
+            android:layout_height="65dp"
             android:backgroundTint="?attr/colorPrimaryVariant"
             android:text="@string/btn_don"
             android:textColor="@color/white"
-
             android:textSize="16sp" />
 
     </LinearLayout>
-
+  </ScrollView>
     <include
             android:id="@+id/navigation_buttons"
             layout="@layout/navigation"
