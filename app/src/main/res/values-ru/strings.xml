@@ -68,7 +68,7 @@
     <string name="appliquerparametres">Применить</string>
     <string name="parametres">Настройки</string>
     <string name="modedaltonien">Режим для дальтоников</string>
-    <string name="tailledutexte">Размер текста</string>
+    <string name="tailledutexte">Amplification du texte</string>
     <string name="choisirasso">Choisir une association</string>
     <string-array name="associations" >
         <item>Выберите ассоциацию</item>

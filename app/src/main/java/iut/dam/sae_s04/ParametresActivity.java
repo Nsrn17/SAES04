@@ -6,16 +6,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.HashMap;
 
 public class ParametresActivity extends BaseActivity {
     private Spinner spinnerDaltonien;
     private SeekBar seekBarTailleTexte;
     private Button btnAppliquer;
     private ViewGroup rootLayout;
+    private HashMap<TextView, Float> originalTextSizes = new HashMap<>(); // Stocke les tailles originales
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,23 +27,17 @@ public class ParametresActivity extends BaseActivity {
         spinnerDaltonien = findViewById(R.id.spinner_daltonien);
         seekBarTailleTexte = findViewById(R.id.seekbar_taille_texte);
         btnAppliquer = findViewById(R.id.btn_appliquer);
-        rootLayout = findViewById(R.id.main); // Remplacez par l'ID du layout parent principal
+        rootLayout = findViewById(R.id.main); // ID du layout parent
 
-        Button walletButton = findViewById(R.id.wallet_button);
-        Button homeButton = findViewById(R.id.home_button);
-        Button addRingButton = findViewById(R.id.add_ring_button);
-        Button userButton = findViewById(R.id.user_button);
-        Button settingButton = findViewById(R.id.settings);
-        Button searchButton = findViewById(R.id.search);
+        // Navigation
+        navigateToActivity(findViewById(R.id.search), ExplorerActivity.class);
+        navigateToActivity(findViewById(R.id.wallet_button), ResumeActivity.class);
+        navigateToActivity(findViewById(R.id.home_button), AccueilActivity.class);
+        navigateToActivity(findViewById(R.id.add_ring_button), DonUniqueActivity.class);
+        navigateToActivity(findViewById(R.id.user_button), LoginActivity.class);
+        navigateToActivity(findViewById(R.id.settings), ParametresActivity.class);
 
-        navigateToActivity(searchButton, ExplorerActivity.class);
-        navigateToActivity(walletButton, ResumeActivity.class);
-        navigateToActivity(homeButton, AccueilActivity.class);
-        navigateToActivity(addRingButton, DonUniqueActivity.class);
-        navigateToActivity(userButton, LoginActivity.class);
-        navigateToActivity(settingButton, ParametresActivity.class);
-
-        // Définir les options du spinner pour les modes daltonien
+        // Définir les options du spinner pour les modes daltoniens
         String[] modesDaltoniens = {"Normal", "Protanopie", "Deutéranopie", "Tritanopie"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, modesDaltoniens);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -49,64 +45,81 @@ public class ParametresActivity extends BaseActivity {
 
         // Récupérer et appliquer les préférences
         int savedMode = getSavedMode();
-        float savedTextSize = getSavedTextSize();
+        float savedTextSizeFactor = getSavedTextSizeFactor();
 
         spinnerDaltonien.setSelection(savedMode);
 
-        // Appliquer la taille du texte sauvegardée dès la création de l'activité
-        updateTextViewSize(rootLayout, savedTextSize);
+        // Sauvegarder les tailles originales des TextView
+        saveOriginalTextSizes(rootLayout);
 
-        // Ajuster la position de la SeekBar en fonction de la taille du texte sauvegardée
-       // seekBarTailleTexte.setProgress((int) Math.max(0, Math.min(100, savedTextSize - 12))); // Assurez-vous que la progress bar reste dans un intervalle valide
+        // Appliquer la taille de texte en fonction du facteur sauvegardé
+        applyTextSizeFactor(savedTextSizeFactor);
+
+        // Ajuster la SeekBar en fonction du facteur sauvegardé (0 = taille normale)
+        seekBarTailleTexte.setProgress((int) savedTextSizeFactor);
+
+        // Écouteur SeekBar pour mise à jour en temps réel
+//        seekBarTailleTexte.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+//            @Override
+//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//                applyTextSizeFactor(progress);
+//            }
+//
+//            @Override
+//            public void onStartTrackingTouch(SeekBar seekBar) {}
+//
+//            @Override
+//            public void onStopTrackingTouch(SeekBar seekBar) {}
+//        });
 
         // Écouteur sur le bouton Appliquer
         btnAppliquer.setOnClickListener(v -> {
             int selectedMode = spinnerDaltonien.getSelectedItemPosition();
-            float textSize = 12 + seekBarTailleTexte.getProgress(); // Valeur par défaut basée sur la SeekBar
+            float textSizeFactor = seekBarTailleTexte.getProgress();
 
-            // Si la seekbar est à 2, applique une règle spéciale
-            if (seekBarTailleTexte.getProgress() == 2) {
-                textSize = 15;
-            }
+            savePreferences(selectedMode, textSizeFactor);
 
-            // Sauvegarder les préférences (mode + taille du texte)
-            savePreferences(selectedMode, textSize);
-
-            // Appliquer la nouvelle taille du texte
-            updateTextViewSize(rootLayout, textSize);
-
-            // Recharger l'activité pour appliquer le mode daltonien
+            // Redémarrer l'activité pour appliquer le mode daltonien
             recreate();
         });
-
     }
 
-
     /**
-     * Sauvegarde le mode daltonien et la taille du texte dans SharedPreferences.
+     * Sauvegarde les tailles originales des TextView
      */
-    private void savePreferences(int mode, float textSize) {
-        SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt("daltonien_mode", mode);
-        editor.putFloat("text_size", textSize);
-        editor.apply();
-    }
-
-
-    /**
-     * Met à jour la taille de toutes les TextView dans un ViewGroup.
-     */
-    private void updateTextViewSize(ViewGroup parent, float textSize) {
+    private void saveOriginalTextSizes(ViewGroup parent) {
         for (int i = 0; i < parent.getChildCount(); i++) {
             View child = parent.getChildAt(i);
 
             if (child instanceof TextView) {
-                ((TextView) child).setTextSize(textSize);
+                TextView textView = (TextView) child;
+                originalTextSizes.put(textView, textView.getTextSize()); // Stocker la taille originale
             } else if (child instanceof ViewGroup) {
-                updateTextViewSize((ViewGroup) child, textSize);
+                saveOriginalTextSizes((ViewGroup) child); // Explorer les sous-vues
             }
         }
+    }
+
+    /**
+     * Applique un facteur d'agrandissement/réduction basé sur les tailles originales.
+     */
+    private void applyTextSizeFactor(float factor) {
+        for (HashMap.Entry<TextView, Float> entry : originalTextSizes.entrySet()) {
+            TextView textView = entry.getKey();
+            float originalSize = entry.getValue();
+            textView.setTextSize(originalSize / getResources().getDisplayMetrics().scaledDensity + factor);
+        }
+    }
+
+    /**
+     * Sauvegarde le mode daltonien et le facteur de taille du texte dans SharedPreferences.
+     */
+    private void savePreferences(int mode, float textSizeFactor) {
+        SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("daltonien_mode", mode);
+        editor.putFloat("text_size_factor", textSizeFactor);
+        editor.apply();
     }
 
     private int getSavedMode() {
@@ -114,10 +127,8 @@ public class ParametresActivity extends BaseActivity {
         return prefs.getInt("daltonien_mode", 0);  // Valeur par défaut 0 (Normal)
     }
 
-    private float getSavedTextSize() {
-
+    private float getSavedTextSizeFactor() {
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
-        return prefs.getFloat("text_size" , 16);  // Valeur par défaut 16
+        return prefs.getFloat("text_size_factor", 0);  // Valeur par défaut = 0 (taille normale)
     }
-
 }
