@@ -1,5 +1,6 @@
 package iut.dam.sae_s04;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -35,6 +36,7 @@ public class RegisterActivity extends BaseActivity {
         navigateToActivity(settingButton, ParametresActivity.class);
 
         dbHelper = new DatabaseHelper(this);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
 
         nameInput = findViewById(R.id.et_name_register);
         emailInput = findViewById(R.id.et_id_register);

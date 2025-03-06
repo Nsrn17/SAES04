@@ -49,6 +49,9 @@
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
+            android:name=".UsersActivity"
+            android:exported="false" />
+        <activity
             android:name=".DonRecurrentActivity"
             android:exported="true" />
     </application>
