@@ -60,7 +60,7 @@
                 android:id="@+id/seekbar_taille_texte"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:max="4"
+                android:max="10"
                 android:progress="2"
                 android:layout_marginBottom="24dp"/>
 

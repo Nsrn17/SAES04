@@ -6,19 +6,23 @@
     <color name="blue">#00A9B3</color>
     <color name="lightblue">#6FCFD3</color>
     <color name="lighterblue">#3300A9B3</color>
+    <color name="violet"> #322C81</color>
 
     <color name="pro_orange">#A87B6D</color>
     <color name="pro_blue">#00969E</color>
     <color name="pro_lightblue">#5DA8AC</color>
     <color name="pro_lighterblue">#3300969E</color>
+    <color name="pro_violet"> #254181</color>
 
     <color name="deu_orange">#A97D68</color>
     <color name="deu_blue">#00979E</color>
     <color name="deu_lightblue">#5FA9AE</color>
     <color name="deu_lighterblue">#3300979E</color>
+    <color name="deu_violet"> #385481</color>
 
     <color name="tri_orange"> #E9853E </color>
     <color name="tri_blue"> #A39D00 </color>
     <color name="tri_lightblue">#C7A75E</color>
     <color name="tri_lighterblue">#33A39D00</color>
+    <color name="tri_violet"> #6F494D</color>
 </resources>
