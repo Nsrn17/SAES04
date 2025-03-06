@@ -20,15 +20,15 @@ public class DonRecurrentActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_don_recurrent);
 
-        AppCompatButton btnAnnuel = findViewById(R.id.btn_annuel);
-        AppCompatButton btnMensuel = findViewById(R.id.btn_mensuel);
-        AppCompatButton btnUnique = findViewById(R.id.btn_unique);
+        Button btnAnnuel = findViewById(R.id.btn_annuel);
+        Button btnMensuel = findViewById(R.id.btn_mensuel);
+       Button btnUnique = findViewById(R.id.btn_unique);
 
         btnAnnuel.setOnClickListener(v -> {
             btnAnnuel.setBackgroundResource(R.drawable.bouton_mensuel);
-            btnAnnuel.setTextColor(getResources().getColor(android.R.color.white));
+            btnAnnuel.setTextColor(getResources().getColor(R.color.blue));
             btnMensuel.setBackgroundResource(R.drawable.bouton_annuel);
-            btnMensuel.setTextColor(getResources().getColor(R.color.blue));
+            btnMensuel.setTextColor(getResources().getColor(R.color.white));
         });
 
         btnMensuel.setOnClickListener(v -> {
@@ -38,10 +38,13 @@ public class DonRecurrentActivity extends BaseActivity {
             btnAnnuel.setTextColor(getResources().getColor(R.color.blue));
         });
 
-        btnUnique.setOnClickListener(v -> {
-            Intent intent = new Intent(DonRecurrentActivity.this, DonUniqueActivity.class);
-            startActivity(intent);
-        });
+//        btnUnique.setOnClickListener(v -> {
+//            Intent intent = new Intent(DonRecurrentActivity.this, AccueilActivity.class);
+//            startActivity(intent);
+//
+//        });
+        navigateToActivity(btnUnique , DonUniqueActivity.class);
+        navigateToActivity(btnAnnuel , AccueilActivity.class);
 
         Button walletButton = findViewById(R.id.wallet_button);
         Button homeButton = findViewById(R.id.home_button);
