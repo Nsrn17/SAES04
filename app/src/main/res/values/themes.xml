@@ -12,6 +12,7 @@
         <item name="colorPrimaryVariant">@color/blue</item>
         <item name="colorSecondary">@color/lightblue</item>
         <item name="colorSecondaryVariant">@color/lighterblue</item>
+        <item name="colorSecondaryContainer"> @color/violet</item>
     </style>
 
     <!-- Mode Protanopie -->
@@ -20,6 +21,7 @@
         <item name="colorPrimaryVariant">@color/pro_blue</item>
         <item name="colorSecondary">@color/pro_lightblue</item>
         <item name="colorSecondaryVariant">@color/pro_lighterblue</item>
+        <item name="colorSecondaryContainer"> @color/pro_violet</item>
     </style>
 
     <!-- Mode Deutéranopie -->
@@ -28,6 +30,7 @@
         <item name="colorPrimaryVariant">@color/deu_blue</item>
         <item name="colorSecondary">@color/deu_lightblue</item>
         <item name="colorSecondaryVariant">@color/deu_lighterblue</item>
+        <item name="colorSecondaryContainer"> @color/deu_violet</item>
     </style>
 
     <!-- Mode Tritanopie -->
@@ -36,6 +39,7 @@
         <item name="colorPrimaryVariant">@color/tri_blue</item>
         <item name="colorSecondary">@color/tri_lightblue</item>
         <item name="colorSecondaryVariant">@color/tri_lighterblue</item>
+        <item name="colorSecondaryContainer"> @color/tri_violet</item>
     </style>
 
 
