@@ -54,9 +54,7 @@
         <activity
             android:name=".DonRecurrentActivity"
             android:exported="true" />
-        <activity
-            android:name=".UsersActivity"
-            android:exported="true" />
+
     </application>
 
 </manifest>
