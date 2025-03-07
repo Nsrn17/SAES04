@@ -1,0 +1,10 @@
+<!-- res/drawable/nav_item_hover.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Effet au survol -->
+    <item android:state_checked="true">
+    <shape android:shape="rectangle">
+        <solid android:color="#BB47CFF0" /> <!-- Votre couleur personnalisée -->
+    </shape>
+    </item>
+   <item android:color="@android:color/transparent"/>
+</selector>

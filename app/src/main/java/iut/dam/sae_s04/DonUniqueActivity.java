@@ -9,6 +9,8 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.List;
 
 public class DonUniqueActivity extends BaseActivity {
@@ -17,7 +19,11 @@ public class DonUniqueActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_don_unique);
-
+        setupBottomNavigation();
+//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+//        if (bottomNavigationView != null) {
+//            bottomNavigationView.setSelectedItemId(getSelectedNavItem());
+//        }
         RadioGroup radioGroup = findViewById(R.id.radio_group);
         AppCompatButton btnRecurrent = findViewById(R.id.btn_recurrent);
         Spinner spinnerAssociation = findViewById(R.id.spinner_association);
@@ -46,17 +52,6 @@ public class DonUniqueActivity extends BaseActivity {
             startActivity(intent);
         });
 
-        Button walletButton = findViewById(R.id.wallet_button);
-        Button homeButton = findViewById(R.id.home_button);
-        Button addRingButton = findViewById(R.id.add_ring_button);
-        Button userButton = findViewById(R.id.user_button);
-        Button settingButton = findViewById(R.id.settings);
-        Button searchButton = findViewById(R.id.search);
-        navigateToActivity(searchButton, ExplorerActivity.class);
-        navigateToActivity(walletButton, ResumeActivity.class);
-        navigateToActivity(homeButton, AccueilActivity.class);
-        navigateToActivity(addRingButton, DonUniqueActivity.class);
-        navigateToActivity(userButton, LoginActivity.class);
-        navigateToActivity(settingButton, ParametresActivity.class);
+
     }
 }

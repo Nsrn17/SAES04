@@ -1,9 +1,14 @@
 package iut.dam.sae_s04;
 
+
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.SharedPreferences;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -16,23 +21,43 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        applySavedColors(); // Appliquer le thème AVANT setContentView()
+        applySavedColors();
         super.onCreate(savedInstanceState);
+        setupBottomNavigation();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        applyTextSizeToAllViews(); // Appliquer la taille du texte après le chargement de la vue
+    public void setupBottomNavigation() {
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        if (bottomNavigationView != null) {
+            bottomNavigationView.setOnItemSelectedListener(item -> {
+                int itemId = item.getItemId();
+
+                if (itemId == R.id.navigation_home ) {
+                    navigateToActivity(AccueilActivity.class);
+                    return true;
+                } else if (itemId == R.id.navigation_explore ) {
+                    navigateToActivity(ExplorerActivity.class);
+                    return true;
+                } else if (itemId == R.id.navigation_add ) {
+                    navigateToActivity(DonUniqueActivity.class);
+                    return true;
+                } else if (itemId == R.id.navigation_profile ) {
+                    navigateToActivity(LoginActivity.class);
+                    return true;
+                }
+
+                return false;
+            });
+        }
     }
 
-    // Méthode générique pour la navigation
-    protected void navigateToActivity(View button, final Class<?> targetActivity) {
-        button.setOnClickListener(v -> {
-            Intent intent = new Intent(BaseActivity.this, targetActivity);
-            startActivity(intent);
-        });
+    public void navigateToActivity(final Class<?> destination) {
+        Intent intent = new Intent(this, destination);
+        startActivity(intent);
+        finish();
     }
+
 
     private void applySavedColors() {
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
@@ -100,5 +125,12 @@ public class BaseActivity extends AppCompatActivity {
     private float getSavedTextSizeFactor() {
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         return prefs.getFloat("text_size_factor", 0); // 0 = pas de changement
+    }
+    public int getSelectedNavItem() {
+        if (this instanceof AccueilActivity) return R.id.navigation_home;
+        if (this instanceof ExplorerActivity) return R.id.navigation_explore;
+        if (this instanceof DonUniqueActivity) return R.id.navigation_add;
+        if (this instanceof LoginActivity) return R.id.navigation_profile;
+        return R.id.navigation_home; // Par défaut, on met Accueil si on ne sait pas
     }
 }

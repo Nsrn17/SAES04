@@ -13,6 +13,8 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,21 +29,14 @@ public class ExplorerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explorer);
 
+        setupBottomNavigation();
+
 
         LinearLayout logosSante = findViewById(R.id.logos_sante);
         LinearLayout logosMentale = findViewById(R.id.logos_mentale);
         LinearLayout logosFamille = findViewById(R.id.logos_famille);
         //Barre de navigation
-        Button walletButton = findViewById(R.id.wallet_button);
-        Button homeButton = findViewById(R.id.home_button);
-        Button addRingButton = findViewById(R.id.add_ring_button);
-        Button userButton = findViewById(R.id.user_button);
-        Button settingButton =findViewById(R.id.settings);
-        navigateToActivity(walletButton, ResumeActivity.class);
-        navigateToActivity(homeButton, AccueilActivity.class);
-        navigateToActivity(addRingButton, DonUniqueActivity.class);
-        navigateToActivity(userButton, LoginActivity.class);
-        navigateToActivity(settingButton, ParametresActivity.class);
+
         searchInput = findViewById(R.id.search_input);
         searchResults = findViewById(R.id.search_results);
 

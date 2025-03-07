@@ -19,21 +19,16 @@ public class RegisterActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        //Barre de navigation
-        Button walletButton = findViewById(R.id.wallet_button);
-        Button homeButton = findViewById(R.id.home_button);
-        Button addRingButton = findViewById(R.id.add_ring_button);
-        Button userButton = findViewById(R.id.user_button);
-        Button settingButton =findViewById(R.id.settings);
+        setupBottomNavigation();
         Button sigin=findViewById(R.id.btn_page_login);
 
-
-        navigateToActivity(walletButton, ResumeActivity.class);
-        navigateToActivity(homeButton, AccueilActivity.class);
-        navigateToActivity(addRingButton, DonUniqueActivity.class);
-        navigateToActivity(userButton, LoginActivity.class);
-        navigateToActivity(sigin , LoginActivity.class);
-        navigateToActivity(settingButton, ParametresActivity.class);
+//
+//        navigateToActivity(walletButton, ResumeActivity.class);
+//        navigateToActivity(homeButton, AccueilActivity.class);
+//        navigateToActivity(addRingButton, DonUniqueActivity.class);
+//        navigateToActivity(userButton, LoginActivity.class);
+//        navigateToActivity(sigin , LoginActivity.class);
+//        navigateToActivity(settingButton, ParametresActivity.class);
 
         dbHelper = new DatabaseHelper(this);
         SQLiteDatabase db = dbHelper.getReadableDatabase();

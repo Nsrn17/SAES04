@@ -1,271 +1,286 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/white"
-        android:padding="16dp">
-
-        <!-- Titre -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/realiserdon"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColorHint="@color/black"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="24dp"/>
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="24dp"
-            android:weightSum="2">
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Titre -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp"
+                android:hint="@string/realiserdon"
+                android:textColorHint="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginEnd="8dp">
+                android:layout_marginBottom="24dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_unique"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/donunique"
-                    android:background="@drawable/boutondonvide"
-                    android:textColor="?attr/colorPrimaryVariant"
-                    android:textColorHint="?attr/colorPrimaryVariant"
-                    android:padding="16dp"
-                    android:textAllCaps="false"
-                    android:textSize="16sp"/>
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_recurrent"
-                    android:layout_width="match_parent"
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_unique"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/boutondonvide"
+                        android:hint="@string/donunique"
+                        android:padding="16dp"
+                        android:textAllCaps="false"
+                        android:textColor="?attr/colorPrimaryVariant"
+                        android:textColorHint="?attr/colorPrimaryVariant"
+                        android:textSize="16sp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_recurrent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/colorPrimaryVariant"
+                        android:hint="@string/donrecurrent"
+                        android:padding="16dp"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- Boutons Annuel / Mensuel -->
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/donrecurrent"
-                    android:background="?attr/colorPrimaryVariant"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="@color/white"
-                    android:padding="16dp"
-                    android:textAllCaps="false"
-                    android:textSize="16sp"/>
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_annuel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bouton_annuel"
+                        android:hint="@string/annuel"
+                        android:padding="16dp"
+                        android:textAllCaps="false"
+                        android:textColorHint="?attr/colorPrimaryVariant"
+                        android:textSize="16sp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_mensuel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bouton_mensuel"
+                        android:hint="@string/mensuel"
+                        android:padding="16dp"
+                        android:textAllCaps="false"
+                        android:textColorHint="@android:color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
             </LinearLayout>
 
-            <!-- Boutons Annuel / Mensuel -->
-            <LinearLayout
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_marginBottom="8dp"
+                android:hint="@string/choisirasso"
+                android:textColorHint="@color/black"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/spinner_association"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/champsaisie"
+                android:padding="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <RadioGroup
+                        android:id="@+id/radio_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/radio_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:buttonTint="?attr/colorPrimaryVariant"
+                            android:hint="@string/cinqeuros"
+                            android:textColorHint="@color/black"
+                            android:textSize="26sp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:buttonTint="?attr/colorPrimaryVariant"
+                            android:hint="@string/dixeuros"
+                            android:textColorHint="@color/black"
+                            android:textSize="26sp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_20"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="?attr/colorPrimaryVariant"
+                            android:hint="@string/vingteuros"
+                            android:textColorHint="@color/black"
+                            android:textSize="26sp" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:hint="@string/entrersommeperso"
+                        android:textColorHint="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/edit_custom_amount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        android:background="@drawable/champsaisie"
+                        android:hint="@string/montant_total"
+                        android:inputType="numberDecimal"
+                        android:padding="12dp"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/check_save_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="?attr/colorPrimary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:hint="@string/enregistrerinfos"
+                            android:textColorHint="@color/black"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/check_anonymous"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:buttonTint="?attr/colorPrimary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:hint="@string/donanonyme"
+                            android:textColorHint="@color/black"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_annuel"
-                    android:layout_width="match_parent"
+                    android:id="@+id/btn_cancel"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/annuel"
-                    android:textSize="16sp"
-                    android:textColorHint="?attr/colorPrimaryVariant"
-                    android:background="@drawable/bouton_annuel"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bouton_annuler"
+                    android:hint="@string/annuler"
                     android:padding="16dp"
-                    android:textAllCaps="false"/>
+                    android:textAllCaps="false"
+                    android:textColorHint="?attr/colorPrimary"
+                    android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_mensuel"
-                    android:layout_width="match_parent"
+                    android:id="@+id/btn_confirm"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="@string/mensuel"
-                    android:textSize="16sp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bouton_confirmer"
+                    android:hint="@string/confirmer"
+                    android:padding="16dp"
+                    android:textAllCaps="false"
                     android:textColorHint="@android:color/white"
-                    android:background="@drawable/bouton_mensuel"
-                    android:padding="16dp"
-                    android:textAllCaps="false"/>
+                    android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/choisirasso"
-            android:textSize="18sp"
-            android:textColorHint="@color/black"
-            android:layout_marginBottom="8dp"/>
 
-        <Spinner
-            android:id="@+id/spinner_association"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/champsaisie"
-            android:padding="12dp"
-            android:layout_marginBottom="24dp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:baselineAligned="false"
-            android:orientation="horizontal"
-            android:layout_marginBottom="24dp"
-            android:weightSum="2">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginEnd="8dp">
-
-                <RadioGroup
-                    android:id="@+id/radio_group"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="24dp">
-
-                    <RadioButton
-                        android:id="@+id/radio_5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/cinqeuros"
-                        android:textSize="26sp"
-                        android:textColorHint="@color/black"
-                        android:buttonTint="?attr/colorPrimaryVariant"
-                        android:layout_marginBottom="8dp"/>
-
-                    <RadioButton
-                        android:id="@+id/radio_10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/dixeuros"
-                        android:textSize="26sp"
-                        android:textColorHint="@color/black"
-                        android:buttonTint="?attr/colorPrimaryVariant"
-                        android:layout_marginBottom="8dp"/>
-
-                    <RadioButton
-                        android:id="@+id/radio_20"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/vingteuros"
-                        android:textSize="26sp"
-                        android:textColorHint="@color/black"
-                        android:buttonTint="?attr/colorPrimaryVariant"/>
-                </RadioGroup>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/entrersommeperso"
-                    android:textSize="18sp"
-                    android:textColorHint="@color/black"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginBottom="8dp"
-                    android:textStyle="bold"/>
-
-                <EditText
-                    android:id="@+id/edit_custom_amount"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/montant_total"
-                    android:inputType="numberDecimal"
-                    android:textSize="16sp"
-                    android:padding="12dp"
-                    android:background="@drawable/champsaisie"
-                    android:layout_marginBottom="24dp"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="8dp">
-
-                    <CheckBox
-                        android:id="@+id/check_save_info"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="?attr/colorPrimary"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/enregistrerinfos"
-                        android:textSize="16sp"
-                        android:textColorHint="@color/black"
-                        android:layout_gravity="center_vertical"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <CheckBox
-                        android:id="@+id/check_anonymous"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:buttonTint="?attr/colorPrimary"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/donanonyme"
-                        android:textSize="16sp"
-                        android:textColorHint="@color/black"
-                        android:layout_gravity="center_vertical"/>
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="24dp"
-            android:weightSum="2">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_cancel"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="@string/annuler"
-                android:textSize="16sp"
-                android:textColorHint="?attr/colorPrimary"
-                android:background="@drawable/bouton_annuler"
-                android:padding="16dp"
-                android:layout_marginEnd="8dp"
-                android:textAllCaps="false"/>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_confirm"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:hint="@string/confirmer"
-                android:textSize="16sp"
-                android:textColorHint="@android:color/white"
-                android:background="@drawable/bouton_confirmer"
-                android:padding="16dp"
-                android:textAllCaps="false"/>
-        </LinearLayout>
-
-        <include
-            android:id="@+id/navigation_buttons"
-            layout="@layout/navigation" />
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        app:itemIconTint="@drawable/nav_item_color_state"
+        app:itemTextColor="@drawable/nav_item_color_state"
+        app:itemActiveIndicatorStyle="@drawable/hovernav"
+        app:menu="@menu/menu"/>
+    </RelativeLayout>

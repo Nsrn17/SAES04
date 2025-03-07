@@ -11,6 +11,8 @@ import android.text.TextWatcher;
 
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,11 @@ public class AccueilActivity extends  BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
+        setupBottomNavigation();
+//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+//        if (bottomNavigationView != null) {
+//            bottomNavigationView.setSelectedItemId(getSelectedNavItem());
+//        }
         viewPager = findViewById(R.id.viewPager);
         carouselAdapter = new CarouselAdapter();
         viewPager.setAdapter(carouselAdapter);
@@ -58,21 +65,9 @@ public class AccueilActivity extends  BaseActivity {
             }
         });
 
-        setupSearch();
-         //Barre de navigation
-        Button walletButton = findViewById(R.id.wallet_button);
-        Button homeButton = findViewById(R.id.home_button);
-        Button addRingButton = findViewById(R.id.add_ring_button);
-        Button userButton = findViewById(R.id.user_button);
-        Button settingButton =findViewById(R.id.settings);
-        Button searchButton =findViewById(R.id.search);
 
-        navigateToActivity(searchButton, ExplorerActivity.class);
-        navigateToActivity(walletButton, ResumeActivity.class);
-        navigateToActivity(homeButton, AccueilActivity.class);
-        navigateToActivity(addRingButton, DonUniqueActivity.class);
-        navigateToActivity(userButton, LoginActivity.class);
-        navigateToActivity(settingButton, ParametresActivity.class);
+        setupSearch();
+
     }
     private void setupSearch() {
 

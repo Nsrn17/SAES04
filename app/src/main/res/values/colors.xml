@@ -25,4 +25,5 @@
     <color name="tri_lightblue">#C7A75E</color>
     <color name="tri_lighterblue">#33A39D00</color>
     <color name="tri_violet"> #6F494D</color>
+    <color name="primary_light">#FFBB86FC</color>
 </resources>

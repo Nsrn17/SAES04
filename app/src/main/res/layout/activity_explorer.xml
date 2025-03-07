@@ -1,4 +1,4 @@
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,64 +7,64 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_above="@id/bottom_navigation"
     tools:context=".ExplorerActivity">
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-    <!-- Boîte de recherche -->
-<LinearLayout
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:layout_marginTop="24dp"
-android:layout_marginBottom="24dp"
-android:orientation="vertical">
+            android:orientation="vertical">
+            <!-- Boîte de recherche -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:orientation="vertical">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="12dp"
-    android:background="@drawable/search_box_background"
-    android:orientation="horizontal"
-    android:padding="4dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/search_box_background"
+                    android:orientation="horizontal"
+                    android:padding="4dp">
 
-    <EditText
-        android:id="@+id/search_input"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_weight="1"
-        android:background="@null"
-        android:hint="@string/motcle"
-        android:outlineProvider="none"
-        android:padding="12dp"
-        android:textSize="16sp" />
+                    <EditText
+                        android:id="@+id/search_input"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="@string/motcle"
+                        android:outlineProvider="none"
+                        android:padding="12dp"
+                        android:textSize="16sp" />
 
-    <ImageButton
-        android:id="@+id/search_button"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="@drawable/search_button_background"
-        android:contentDescription="@string/search_button"
-        android:padding="12dp"
-        android:src="@drawable/ic_search" />
-</LinearLayout>
+                    <ImageButton
+                        android:id="@+id/search_button"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/search_button_background"
+                        android:contentDescription="@string/search_button"
+                        android:padding="12dp"
+                        android:src="@drawable/ic_search" />
+                </LinearLayout>
 
-</LinearLayout>
+            </LinearLayout>
 
-    <!-- Résultats de recherche -->
-<ListView
-android:id="@+id/search_results"
-android:layout_width="match_parent"
-android:layout_height="150dp"
-android:layout_marginTop="8dp"
-android:visibility="gone" />
+            <!-- Résultats de recherche -->
+            <ListView
+                android:id="@+id/search_results"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="8dp"
+                android:visibility="gone" />
 
             <LinearLayout
 
@@ -96,13 +96,14 @@ android:visibility="gone" />
                     android:textStyle="bold" />
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Santé"
+                android:textColor="@android:color/black"
                 android:textSize="28sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black" />
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/logos_sante"
@@ -115,9 +116,9 @@ android:visibility="gone" />
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mentale"
+                android:textColor="@android:color/black"
                 android:textSize="28sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black" />
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/logos_mentale"
@@ -130,9 +131,9 @@ android:visibility="gone" />
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Famille"
+                android:textColor="@android:color/black"
                 android:textSize="28sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black" />
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:id="@+id/logos_famille"
@@ -144,19 +145,15 @@ android:visibility="gone" />
 
         </LinearLayout>
     </ScrollView>
-    <LinearLayout
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/white">
-
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/navigation_buttons"
-            android:layout_marginBottom="20dp"
-            layout="@layout/navigation" />
-
-
-    </LinearLayout>
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        app:itemActiveIndicatorStyle="@drawable/hovernav"
+        app:itemIconTint="@drawable/nav_item_color_state"
+        app:itemTextColor="@drawable/nav_item_color_state"
+        app:menu="@menu/menu" />
+</RelativeLayout>

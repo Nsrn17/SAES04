@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home"
+        android:title="Accueil"
+        />
+    <item
+        android:id="@+id/navigation_explore"
+        android:icon="@drawable/search"
+        android:title="Explorer"
+        />
+    <item
+        android:id="@+id/navigation_add"
+        android:icon="@drawable/pluspleinnppouroweys"
+        android:title="Ajouter"
+        />
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/user"
+        android:title="Profil"
+      />
+</menu>

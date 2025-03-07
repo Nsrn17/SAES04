@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="top|center_horizontal"
-    android:background="@android:color/white" >
+    android:background="@android:color/white">
   <ScrollView
       android:layout_width="match_parent"
       android:layout_height="340dp">
@@ -110,10 +111,14 @@
             </LinearLayout>
       </LinearLayout>
   </ScrollView>
-    <include
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/navigation_buttons"
-        android:layout_marginBottom="20dp"
-        layout="@layout/navigation" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        app:itemActiveIndicatorStyle="@drawable/hovernav"
+        app:itemIconTint="@drawable/nav_item_color_state"
+        app:itemTextColor="@drawable/nav_item_color_state"
+        app:menu="@menu/menu" />
 </RelativeLayout>

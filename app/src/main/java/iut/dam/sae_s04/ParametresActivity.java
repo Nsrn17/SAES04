@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -29,15 +30,8 @@ public class ParametresActivity extends BaseActivity {
         btnAppliquer = findViewById(R.id.btn_appliquer);
         rootLayout = findViewById(R.id.main); // ID du layout parent
 
-        // Navigation
-        navigateToActivity(findViewById(R.id.search), ExplorerActivity.class);
-        navigateToActivity(findViewById(R.id.wallet_button), ResumeActivity.class);
-        navigateToActivity(findViewById(R.id.home_button), AccueilActivity.class);
-        navigateToActivity(findViewById(R.id.add_ring_button), DonUniqueActivity.class);
-        navigateToActivity(findViewById(R.id.user_button), LoginActivity.class);
-        navigateToActivity(findViewById(R.id.settings), ParametresActivity.class);
-
-        // Définir les options du spinner pour les modes daltoniens
+        setupBottomNavigation();
+        // Définir les options du spinner pour les modes daltonien
         String[] modesDaltoniens = {"Normal", "Protanopie", "Deutéranopie", "Tritanopie"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, modesDaltoniens);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -131,4 +125,5 @@ public class ParametresActivity extends BaseActivity {
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         return prefs.getFloat("text_size_factor", 0);  // Valeur par défaut = 0 (taille normale)
     }
+
 }

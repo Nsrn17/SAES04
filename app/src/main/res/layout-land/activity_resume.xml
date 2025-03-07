@@ -428,8 +428,15 @@
         android:background="@color/white"
        >
 
-        <include
-            android:id="@+id/navigation_buttons"
-            layout="@layout/navigation" />
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/white"
+            app:itemActiveIndicatorStyle="@drawable/hovernav"
+            app:itemIconTint="@drawable/nav_item_color_state"
+            app:itemTextColor="@drawable/nav_item_color_state"
+            app:menu="@menu/menu" />
     </LinearLayout>
 </LinearLayout>
