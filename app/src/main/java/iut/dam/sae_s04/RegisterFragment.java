@@ -51,7 +51,7 @@ public class RegisterFragment extends Fragment {
             String password = passwordInput.getText().toString();
 
             if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
-                boolean success = dbHelper.registerUser(name, email, username, password);
+                boolean success = dbHelper.registerUser(email, username, name, password);
                 if (success) {
                     Toast.makeText(getContext(), "Inscription réussie", Toast.LENGTH_SHORT).show();
                     Log.d("RegisterFragment", "Inscription réussie !");
