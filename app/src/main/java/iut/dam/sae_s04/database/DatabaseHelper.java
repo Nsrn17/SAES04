@@ -42,13 +42,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_USERS);
 
         // Insertion d'un utilisateur test pour s'assurer que la base est bien créée
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_NAME, "Test User");
-        values.put(COLUMN_EMAIL, "test@example.com");
-        values.put(COLUMN_USERNAME, "testuser");
-        values.put(COLUMN_PASSWORD, "password123");
+//        ContentValues values = new ContentValues();
+//        values.put(COLUMN_NAME, "Test User");
+//        values.put(COLUMN_EMAIL, "test@example.com");
+//        values.put(COLUMN_USERNAME, "testuser");
+//        values.put(COLUMN_PASSWORD, "password123");
 
-        db.insert(TABLE_USERS, null, values);
+//        db.insert(TABLE_USERS, null, values);
     }
 
     @Override
