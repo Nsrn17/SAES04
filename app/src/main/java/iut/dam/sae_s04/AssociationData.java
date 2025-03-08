@@ -31,4 +31,13 @@ public class AssociationData {
     public List<Association> getAssociations() {
         return associations;
     }
+
+    public Association getAssociationByName(String name) {
+        for (Association association : associations) {
+            if (association.getTitle().equals(name)) {
+                return association;
+            }
+        }
+        return null; // Si aucune association ne correspond
+    }
 }

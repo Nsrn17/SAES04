@@ -4,44 +4,46 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExplorerActivity extends BaseActivity {
+public class ExplorerActivity extends Fragment {
+
     private EditText searchInput;
     private ListView searchResults;
     private List<String> dataList; // Liste complète des données
     private List<String> filteredList; // Liste temporaire après filtrage
     private CustomAdapter adapter;
+
+    public ExplorerActivity() {
+        // Le constructeur par défaut
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_explorer);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Gonfle la vue du fragment
+        View rootView = inflater.inflate(R.layout.activity_explorer, container, false);
 
-        setupBottomNavigation();
+        // Référence aux vues dans le fragment
+        searchInput = rootView.findViewById(R.id.search_input);
+        searchResults = rootView.findViewById(R.id.search_results);
 
+        LinearLayout logosSante = rootView.findViewById(R.id.logos_sante);
+        LinearLayout logosMentale = rootView.findViewById(R.id.logos_mentale);
+        LinearLayout logosFamille = rootView.findViewById(R.id.logos_famille);
 
-        LinearLayout logosSante = findViewById(R.id.logos_sante);
-        LinearLayout logosMentale = findViewById(R.id.logos_mentale);
-        LinearLayout logosFamille = findViewById(R.id.logos_famille);
-        //Barre de navigation
-
-        searchInput = findViewById(R.id.search_input);
-        searchResults = findViewById(R.id.search_results);
-
+        // Liste d'associations à utiliser pour le filtrage
         List<Association> associations = AssociationData.getInstance().getAssociations();
-
 
         dataList = new ArrayList<>();
         for (Association association : associations) {
@@ -49,8 +51,9 @@ public class ExplorerActivity extends BaseActivity {
         }
 
         filteredList = new ArrayList<>(dataList);
-        adapter = new CustomAdapter(this, filteredList);
+        adapter = new CustomAdapter(getContext(), filteredList);
         searchResults.setAdapter(adapter);
+
         searchResults.setOnItemClickListener((parent, view, position, id) -> {
             String selectedTitle = filteredList.get(position);
             Association selectedAssociation = null;
@@ -61,24 +64,20 @@ public class ExplorerActivity extends BaseActivity {
                 }
             }
             if (selectedAssociation != null) {
-                NavigationUtils.openDetailActivity(this, selectedAssociation);
+                NavigationUtils.openDetailActivity(getActivity(), selectedAssociation);
             }
         });
 
         setupSearch();
 
-
-
-
         for (Association assoc : associations) {
-            ImageView logo = new ImageView(this);
+            ImageView logo = new ImageView(getContext());
             logo.setImageResource(assoc.getLogoResId());
-
 
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(200, 200);
             params.setMargins(8, 0, 8, 0);
             logo.setLayoutParams(params);
-            logo.setOnClickListener(v -> NavigationUtils.openDetailActivity(this, assoc));
+            logo.setOnClickListener(v -> NavigationUtils.openDetailActivity(getActivity(), assoc));
 
             switch (assoc.getCat().toLowerCase()) {
                 case "santé":
@@ -92,18 +91,17 @@ public class ExplorerActivity extends BaseActivity {
                     break;
             }
         }
-    }
-    private void setupSearch() {
 
+        return rootView;  // Retourne la vue gonflée
+    }
+
+    private void setupSearch() {
         searchInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
                 filter(s.toString());
             }
 
@@ -111,6 +109,7 @@ public class ExplorerActivity extends BaseActivity {
             public void afterTextChanged(Editable s) {}
         });
     }
+
     private void filter(String text) {
         filteredList.clear();
 
@@ -126,11 +125,7 @@ public class ExplorerActivity extends BaseActivity {
 
         Log.d("FILTER", "Résultats après filtrage : " + filteredList.toString()); // Debug
 
-
         adapter.notifyDataSetChanged();
         searchResults.setVisibility(filteredList.isEmpty() ? View.GONE : View.VISIBLE);
-
-
-
-    }}
-
+    }
+}

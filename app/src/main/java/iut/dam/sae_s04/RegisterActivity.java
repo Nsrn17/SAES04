@@ -3,42 +3,47 @@ package iut.dam.sae_s04;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+
 import iut.dam.sae_s04.database.DatabaseHelper;
 
-
-public class RegisterActivity extends BaseActivity {
+public class RegisterActivity extends Fragment {
     private EditText nameInput, emailInput, usernameInput, passwordInput;
-    private Button registerButton;
+    private Button registerButton , btn_login;
     private DatabaseHelper dbHelper;
 
+    public RegisterActivity() {
+        // Constructeur par défaut
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-        setupBottomNavigation();
-        Button sigin=findViewById(R.id.btn_page_login);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Gonfler le layout du fragment
+        View rootView = inflater.inflate(R.layout.activity_register, container, false);
 
-//
-//        navigateToActivity(walletButton, ResumeActivity.class);
-//        navigateToActivity(homeButton, AccueilActivity.class);
-//        navigateToActivity(addRingButton, DonUniqueActivity.class);
-//        navigateToActivity(userButton, LoginActivity.class);
-//        navigateToActivity(sigin , LoginActivity.class);
-//        navigateToActivity(settingButton, ParametresActivity.class);
+        // Initialiser les vues
+        nameInput = rootView.findViewById(R.id.et_name_register);
+        emailInput = rootView.findViewById(R.id.et_id_register);
+        usernameInput = rootView.findViewById(R.id.et_username_register);
+        passwordInput = rootView.findViewById(R.id.et_password_register);
+        registerButton = rootView.findViewById(R.id.btn_signup);
+        btn_login = rootView.findViewById(R.id.btn_page_login);
+        dbHelper = new DatabaseHelper(getContext()); // Utilisation de getContext() ici
 
-        dbHelper = new DatabaseHelper(this);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-
-        nameInput = findViewById(R.id.et_name_register);
-        emailInput = findViewById(R.id.et_id_register);
-        usernameInput = findViewById(R.id.et_username_register);
-        passwordInput = findViewById(R.id.et_password_register);
-        registerButton = findViewById(R.id.btn_signup);
-
+        btn_login.setOnClickListener(v->{
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new LoginActivity())  // Remplacer le fragment dans le FrameLayout
+                    .addToBackStack(null)  // Ajoute la transaction à la pile arrière si tu veux pouvoir revenir en arrière
+                    .commit();
+        });
+        // Définir le comportement du bouton d'inscription
         registerButton.setOnClickListener(v -> {
             String name = nameInput.getText().toString();
             String email = emailInput.getText().toString();
@@ -48,16 +53,17 @@ public class RegisterActivity extends BaseActivity {
             if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty()) {
                 boolean success = dbHelper.registerUser(name, email, username, password);
                 if (success) {
-                    Toast.makeText(RegisterActivity.this, "Inscription réussie", Toast.LENGTH_SHORT).show();
-                    Log.d("RegisterActivity", "Erreur : pas de mess !");
-                    finish();
+                    Toast.makeText(getContext(), "Inscription réussie", Toast.LENGTH_SHORT).show();
+                    Log.d("RegisterFragment", "Inscription réussie !");
+                    // Fin du fragment ou redirection possible, selon ton flux
                 } else {
-                    Toast.makeText(RegisterActivity.this, "Échec de l'inscription", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Échec de l'inscription", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(RegisterActivity.this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
             }
         });
 
+        return rootView;  // Retourner la vue gonflée
     }
 }

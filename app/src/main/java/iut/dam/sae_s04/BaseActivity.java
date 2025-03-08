@@ -5,6 +5,7 @@ package iut.dam.sae_s04;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class BaseActivity extends AppCompatActivity {
 
         if (bottomNavigationView != null) {
             bottomNavigationView.setOnItemSelectedListener(item -> {
+
                 int itemId = item.getItemId();
 
                 if (itemId == R.id.navigation_home ) {
@@ -128,11 +130,11 @@ public class BaseActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         return prefs.getFloat("text_size_factor", 0); // 0 = pas de changement
     }
-    public int getSelectedNavItem() {
-        if (this instanceof AccueilActivity) return R.id.navigation_home;
-        if (this instanceof ExplorerActivity) return R.id.navigation_explore;
-        if (this instanceof DonUniqueActivity) return R.id.navigation_add;
-        if (this instanceof LoginActivity) return R.id.navigation_profile;
-        return R.id.navigation_home; // Par défaut, on met Accueil si on ne sait pas
-    }
+//    public int getSelectedNavItem() {
+//        if (this instanceof AccueilActivity) return R.id.navigation_home;
+//        if (this instanceof ExplorerActivity) return R.id.navigation_explore;
+//        if (this instanceof DonUniqueActivity) return R.id.navigation_add;
+//        if (this instanceof LoginActivity) return R.id.navigation_profile;
+//        return R.id.navigation_home; // Par défaut, on met Accueil si on ne sait pas
+//    }
 }

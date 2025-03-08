@@ -2,7 +2,9 @@ package iut.dam.sae_s04;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -10,19 +12,25 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.fragment.app.Fragment;
 
-public class DonRecurrentActivity extends BaseActivity {
+public class DonRecurrentActivity extends Fragment {
 
     private Spinner spinnerAssociation;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_don_recurrent);
-        setupBottomNavigation();
-        Button btnAnnuel = findViewById(R.id.btn_annuel);
-        Button btnMensuel = findViewById(R.id.btn_mensuel);
-       Button btnUnique = findViewById(R.id.btn_unique);
+
+    public DonRecurrentActivity() {
+        // Le constructeur par défaut
+    }
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View rootView = inflater.inflate(R.layout.activity_don_recurrent, container, false);
+//        setContentView(R.layout.activity_don_recurrent);
+//        setupBottomNavigation();
+        Button btnAnnuel = rootView.findViewById(R.id.btn_annuel);
+        Button btnMensuel = rootView.findViewById(R.id.btn_mensuel);
+       Button btnUnique = rootView.findViewById(R.id.btn_unique);
 
         btnAnnuel.setOnClickListener(v -> {
             btnAnnuel.setBackgroundResource(R.drawable.bouton_mensuel);
@@ -37,11 +45,17 @@ public class DonRecurrentActivity extends BaseActivity {
             btnAnnuel.setBackgroundResource(R.drawable.bouton_annuel);
             btnAnnuel.setTextColor(getResources().getColor(R.color.blue));
         });
-
         btnUnique.setOnClickListener(v -> {
-            Intent intent = new Intent(DonRecurrentActivity.this, DonUniqueActivity.class);
-            startActivity(intent);
+            // Passer à l'écran d'inscription (RegisterFragment ou autre)
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new DonUniqueActivity())  // Remplacer par le fragment d'inscription
+                    .addToBackStack(null)  // Ajouter à la pile arrière
+                    .commit();
         });
+//        btnUnique.setOnClickListener(v -> {
+//            Intent intent = new Intent(DonRecurrentActivity.this, DonUniqueActivity.class);
+//            startActivity(intent);
+//        });
 
 //        Button walletButton = findViewById(R.id.wallet_button);
 //        Button homeButton = findViewById(R.id.home_button);
@@ -57,9 +71,9 @@ public class DonRecurrentActivity extends BaseActivity {
 //        navigateToActivity(userButton, LoginActivity.class);
 //        navigateToActivity(settingButton, ParametresActivity.class);
 
-        setContentView(R.layout.activity_don_recurrent);
+        //setContentView(R.layout.activity_don_recurrent);
 
-        spinnerAssociation = findViewById(R.id.spinner_association);
+        spinnerAssociation = rootView.findViewById(R.id.spinner_association);
 
         remplirSpinnerAssociations();
 
@@ -73,13 +87,13 @@ public class DonRecurrentActivity extends BaseActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
-
+        return rootView;
     }
     private void remplirSpinnerAssociations() {
+        // Utiliser un ArrayAdapter avec un tableau de ressources (R.array.associations)
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this,
-                R.array.associations,
+                getActivity(),  // Utiliser getActivity() dans un Fragment pour obtenir le contexte
+                R.array.associations,  // Assurez-vous que R.array.associations existe dans res/values/strings.xml
                 android.R.layout.simple_spinner_item
         );
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
