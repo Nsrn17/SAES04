@@ -5,15 +5,12 @@ package iut.dam.sae_s04;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import androidx.appcompat.app.AppCompatActivity;
-import android.content.SharedPreferences;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -38,16 +35,16 @@ public class BaseActivity extends AppCompatActivity {
                 int itemId = item.getItemId();
 
                 if (itemId == R.id.navigation_home ) {
-                    navigateToActivity(AccueilActivity.class);
+                    navigateToActivity(AccueilFragment.class);
                     return true;
                 } else if (itemId == R.id.navigation_explore ) {
-                    navigateToActivity(ExplorerActivity.class);
+                    navigateToActivity(ExplorerFragment.class);
                     return true;
                 } else if (itemId == R.id.navigation_add ) {
-                    navigateToActivity(DonUniqueActivity.class);
+                    navigateToActivity(DonUniqueFragment.class);
                     return true;
                 } else if (itemId == R.id.navigation_profile ) {
-                    navigateToActivity(LoginActivity.class);
+                    navigateToActivity(LoginFragment.class);
                     return true;
                 }
 

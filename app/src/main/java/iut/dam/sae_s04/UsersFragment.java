@@ -1,28 +1,31 @@
 package iut.dam.sae_s04;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
+
+import androidx.fragment.app.Fragment;
 
 import iut.dam.sae_s04.database.DatabaseHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersActivity extends BaseActivity {
+public class UsersFragment extends Fragment {
     private ListView usersListView;
     private DatabaseHelper dbHelper;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_users);
-
-        usersListView = findViewById(R.id.usersListView);
-        dbHelper = new DatabaseHelper(this);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_users);
+        View rootView = inflater.inflate(R.layout.activity_users, container, false);
+        ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
+        usersListView = rootView.findViewById(R.id.usersListView);
+        dbHelper = new DatabaseHelper(getContext());
 
         // Récupérer la liste des adhérents
         List<User> userList = dbHelper.getAllUsers();
@@ -34,9 +37,13 @@ public class UsersActivity extends BaseActivity {
         }
 
         // Adapter pour afficher la liste
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, userNames);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, userNames);
         usersListView.setAdapter(adapter);
+
+
+        return rootView;
     }
+
 
 //    private void loadUsers() {
 //        SQLiteDatabase db = dbHelper.getReadableDatabase();

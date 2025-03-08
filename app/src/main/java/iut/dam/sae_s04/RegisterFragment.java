@@ -1,6 +1,5 @@
 package iut.dam.sae_s04;
 
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,12 +13,12 @@ import androidx.fragment.app.Fragment;
 
 import iut.dam.sae_s04.database.DatabaseHelper;
 
-public class RegisterActivity extends Fragment {
+public class RegisterFragment extends Fragment {
     private EditText nameInput, emailInput, usernameInput, passwordInput;
     private Button registerButton , btn_login;
     private DatabaseHelper dbHelper;
 
-    public RegisterActivity() {
+    public RegisterFragment() {
         // Constructeur par défaut
     }
 
@@ -27,6 +26,7 @@ public class RegisterActivity extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Gonfler le layout du fragment
         View rootView = inflater.inflate(R.layout.activity_register, container, false);
+        ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
 
         // Initialiser les vues
         nameInput = rootView.findViewById(R.id.et_name_register);
@@ -39,7 +39,7 @@ public class RegisterActivity extends Fragment {
 
         btn_login.setOnClickListener(v->{
             getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new LoginActivity())  // Remplacer le fragment dans le FrameLayout
+                    .replace(R.id.container, new LoginFragment())  // Remplacer le fragment dans le FrameLayout
                     .addToBackStack(null)  // Ajoute la transaction à la pile arrière si tu veux pouvoir revenir en arrière
                     .commit();
         });

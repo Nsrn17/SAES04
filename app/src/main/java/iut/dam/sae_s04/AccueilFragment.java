@@ -8,43 +8,41 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-
 import androidx.fragment.app.Fragment;
-
+import androidx.viewpager2.widget.ViewPager2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExplorerActivity extends Fragment {
+public class AccueilFragment extends Fragment {
 
+    private ViewPager2 viewPager;
+    private CarouselAdapter carouselAdapter;
     private EditText searchInput;
     private ListView searchResults;
     private List<String> dataList; // Liste complète des données
     private List<String> filteredList; // Liste temporaire après filtrage
     private CustomAdapter adapter;
 
-    public ExplorerActivity() {
-        // Le constructeur par défaut
-    }
+    // Le constructeur par défaut
+    public AccueilFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Gonfle la vue du fragment
-        View rootView = inflater.inflate(R.layout.activity_explorer, container, false);
+        View rootView = inflater.inflate(R.layout.activity_accueil, container, false);
+        ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
 
         // Référence aux vues dans le fragment
+        viewPager = rootView.findViewById(R.id.viewPager);
+        carouselAdapter = new CarouselAdapter();
+        viewPager.setAdapter(carouselAdapter);
+
         searchInput = rootView.findViewById(R.id.search_input);
         searchResults = rootView.findViewById(R.id.search_results);
 
-        LinearLayout logosSante = rootView.findViewById(R.id.logos_sante);
-        LinearLayout logosMentale = rootView.findViewById(R.id.logos_mentale);
-        LinearLayout logosFamille = rootView.findViewById(R.id.logos_famille);
-
         // Liste d'associations à utiliser pour le filtrage
         List<Association> associations = AssociationData.getInstance().getAssociations();
-
         dataList = new ArrayList<>();
         for (Association association : associations) {
             dataList.add(association.getTitle());
@@ -64,41 +62,20 @@ public class ExplorerActivity extends Fragment {
                 }
             }
             if (selectedAssociation != null) {
-                NavigationUtils.openDetailActivity(getActivity(), selectedAssociation);
+                NavigationUtils.openDetailFragment(getActivity(), selectedAssociation);
             }
         });
 
         setupSearch();
 
-        for (Association assoc : associations) {
-            ImageView logo = new ImageView(getContext());
-            logo.setImageResource(assoc.getLogoResId());
-
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(200, 200);
-            params.setMargins(8, 0, 8, 0);
-            logo.setLayoutParams(params);
-            logo.setOnClickListener(v -> NavigationUtils.openDetailActivity(getActivity(), assoc));
-
-            switch (assoc.getCat().toLowerCase()) {
-                case "santé":
-                    logosSante.addView(logo);
-                    break;
-                case "mentale":
-                    logosMentale.addView(logo);
-                    break;
-                case "famille":
-                    logosFamille.addView(logo);
-                    break;
-            }
-        }
-
         return rootView;  // Retourne la vue gonflée
     }
 
+    // Configuration de la recherche
     private void setupSearch() {
         searchInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -106,10 +83,11 @@ public class ExplorerActivity extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) { }
         });
     }
 
+    // Méthode de filtrage des résultats de recherche
     private void filter(String text) {
         filteredList.clear();
 

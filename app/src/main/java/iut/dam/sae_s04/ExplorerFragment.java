@@ -7,42 +7,45 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+
 import androidx.fragment.app.Fragment;
-import androidx.viewpager2.widget.ViewPager2;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccueilActivity extends Fragment {
+public class ExplorerFragment extends Fragment {
 
-    private ViewPager2 viewPager;
-    private CarouselAdapter carouselAdapter;
     private EditText searchInput;
     private ListView searchResults;
     private List<String> dataList; // Liste complète des données
     private List<String> filteredList; // Liste temporaire après filtrage
     private CustomAdapter adapter;
 
-    // Le constructeur par défaut
-    public AccueilActivity() { }
+    public ExplorerFragment() {
+        // Le constructeur par défaut
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Gonfle la vue du fragment
-        View rootView = inflater.inflate(R.layout.activity_accueil, container, false);
+        View rootView = inflater.inflate(R.layout.activity_explorer, container, false);
+        ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
 
         // Référence aux vues dans le fragment
-        viewPager = rootView.findViewById(R.id.viewPager);
-        carouselAdapter = new CarouselAdapter();
-        viewPager.setAdapter(carouselAdapter);
-
         searchInput = rootView.findViewById(R.id.search_input);
         searchResults = rootView.findViewById(R.id.search_results);
 
+        LinearLayout logosSante = rootView.findViewById(R.id.logos_sante);
+        LinearLayout logosMentale = rootView.findViewById(R.id.logos_mentale);
+        LinearLayout logosFamille = rootView.findViewById(R.id.logos_famille);
+
         // Liste d'associations à utiliser pour le filtrage
         List<Association> associations = AssociationData.getInstance().getAssociations();
+
         dataList = new ArrayList<>();
         for (Association association : associations) {
             dataList.add(association.getTitle());
@@ -55,27 +58,65 @@ public class AccueilActivity extends Fragment {
         searchResults.setOnItemClickListener((parent, view, position, id) -> {
             String selectedTitle = filteredList.get(position);
             Association selectedAssociation = null;
+
             for (Association association : AssociationData.getInstance().getAssociations()) {
                 if (association.getTitle().equals(selectedTitle)) {
                     selectedAssociation = association;
                     break;
                 }
             }
+
             if (selectedAssociation != null) {
-                NavigationUtils.openDetailActivity(getActivity(), selectedAssociation);
+                // Créer une instance du fragment AssosFragment
+                AssosFragment assosFragment = AssosFragment.newInstance(
+                        selectedAssociation.getTitle(),
+                        selectedAssociation.getLogoResId(),
+                        selectedAssociation.getDescription()
+                );
+
+                // Remplacer le fragment actuel par AssosFragment
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.main, new AssosFragment()) // Remplacer avec l'ID du conteneur de fragments
+                        .addToBackStack(null) // Permet de revenir en arrière
+                        .commit();
+//            } else {
+                Log.e("ExplorerActivity", "Association introuvable !");
             }
         });
 
+
+
         setupSearch();
+
+        for (Association assoc : associations) {
+            ImageView logo = new ImageView(getContext());
+            logo.setImageResource(assoc.getLogoResId());
+
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(200, 200);
+            params.setMargins(8, 0, 8, 0);
+            logo.setLayoutParams(params);
+            logo.setOnClickListener(v -> NavigationUtils.openDetailFragment(getActivity(), assoc));
+
+            switch (assoc.getCat().toLowerCase()) {
+                case "santé":
+                    logosSante.addView(logo);
+                    break;
+                case "mentale":
+                    logosMentale.addView(logo);
+                    break;
+                case "famille":
+                    logosFamille.addView(logo);
+                    break;
+            }
+        }
 
         return rootView;  // Retourne la vue gonflée
     }
 
-    // Configuration de la recherche
     private void setupSearch() {
         searchInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -83,11 +124,10 @@ public class AccueilActivity extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable s) { }
+            public void afterTextChanged(Editable s) {}
         });
     }
 
-    // Méthode de filtrage des résultats de recherche
     private void filter(String text) {
         filteredList.clear();
 

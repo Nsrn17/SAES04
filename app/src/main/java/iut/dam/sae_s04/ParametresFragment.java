@@ -1,39 +1,48 @@
 package iut.dam.sae_s04;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
 import java.util.HashMap;
 
-public class ParametresActivity extends BaseActivity {
+public class ParametresFragment extends Fragment {
     private Spinner spinnerDaltonien;
     private SeekBar seekBarTailleTexte;
     private Button btnAppliquer;
     private ViewGroup rootLayout;
     private HashMap<TextView, Float> originalTextSizes = new HashMap<>(); // Stocke les tailles originales
 
+    public ParametresFragment() {
+        // Constructeur vide requis
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_parametres);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Gonfler le layout du fragment
+        View rootView = inflater.inflate(R.layout.activity_parametres, container, false);
+        ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
 
-        spinnerDaltonien = findViewById(R.id.spinner_daltonien);
-        seekBarTailleTexte = findViewById(R.id.seekbar_taille_texte);
-        btnAppliquer = findViewById(R.id.btn_appliquer);
-        rootLayout = findViewById(R.id.main); // ID du layout parent
+        spinnerDaltonien = rootView.findViewById(R.id.spinner_daltonien);
+        seekBarTailleTexte = rootView.findViewById(R.id.seekbar_taille_texte);
+        btnAppliquer = rootView.findViewById(R.id.btn_appliquer);
+        rootLayout = rootView.findViewById(R.id.main); // ID du layout parent
 
-        setupBottomNavigation();
         // Définir les options du spinner pour les modes daltonien
         String[] modesDaltoniens = {"Normal", "Protanopie", "Deutéranopie", "Tritanopie"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, modesDaltoniens);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, modesDaltoniens);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDaltonien.setAdapter(adapter);
 
@@ -49,22 +58,8 @@ public class ParametresActivity extends BaseActivity {
         // Appliquer la taille de texte en fonction du facteur sauvegardé
         applyTextSizeFactor(savedTextSizeFactor);
 
-        // Ajuster la SeekBar en fonction du facteur sauvegardé (0 = taille normale)
+        // Ajuster la SeekBar en fonction du facteur sauvegardé
         seekBarTailleTexte.setProgress((int) savedTextSizeFactor);
-
-        // Écouteur SeekBar pour mise à jour en temps réel
-//        seekBarTailleTexte.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-//            @Override
-//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//                applyTextSizeFactor(progress);
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(SeekBar seekBar) {}
-//
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {}
-//        });
 
         // Écouteur sur le bouton Appliquer
         btnAppliquer.setOnClickListener(v -> {
@@ -73,9 +68,14 @@ public class ParametresActivity extends BaseActivity {
 
             savePreferences(selectedMode, textSizeFactor);
 
-            // Redémarrer l'activité pour appliquer le mode daltonien
-            recreate();
+            // Redémarrer MainActivity pour appliquer le changement immédiatement
+            Intent intent = requireActivity().getIntent();
+            requireActivity().finish();
+            requireActivity().startActivity(intent);
         });
+
+
+        return rootView;
     }
 
     /**
@@ -109,7 +109,7 @@ public class ParametresActivity extends BaseActivity {
      * Sauvegarde le mode daltonien et le facteur de taille du texte dans SharedPreferences.
      */
     private void savePreferences(int mode, float textSizeFactor) {
-        SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        SharedPreferences prefs = requireActivity().getSharedPreferences("AppPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putInt("daltonien_mode", mode);
         editor.putFloat("text_size_factor", textSizeFactor);
@@ -117,13 +117,12 @@ public class ParametresActivity extends BaseActivity {
     }
 
     private int getSavedMode() {
-        SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        SharedPreferences prefs = requireActivity().getSharedPreferences("AppPrefs", MODE_PRIVATE);
         return prefs.getInt("daltonien_mode", 0);  // Valeur par défaut 0 (Normal)
     }
 
     private float getSavedTextSizeFactor() {
-        SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        SharedPreferences prefs = requireActivity().getSharedPreferences("AppPrefs", MODE_PRIVATE);
         return prefs.getFloat("text_size_factor", 0);  // Valeur par défaut = 0 (taille normale)
     }
-
 }

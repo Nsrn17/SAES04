@@ -20,4 +20,9 @@
         android:icon="@drawable/user"
         android:title="Profil"
       />
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/settings"
+        android:title="Paramètre"
+        />
 </menu>

@@ -1,6 +1,5 @@
 package iut.dam.sae_s04;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,16 +9,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
-public class DonRecurrentActivity extends Fragment {
+public class DonRecurrentFragment extends Fragment {
 
     private Spinner spinnerAssociation;
 
 
-    public DonRecurrentActivity() {
+    public DonRecurrentFragment() {
         // Le constructeur par défaut
     }
 
@@ -28,6 +25,8 @@ public class DonRecurrentActivity extends Fragment {
         View rootView = inflater.inflate(R.layout.activity_don_recurrent, container, false);
 //        setContentView(R.layout.activity_don_recurrent);
 //        setupBottomNavigation();
+        ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
+
         Button btnAnnuel = rootView.findViewById(R.id.btn_annuel);
         Button btnMensuel = rootView.findViewById(R.id.btn_mensuel);
        Button btnUnique = rootView.findViewById(R.id.btn_unique);
@@ -48,7 +47,7 @@ public class DonRecurrentActivity extends Fragment {
         btnUnique.setOnClickListener(v -> {
             // Passer à l'écran d'inscription (RegisterFragment ou autre)
             getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new DonUniqueActivity())  // Remplacer par le fragment d'inscription
+                    .replace(R.id.container, new DonUniqueFragment())  // Remplacer par le fragment d'inscription
                     .addToBackStack(null)  // Ajouter à la pile arrière
                     .commit();
         });

@@ -1,12 +1,10 @@
 package iut.dam.sae_s04;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -16,9 +14,9 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import java.util.List;
 
-public class DonUniqueActivity extends Fragment {
+public class DonUniqueFragment extends Fragment {
 
-    public DonUniqueActivity() {
+    public DonUniqueFragment() {
         // Le constructeur par défaut
     }
 
@@ -26,6 +24,7 @@ public class DonUniqueActivity extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Gonfler le layout du fragment
         View rootView = inflater.inflate(R.layout.activity_don_unique, container, false);
+        ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
 
         // Initialisation des vues
         RadioGroup radioGroup = rootView.findViewById(R.id.radio_group);
@@ -51,7 +50,7 @@ public class DonUniqueActivity extends Fragment {
         // Listener pour le bouton de don récurrent
         btnRecurrent.setOnClickListener(v -> {
             getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new DonRecurrentActivity())  // Remplacer par le fragment d'inscription
+                    .replace(R.id.container, new DonRecurrentFragment())  // Remplacer par le fragment d'inscription
                     .addToBackStack(null)  // Ajouter à la pile arrière
                     .commit();
         });

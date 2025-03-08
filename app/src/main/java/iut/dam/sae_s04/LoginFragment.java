@@ -13,13 +13,13 @@ import androidx.fragment.app.Fragment;
 
 import iut.dam.sae_s04.database.DatabaseHelper;
 
-public class LoginActivity extends Fragment {
+public class LoginFragment extends Fragment {
 
     private EditText idInput, passwordInput;
-    private Button loginButton;
+    private Button loginButton , Showadherent;
     private DatabaseHelper dbHelper;
 
-    public LoginActivity() {
+    public LoginFragment() {
         // Constructeur vide
     }
 
@@ -32,7 +32,7 @@ public class LoginActivity extends Fragment {
         idInput = rootView.findViewById(R.id.et_id_login);
         passwordInput = rootView.findViewById(R.id.et_password_login);
         loginButton = rootView.findViewById(R.id.btn_login);
-
+        Showadherent = rootView.findViewById(R.id.btn_view_users);
         // Initialiser la base de données
         dbHelper = new DatabaseHelper(getActivity());
 
@@ -57,7 +57,23 @@ public class LoginActivity extends Fragment {
         signup.setOnClickListener(v -> {
             // Passer à l'écran d'inscription (RegisterFragment ou autre)
             getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new RegisterActivity())  // Remplacer par le fragment d'inscription
+                    .replace(R.id.container, new RegisterFragment())  // Remplacer par le fragment d'inscription
+                    .addToBackStack(null)  // Ajouter à la pile arrière
+                    .commit();
+        });
+
+//        signup.setOnClickListener(v -> {
+//            // Passer à l'écran d'inscription (RegisterFragment ou autre)
+//            getActivity().getSupportFragmentManager().beginTransaction()
+//                    .replace(R.id.container, new UsersActivity())  // Remplacer par le fragment d'inscription
+//                    .addToBackStack(null)  // Ajouter à la pile arrière
+//                    .commit();
+//        });
+
+        Showadherent.setOnClickListener(v -> {
+            // Passer à l'écran d'inscription (RegisterFragment ou autre)
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new UsersFragment())  // Remplacer par le fragment d'inscription
                     .addToBackStack(null)  // Ajouter à la pile arrière
                     .commit();
         });

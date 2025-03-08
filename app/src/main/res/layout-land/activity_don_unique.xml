@@ -216,7 +216,5 @@
             android:textAllCaps="false"/>
     </LinearLayout>
 
-    <include
-        android:id="@+id/navigation_buttons"
-        layout="@layout/navigation" />
+
 </ScrollView>

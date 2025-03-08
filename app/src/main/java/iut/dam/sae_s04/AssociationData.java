@@ -1,5 +1,7 @@
 package iut.dam.sae_s04;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,9 +37,12 @@ public class AssociationData {
     public Association getAssociationByName(String name) {
         for (Association association : associations) {
             if (association.getTitle().equals(name)) {
+                Log.d("AssociationData", "Association trouvée : " + name);
                 return association;
             }
         }
-        return null; // Si aucune association ne correspond
+        Log.e("AssociationData", "Association non trouvée : " + name);
+        return null;
     }
+
 }
