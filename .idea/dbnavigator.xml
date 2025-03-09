@@ -20,6 +20,9 @@
       <assistant-state connection-id="f972e6a2-8a62-4de0-a785-a821f633b2c4" default-profile-name="" selected-profile-name="" selected-model-name="" assistant-type="GENERIC" selected-action="SHOW_SQL" availability="UNAVAILABLE" acknowledgement="NONE">
         <messages />
       </assistant-state>
+      <assistant-state connection-id="0fc093a3-525c-4ccf-8dd2-16347d868d4c" default-profile-name="" selected-profile-name="" selected-model-name="" assistant-type="GENERIC" selected-action="SHOW_SQL" availability="UNAVAILABLE" acknowledgement="NONE">
+        <messages />
+      </assistant-state>
     </assistants>
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -30,12 +33,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="f972e6a2-8a62-4de0-a785-a821f633b2c4">
-      <console name="testbd" type="STANDARD" schema="" session="Main"><![CDATA[CREATE TABLE TABLE_USERS (
-      COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT,
-      COLUMN_NAME TEXT,
-      COLUMN_EMAIL TEXT UNIQUE, 
-      COLUMN_USERNAME TEXT UNIQUE,
-      COLUMN_PASSWORD TEXT);]]></console>
+      <console name="testbd" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">

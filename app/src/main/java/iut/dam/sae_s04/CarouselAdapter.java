@@ -1,20 +1,26 @@
 package iut.dam.sae_s04;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class CarouselAdapter extends RecyclerView.Adapter<CarouselAdapter.CarouselViewHolder> {
 
-    private List<Association> associations;
+    private List<Integer> images;
+    private List<String> urls;
+    private Context context;
 
-    public CarouselAdapter() {
-        this.associations = AssociationData.getInstance().getAssociations();
+    public CarouselAdapter(Context context, List<Integer> images, List<String> urls) {
+        this.context = context;
+        this.images = images;
+        this.urls = urls;
     }
 
     @NonNull
@@ -26,24 +32,26 @@ public class CarouselAdapter extends RecyclerView.Adapter<CarouselAdapter.Carous
 
     @Override
     public void onBindViewHolder(@NonNull CarouselViewHolder holder, int position) {
-        Association association = associations.get(position);
-        holder.imageView.setImageResource(association.getLogoResId());
-        holder.textView.setText(association.getTitle());
+        holder.imageView.setImageResource(images.get(position));
+
+        // Gérer le clic pour ouvrir le lien
+        holder.imageView.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urls.get(position)));
+            context.startActivity(intent);
+        });
     }
 
     @Override
     public int getItemCount() {
-        return associations.size();
+        return images.size();
     }
 
     public static class CarouselViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        TextView textView;
 
         public CarouselViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView);
-            textView = itemView.findViewById(R.id.textView);
         }
     }
 }

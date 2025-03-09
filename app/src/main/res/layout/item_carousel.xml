@@ -3,22 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:padding="30dp"
+
+  >
 
     <!-- Image du carrousel -->
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:src="@drawable/image1" /> <!-- Image par défaut -->
-
-    <!-- Titre du carrousel -->
-    <TextView
-        android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Titre du carrousel"
-        android:textSize="18sp"
-        android:layout_marginTop="16dp" />
+        android:layout_height="255dp"
+        android:background="@drawable/rounded_background"
+        android:src="@drawable/work" /> <!-- Image par défaut -->
+
+
 </LinearLayout>
