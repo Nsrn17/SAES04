@@ -165,26 +165,6 @@
                 android:background="@drawable/champsaisie"
                 android:layout_marginBottom="24dp"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:id="@+id/check_save_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="?attr/colorPrimary" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:hint="@string/enregistrerinfos"
-                    android:textColorHint="@color/black"
-                    android:textSize="16sp" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -205,6 +185,14 @@
                     android:textColorHint="@color/black"
                     android:layout_gravity="center_vertical"/>
             </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:hint="@string/enregistrerinfos"
+                android:textColorHint="@color/black"
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
