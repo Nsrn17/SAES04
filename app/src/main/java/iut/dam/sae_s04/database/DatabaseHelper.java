@@ -23,6 +23,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_EMAIL = "email";
     private static final String COLUMN_USERNAME = "username";
     private static final String COLUMN_PASSWORD = "password";
+    private static final String TABLE_PAYMENT_INFO = "payment_info";
+    private static final String COLUMN_USER_ID = "user_id";
+    private static final String COLUMN_CARD_HOLDER = "card_holder";
+    private static final String COLUMN_CARD_NUMBER = "card_number";
+    private static final String COLUMN_EXP_MONTH = "exp_month";
+    private static final String COLUMN_EXP_YEAR = "exp_year";
+    private static final String COLUMN_CCV = "ccv";
 
     // Requête de création de table
     private static final String CREATE_TABLE_USERS =
@@ -33,6 +40,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     COLUMN_USERNAME + " TEXT UNIQUE, " +
                     COLUMN_PASSWORD + " TEXT);";
 
+
+    private static final String CREATE_TABLE_PAYMENT_INFO =
+            "CREATE TABLE " + TABLE_PAYMENT_INFO + " (" +
+                    COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COLUMN_USER_ID + " INTEGER, " +
+                    COLUMN_CARD_HOLDER + " TEXT, " +
+                    COLUMN_CARD_NUMBER + " TEXT, " +
+                    COLUMN_EXP_MONTH + " TEXT, " +
+                    COLUMN_EXP_YEAR + " TEXT, " +
+                    COLUMN_CCV + " TEXT);";
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -40,6 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_USERS);
+        db.execSQL(CREATE_TABLE_PAYMENT_INFO);
 
         // Insertion d'un utilisateur test pour s'assurer que la base est bien créée
 //        ContentValues values = new ContentValues();
@@ -55,6 +74,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         onCreate(db);
+    }
+
+
+    public boolean savePaymentInfo(int userId, String cardHolder, String cardNumber, String expMonth, String expYear, String ccv) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_USER_ID, userId);
+        values.put(COLUMN_CARD_HOLDER, cardHolder);
+        values.put(COLUMN_CARD_NUMBER, cardNumber);
+        values.put(COLUMN_EXP_MONTH, expMonth);
+        values.put(COLUMN_EXP_YEAR, expYear);
+        values.put(COLUMN_CCV, ccv);
+
+        long result = db.insert(TABLE_PAYMENT_INFO, null, values);
+        db.close();
+
+        return result != -1;
     }
 
     // Inscription
