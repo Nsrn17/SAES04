@@ -23,8 +23,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_EMAIL = "email";
     private static final String COLUMN_USERNAME = "username";
     private static final String COLUMN_PASSWORD = "password";
-
-    // Requête de création de table
+    private static final String TABLE_PAYMENT_INFO = "payment_info";
+    private static final String COLUMN_USER_ID = "user_id";
+    private static final String COLUMN_CARD_HOLDER = "card_holder";
+    private static final String COLUMN_CARD_NUMBER = "card_number";
+    private static final String COLUMN_EXP_MONTH = "exp_month";
+    private static final String COLUMN_EXP_YEAR = "exp_year";
+    private static final String COLUMN_CCV = "ccv";
+    private static final String TABLE_DONS = "dons";
+    private static final String COLUMN_DON_ID = "don_id";
+    private static final String COLUMN_ASSOCIATION = "association";
+    private static final String COLUMN_MONTANT = "montant";
+    private static final String COLUMN_TYPE = "type";
+    private static final String COLUMN_DATE = "date";
+    private static final String COLUMN_ANONYME = "anonyme";
     private static final String CREATE_TABLE_USERS =
             "CREATE TABLE " + TABLE_USERS + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -33,6 +45,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     COLUMN_USERNAME + " TEXT UNIQUE, " +
                     COLUMN_PASSWORD + " TEXT);";
 
+
+    private static final String CREATE_TABLE_PAYMENT_INFO =
+            "CREATE TABLE " + TABLE_PAYMENT_INFO + " (" +
+                    COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COLUMN_USER_ID + " INTEGER, " +
+                    COLUMN_CARD_HOLDER + " TEXT, " +
+                    COLUMN_CARD_NUMBER + " TEXT, " +
+                    COLUMN_EXP_MONTH + " TEXT, " +
+                    COLUMN_EXP_YEAR + " TEXT, " +
+                    COLUMN_CCV + " TEXT);";
+
+    private static final String CREATE_TABLE_DONS =
+            "CREATE TABLE " + TABLE_DONS + " (" +
+                    COLUMN_DON_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COLUMN_USER_ID + " INTEGER, " +
+                    COLUMN_ASSOCIATION + " TEXT, " +
+                    COLUMN_MONTANT + " REAL, " +
+                    COLUMN_TYPE + " TEXT, " +
+                    COLUMN_DATE + " DATETIME DEFAULT CURRENT_TIMESTAMP, " +
+                    COLUMN_ANONYME + " INTEGER);";
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -40,6 +73,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_USERS);
+        db.execSQL(CREATE_TABLE_PAYMENT_INFO);
+        db.execSQL(CREATE_TABLE_DONS);
 
         // Insertion d'un utilisateur test pour s'assurer que la base est bien créée
 //        ContentValues values = new ContentValues();
@@ -55,6 +90,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         onCreate(db);
+    }
+
+
+    public boolean savePaymentInfo(int userId, String cardHolder, String cardNumber, String expMonth, String expYear, String ccv) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_USER_ID, userId);
+        values.put(COLUMN_CARD_HOLDER, cardHolder);
+        values.put(COLUMN_CARD_NUMBER, cardNumber);
+        values.put(COLUMN_EXP_MONTH, expMonth);
+        values.put(COLUMN_EXP_YEAR, expYear);
+        values.put(COLUMN_CCV, ccv);
+
+        long result = db.insert(TABLE_PAYMENT_INFO, null, values);
+        db.close();
+
+        return result != -1;
     }
 
     // Inscription
@@ -73,6 +126,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1; // Retourne true si l'insertion a réussi
     }
 
+    public boolean enregistrerDon(int userId, String association, double montant, String type, boolean anonyme) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_USER_ID, userId);
+        values.put(COLUMN_ASSOCIATION, association);
+        values.put(COLUMN_MONTANT, montant);
+        values.put(COLUMN_TYPE, type);
+        values.put(COLUMN_ANONYME, anonyme ? 1 : 0);
+
+        long result = db.insert(TABLE_DONS, null, values);
+        db.close();
+
+        return result != -1;
+    }
 
     // Connexion
     public boolean checkUser(String identifier, String password) {

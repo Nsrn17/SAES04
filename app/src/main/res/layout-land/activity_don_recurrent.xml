@@ -108,7 +108,7 @@
             <Spinner
                 android:id="@+id/spinner_association"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginBottom="24dp"
                 android:background="@drawable/champsaisie"
                 android:padding="12dp" />
@@ -178,10 +178,11 @@
                     <EditText
                         android:id="@+id/edit_custom_amount"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:layout_marginBottom="24dp"
                         android:background="@drawable/champsaisie"
                         android:hint="@string/montant_total"
+                        android:textColorHint="@color/black"
                         android:inputType="numberDecimal"
                         android:padding="12dp"
                         android:textSize="16sp" />

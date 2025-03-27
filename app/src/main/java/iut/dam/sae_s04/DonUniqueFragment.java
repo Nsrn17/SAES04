@@ -5,56 +5,80 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.RadioButton;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.widget.AppCompatButton;
 
-import java.util.List;
+
+import iut.dam.sae_s04.database.DatabaseHelper;
 
 public class DonUniqueFragment extends Fragment {
-
-    public DonUniqueFragment() {
-        // Le constructeur par défaut
-    }
+    private DatabaseHelper dbHelper;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Gonfler le layout du fragment
         View rootView = inflater.inflate(R.layout.activity_don_unique, container, false);
         ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
+        dbHelper = new DatabaseHelper(getContext());
 
-        // Initialisation des vues
         RadioGroup radioGroup = rootView.findViewById(R.id.radio_group);
         AppCompatButton btnRecurrent = rootView.findViewById(R.id.btn_recurrent);
+        AppCompatButton btnConfirm = rootView.findViewById(R.id.btn_confirm);
         Spinner spinnerAssociation = rootView.findViewById(R.id.spinner_association);
+        EditText editCustomAmount = rootView.findViewById(R.id.edit_custom_amount);
+        CheckBox checkAnonymous = rootView.findViewById(R.id.check_anonymous);
 
-        // Obtenir les associations
-        AssociationData associationData = AssociationData.getInstance();
-        List<Association> associations = associationData.getAssociations();
-
-        // Adapter pour le spinner
-        ArrayAdapter<Association> adapter = new ArrayAdapter<>(getContext(),
-                android.R.layout.simple_spinner_item, associations);
+        ArrayAdapter<Association> adapter = new ArrayAdapter<>(requireContext(),
+                android.R.layout.simple_spinner_item, AssociationData.getInstance().getAssociations());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerAssociation.setAdapter(adapter);
 
-        // Listener pour le groupe de radio boutons
-        radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
-            RadioButton selectedRadioButton = rootView.findViewById(checkedId);
-            String selectedAmount = selectedRadioButton.getText().toString();
-        });
-
-        // Listener pour le bouton de don récurrent
         btnRecurrent.setOnClickListener(v -> {
-            getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new DonRecurrentFragment())  // Remplacer par le fragment d'inscription
-                    .addToBackStack(null)  // Ajouter à la pile arrière
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new DonRecurrentFragment())
+                    .addToBackStack(null)
                     .commit();
         });
 
-        return rootView;  // Retourner la vue gonflée
+
+        btnConfirm.setOnClickListener(v -> {
+            String association = spinnerAssociation.getSelectedItem().toString();
+            double montant = getSelectedAmount(radioGroup, editCustomAmount);
+            boolean anonyme = checkAnonymous.isChecked();
+
+            int userId = 1;
+
+            boolean success = dbHelper.enregistrerDon(
+                    userId,
+                    association,
+                    montant,
+                    "unique",
+                    anonyme
+            );
+        });
+
+        return rootView;
+    }
+
+    private double getSelectedAmount(RadioGroup radioGroup, EditText customAmount) {
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+
+        if (selectedId == R.id.radio_5) return 5.0;
+        if (selectedId == R.id.radio_10) return 10.0;
+        if (selectedId == R.id.radio_20) return 20.0;
+
+        try {
+            String amountText = customAmount.getText().toString();
+            if (!amountText.isEmpty()) {
+                return Double.parseDouble(amountText);
+            }
+        } catch (NumberFormatException e) {
+            return 0.0;
+        }
+        return 0.0;
     }
 }
