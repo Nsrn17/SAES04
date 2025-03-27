@@ -59,6 +59,7 @@ public class ExplorerFragment extends Fragment {
             String selectedTitle = filteredList.get(position);
             Association selectedAssociation = null;
 
+            // Recherche de l'association correspondante
             for (Association association : AssociationData.getInstance().getAssociations()) {
                 if (association.getTitle().equals(selectedTitle)) {
                     selectedAssociation = association;
@@ -67,22 +68,17 @@ public class ExplorerFragment extends Fragment {
             }
 
             if (selectedAssociation != null) {
-                // Créer une instance du fragment AssosFragment
-                AssosFragment assosFragment = AssosFragment.newInstance(
-                        selectedAssociation.getTitle(),
-                        selectedAssociation.getLogoResId(),
-                        selectedAssociation.getDescription()
-                );
+                // Créer une instance de la liste complète d'associations
+                ArrayList<Association> associationsList = new ArrayList<>(AssociationData.getInstance().getAssociations());
 
-                // Remplacer le fragment actuel par AssosFragment
-                requireActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.main, new AssosFragment()) // Remplacer avec l'ID du conteneur de fragments
-                        .addToBackStack(null) // Permet de revenir en arrière
-                        .commit();
-//            } else {
-                Log.e("ExplorerActivity", "Association introuvable !");
+                // Appel de la méthode openDetailFragment avec la nouvelle signature
+                NavigationUtils.openDetailFragment(requireActivity(), selectedAssociation, associationsList, position);
+            } else {
+                Log.e("ExplorerFragment", "Association introuvable !");
             }
         });
+
+
 
 
 
@@ -95,7 +91,10 @@ public class ExplorerFragment extends Fragment {
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(200, 200);
             params.setMargins(8, 0, 8, 0);
             logo.setLayoutParams(params);
-            logo.setOnClickListener(v -> NavigationUtils.openDetailFragment(getActivity(), assoc));
+            ArrayList<Association> associationsList = new ArrayList<>(AssociationData.getInstance().getAssociations());
+            int position = associations.indexOf(assoc);
+            logo.setOnClickListener(v -> NavigationUtils.openDetailFragment(getActivity(), assoc, associationsList, position));
+
 
             switch (assoc.getCat().toLowerCase()) {
                 case "santé":

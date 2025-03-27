@@ -26,6 +26,7 @@ public class AccueilFragment extends Fragment {
     private List<String> dataList; // Liste complète des données
     private List<String> filteredList; // Liste temporaire après filtrage
     private CustomAdapter adapter;
+    private CarouselAdapter cadapter;
     private int currentPage = 0;
     private static final int DELAY_MS = 2000;
 
@@ -38,7 +39,7 @@ public class AccueilFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.activity_accueil, container, false);
         ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
 
-        // Référence aux vues dans le fragment
+
        //Debut cariusel
         ViewPager2 viewPager = rootView.findViewById(R.id.viewPager);
 
@@ -55,10 +56,10 @@ public class AccueilFragment extends Fragment {
                 "https://www.france-assos-sante.org/communique_presse/comite-interministeriel-metiers-interdits-les-associations-de-patients-claquent-la-porte/",
                 "https://www.france-assos-sante.org/communique_presse/une-loi-trans-partisane-pour-interdire-la-promotion-de-lalcool-aupres-des-jeunes-france-assos-sante-signe/"
         );
-        CarouselAdapter adapter = new CarouselAdapter(requireContext(), images, urls);
-        viewPager.setAdapter(adapter);
+      cadapter = new CarouselAdapter(requireContext(), images, urls);
+        viewPager.setAdapter(cadapter);
         Handler handler = new Handler(Looper.getMainLooper());
-       Runnable runnable = new Runnable() {
+        Runnable runnable = new Runnable() {
             @Override
             public void run() {
                 if (currentPage == images.size()) {
@@ -75,6 +76,8 @@ public class AccueilFragment extends Fragment {
         searchInput = rootView.findViewById(R.id.search_input);
         searchResults = rootView.findViewById(R.id.search_results);
 
+
+
         // Liste d'associations à utiliser pour le filtrage
         List<Association> associations = AssociationData.getInstance().getAssociations();
         dataList = new ArrayList<>();
@@ -83,21 +86,29 @@ public class AccueilFragment extends Fragment {
         }
 
         filteredList = new ArrayList<>(dataList);
-
-
+        adapter = new CustomAdapter(getContext(), filteredList);
+        searchResults.setAdapter(adapter);
+// Quand un élément est sélectionné dans la recherche
         searchResults.setOnItemClickListener((parent, view, position, id) -> {
             String selectedTitle = filteredList.get(position);
             Association selectedAssociation = null;
+
+            // Recherche de l'association correspondante
             for (Association association : AssociationData.getInstance().getAssociations()) {
                 if (association.getTitle().equals(selectedTitle)) {
                     selectedAssociation = association;
                     break;
                 }
             }
+
+            // Si l'association est trouvée, on passe à l'étape suivante
             if (selectedAssociation != null) {
-                NavigationUtils.openDetailFragment(getActivity(), selectedAssociation);
+                // On passe la liste d'associations et la position à la méthode openDetailFragment
+                ArrayList<Association> associationsList = new ArrayList<>(AssociationData.getInstance().getAssociations());
+                NavigationUtils.openDetailFragment(requireActivity(), selectedAssociation, associationsList, position);
             }
         });
+
 
         setupSearch();
 

@@ -1,6 +1,11 @@
 package iut.dam.sae_s04;
 
-public class Association {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+public class Association implements Parcelable {
     private String title;
     private String description;
     private int logoResId; // ID de l'image drawable
@@ -27,4 +32,37 @@ public class Association {
     public String toString() {
         return title;
     }
+    protected Association(Parcel in) {
+        title = in.readString();
+        logoResId = in.readInt();
+        description = in.readString();
+        cat = in.readString();
+    }
+
+    public static final Creator<Association> CREATOR = new Creator<Association>() {
+        @Override
+        public Association createFromParcel(Parcel in) {
+            return new Association(in);
+        }
+
+        @Override
+        public Association[] newArray(int size) {
+            return new Association[size];
+        }
+    };
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeString(title);
+        dest.writeInt(logoResId);
+        dest.writeString(description);
+        dest.writeString(cat);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+
 }
