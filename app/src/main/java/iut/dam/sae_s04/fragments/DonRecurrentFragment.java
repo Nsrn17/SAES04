@@ -92,13 +92,22 @@ public class DonRecurrentFragment extends Fragment {
 
             int userId = anonyme ? -1 : currentUser.getId();
 
-            Intent intent = new Intent(getActivity(), InfosBancairesActivity.class);
-            intent.putExtra("association", association);
-            intent.putExtra("montant", montant);
-            intent.putExtra("type", "recurrent_" + frequence);
-            intent.putExtra("anonyme", anonyme);
-            intent.putExtra("userId", userId);
-            startActivity(intent);
+            InfosBancairesFragment infosBancairesFragment = new InfosBancairesFragment();
+            Bundle args = new Bundle();
+            args.putString("association", association);
+            args.putDouble("montant", montant);
+            args.putString("type", "recurrent_" + frequence);
+            args.putBoolean("anonyme", anonyme);
+            args.putInt("userId", userId);
+            infosBancairesFragment.setArguments(args);
+
+            args.putString("fragmentOrigine", "DonRecurrentFragment");
+
+
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, infosBancairesFragment)
+                    .addToBackStack(null)
+                    .commit();
         });
 
         return rootView;
