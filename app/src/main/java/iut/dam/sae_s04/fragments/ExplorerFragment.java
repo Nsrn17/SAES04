@@ -1,4 +1,4 @@
-package iut.dam.sae_s04;
+package iut.dam.sae_s04.fragments;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -11,11 +11,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-
 import androidx.fragment.app.Fragment;
-
 import java.util.ArrayList;
 import java.util.List;
+import iut.dam.sae_s04.models.Association;
+import iut.dam.sae_s04.models.AssociationData;
+import iut.dam.sae_s04.adapters.CustomAdapter;
+import iut.dam.sae_s04.utils.NavigationUtils;
+import iut.dam.sae_s04.R;
+import iut.dam.sae_s04.activities.MainActivity;
 
 public class ExplorerFragment extends Fragment {
 
@@ -77,10 +81,6 @@ public class ExplorerFragment extends Fragment {
                 Log.e("ExplorerFragment", "Association introuvable !");
             }
         });
-
-
-
-
 
         setupSearch();
 

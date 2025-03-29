@@ -1,4 +1,4 @@
-package iut.dam.sae_s04;
+package iut.dam.sae_s04.fragments;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import iut.dam.sae_s04.R;
+import iut.dam.sae_s04.activities.MainActivity;
 import iut.dam.sae_s04.database.DatabaseHelper;
 
 public class RegisterFragment extends Fragment {

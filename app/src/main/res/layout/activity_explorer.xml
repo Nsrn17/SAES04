@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_above="@id/bottom_navigation"
-    tools:context=".ExplorerFragment">
+    tools:context=".fragments.ExplorerFragment">
 
 
     <ScrollView

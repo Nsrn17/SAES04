@@ -1,4 +1,4 @@
-package iut.dam.sae_s04;
+package iut.dam.sae_s04.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;

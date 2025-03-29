@@ -1,4 +1,4 @@
-package iut.dam.sae_s04;
+package iut.dam.sae_s04.utils;
 
 
 
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -15,6 +16,12 @@ import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.HashMap;
+
+import iut.dam.sae_s04.fragments.AccueilFragment;
+import iut.dam.sae_s04.fragments.DonUniqueFragment;
+import iut.dam.sae_s04.fragments.ExplorerFragment;
+import iut.dam.sae_s04.fragments.LoginFragment;
+import iut.dam.sae_s04.R;
 
 public class BaseActivity extends AppCompatActivity {
     private final HashMap<TextView, Float> originalTextSizes = new HashMap<>(); // Stocke les tailles de base
@@ -29,34 +36,35 @@ public class BaseActivity extends AppCompatActivity {
     public void setupBottomNavigation() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        if (bottomNavigationView != null) {
-            bottomNavigationView.setOnItemSelectedListener(item -> {
+        bottomNavigationView.setOnItemSelectedListener(item -> {
 
-                int itemId = item.getItemId();
+            int itemId = item.getItemId();
+            Fragment selectedFragment = null;
 
-                if (itemId == R.id.navigation_home ) {
-                    navigateToActivity(AccueilFragment.class);
-                    return true;
-                } else if (itemId == R.id.navigation_explore ) {
-                    navigateToActivity(ExplorerFragment.class);
-                    return true;
-                } else if (itemId == R.id.navigation_add ) {
-                    navigateToActivity(DonUniqueFragment.class);
-                    return true;
-                } else if (itemId == R.id.navigation_profile ) {
-                    navigateToActivity(LoginFragment.class);
-                    return true;
-                }
+            if (itemId == R.id.navigation_home ) {
+                selectedFragment = new AccueilFragment();
+            } else if (itemId == R.id.navigation_explore ) {
+                selectedFragment = new ExplorerFragment();
+            } else if (itemId == R.id.navigation_add ) {
+                selectedFragment = new DonUniqueFragment();
+            } else if (itemId == R.id.navigation_profile ) {
+                selectedFragment = new LoginFragment();
+            }
 
-                return false;
-            });
-        }
+            if(selectedFragment != null){
+                navigateToFragment(selectedFragment);
+                return true;
+            }
+
+            return false;
+        });
     }
 
-    public void navigateToActivity(final Class<?> destination) {
-        Intent intent = new Intent(this, destination);
-        startActivity(intent);
-        finish();
+    public void navigateToFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container, fragment)
+                .commit();
     }
 
 

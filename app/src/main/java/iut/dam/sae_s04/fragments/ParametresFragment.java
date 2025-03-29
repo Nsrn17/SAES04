@@ -1,4 +1,4 @@
-package iut.dam.sae_s04;
+package iut.dam.sae_s04.fragments;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -13,10 +13,10 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
-
 import androidx.fragment.app.Fragment;
-
 import java.util.HashMap;
+import iut.dam.sae_s04.R;
+import iut.dam.sae_s04.activities.MainActivity;
 
 public class ParametresFragment extends Fragment {
     private Spinner spinnerDaltonien;

@@ -186,13 +186,13 @@
                     android:layout_gravity="center_vertical"/>
             </LinearLayout>
 
-            <TextView
+            <!--<TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:hint="@string/enregistrerinfos"
                 android:textColorHint="@color/black"
-                android:textSize="16sp" />
+                android:textSize="16sp"-->
 
             <LinearLayout
                 android:layout_width="match_parent"

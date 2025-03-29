@@ -1,25 +1,26 @@
-package iut.dam.sae_s04;
+package iut.dam.sae_s04.fragments;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.widget.ViewPager2;
-
-import java.util.Arrays;
 import java.util.List;
+import iut.dam.sae_s04.models.Association;
+import iut.dam.sae_s04.models.AssociationData;
+import iut.dam.sae_s04.adapters.ProgressAdapter;
+import iut.dam.sae_s04.R;
+import iut.dam.sae_s04.activities.MainActivity;
 
 public class AssosFragment extends Fragment {
+
     private ProgressAdapter padapter;
+
     public AssosFragment() {
         // Le constructeur par défaut
     }
@@ -43,7 +44,7 @@ public class AssosFragment extends Fragment {
         TextView titleView = rootView.findViewById(R.id.association_title);
         TextView descriptionView = rootView.findViewById(R.id.association_description);
 
-//        // Récupérer les données envoyées par le Bundle
+        // Récupérer les données envoyées par le Bundle
         Bundle args = getArguments();
         if (args != null) {
             String title = args.getString("association_name", "Nom inconnu");

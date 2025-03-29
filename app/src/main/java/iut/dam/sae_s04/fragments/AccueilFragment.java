@@ -1,4 +1,4 @@
-package iut.dam.sae_s04;
+package iut.dam.sae_s04.fragments;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,6 +16,13 @@ import androidx.viewpager2.widget.ViewPager2;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import iut.dam.sae_s04.models.Association;
+import iut.dam.sae_s04.models.AssociationData;
+import iut.dam.sae_s04.adapters.CarouselAdapter;
+import iut.dam.sae_s04.adapters.CustomAdapter;
+import iut.dam.sae_s04.utils.NavigationUtils;
+import iut.dam.sae_s04.R;
+import iut.dam.sae_s04.activities.MainActivity;
 
 public class AccueilFragment extends Fragment {
 
@@ -30,7 +37,6 @@ public class AccueilFragment extends Fragment {
     private int currentPage = 0;
     private static final int DELAY_MS = 2000;
 
-    // Le constructeur par défaut
     public AccueilFragment() { }
 
     @Override
@@ -39,8 +45,7 @@ public class AccueilFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.activity_accueil, container, false);
         ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
 
-
-       //Debut cariusel
+       //Debut carrousel
         ViewPager2 viewPager = rootView.findViewById(R.id.viewPager);
 
         List<Integer> images = Arrays.asList(
@@ -75,7 +80,6 @@ public class AccueilFragment extends Fragment {
         ///fincarousel
         searchInput = rootView.findViewById(R.id.search_input);
         searchResults = rootView.findViewById(R.id.search_results);
-
 
 
         // Liste d'associations à utiliser pour le filtrage

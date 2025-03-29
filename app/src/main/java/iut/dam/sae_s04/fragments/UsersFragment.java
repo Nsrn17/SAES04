@@ -1,4 +1,4 @@
-package iut.dam.sae_s04;
+package iut.dam.sae_s04.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,12 +9,16 @@ import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
+import iut.dam.sae_s04.R;
+import iut.dam.sae_s04.models.User;
+import iut.dam.sae_s04.activities.MainActivity;
 import iut.dam.sae_s04.database.DatabaseHelper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class UsersFragment extends Fragment {
+
     private ListView usersListView;
     private DatabaseHelper dbHelper;
 
@@ -33,7 +37,7 @@ public class UsersFragment extends Fragment {
         // Convertir en liste de String (juste pour l'affichage)
         List<String> userNames = new ArrayList<>();
         for (User user : userList) {
-            userNames.add(user.getFullName() + " (" + user.getEmail() + ")");
+            userNames.add(user.getName() + " (" + user.getEmail() + ")");
         }
 
         // Adapter pour afficher la liste
@@ -43,29 +47,4 @@ public class UsersFragment extends Fragment {
 
         return rootView;
     }
-
-
-//    private void loadUsers() {
-//        SQLiteDatabase db = dbHelper.getReadableDatabase();
-//        Cursor cursor = db.rawQuery("SELECT * FROM " + DatabaseHelper.getTableUsers(), null);
-//
-//        userList.clear();
-//        if (cursor.moveToFirst()) {
-//            do {
-//                int emailIndex = cursor.getColumnIndex(DatabaseHelper.getColumnEmail());
-//                int usernameIndex = cursor.getColumnIndex(DatabaseHelper.getColumnUsername());
-//                int fullNameIndex = cursor.getColumnIndex(DatabaseHelper.getColumnName());
-//
-//                String email = (emailIndex != -1) ? cursor.getString(emailIndex) : "N/A";
-//                String username = (usernameIndex != -1) ? cursor.getString(usernameIndex) : "N/A";
-//                String fullName = (fullNameIndex != -1) ? cursor.getString(fullNameIndex) : "N/A";
-//
-//                userList.add("Nom : " + fullName + "\nEmail : " + email + "\nUsername : " + username);
-//            } while (cursor.moveToNext());
-//        }
-//        cursor.close();
-//        db.close();
-//
-//        adapter.notifyDataSetChanged(); // Met à jour la liste
-//    }
 }
