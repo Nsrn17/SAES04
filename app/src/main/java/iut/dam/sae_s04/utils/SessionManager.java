@@ -29,12 +29,11 @@ public class SessionManager {
         editor.putString(KEY_USER_ASSOCIATION, admin.getAssociation());
         editor.apply();
     }
-
     public static boolean isLoggedIn(Context context) {
-        SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        return prefs.contains(KEY_USER_ID);
+        return getCurrentUser(context, new DatabaseHelper(context)) != null ||
+                getCurrentAdmin(context, new DatabaseHelper(context)) != null;
     }
-
+    
     public static String getUserType(Context context) {
         SharedPreferences prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         return prefs.getString(KEY_USER_TYPE, null);

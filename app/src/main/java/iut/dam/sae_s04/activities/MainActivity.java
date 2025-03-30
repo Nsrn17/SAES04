@@ -1,10 +1,10 @@
 package iut.dam.sae_s04.activities;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,14 +16,16 @@ import java.util.HashMap;
 
 import iut.dam.sae_s04.R;
 import iut.dam.sae_s04.fragments.AccueilFragment;
+import iut.dam.sae_s04.fragments.AdminProfileFragment;
 import iut.dam.sae_s04.fragments.DonUniqueFragment;
 import iut.dam.sae_s04.fragments.ExplorerFragment;
 import iut.dam.sae_s04.fragments.LoginFragment;
 import iut.dam.sae_s04.fragments.ParametresFragment;
-import iut.dam.sae_s04.fragments.RegisterFragment;
+import iut.dam.sae_s04.fragments.ProfileFragment;
 import iut.dam.sae_s04.fragments.ResumeFragment;
 import iut.dam.sae_s04.models.Admin;
 import iut.dam.sae_s04.models.User;
+import iut.dam.sae_s04.utils.SessionManager;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -79,9 +81,11 @@ public class MainActivity extends AppCompatActivity {
                 selectedFragment = new DonUniqueFragment();
             } else if (item.getItemId() == R.id.navigation_profile) {
                 if (currentAdmin != null) {
-                    selectedFragment = new ResumeFragment();
+                    selectedFragment = new AdminProfileFragment(); // ← redirection vers page profil admin
+                } else if (currentUser != null) {
+                    selectedFragment = new ProfileFragment(); // ← redirection vers page profil utilisateur
                 } else {
-                    selectedFragment = new LoginFragment();
+                    selectedFragment = new LoginFragment(); // ← si pas connecté
                 }
             } else if (item.getItemId() == R.id.settings) {
                 selectedFragment = new ParametresFragment();
@@ -96,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
     }
+
 
     public void setCurrentAdmin(Admin admin) {
         this.currentAdmin = admin;

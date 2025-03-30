@@ -56,8 +56,20 @@ public class RegisterFragment extends Fragment {
                 boolean success = dbHelper.registerUser(email, username, name, password);
                 if (success) {
                     Toast.makeText(getContext(), "Inscription réussie", Toast.LENGTH_SHORT).show();
-                    Log.d("RegisterFragment", "Inscription réussie !");
-                    // Fin du fragment ou redirection possible, selon ton flux
+
+                    // Prépare les données à envoyer
+                    Bundle bundle = new Bundle();
+                    bundle.putString("email", email);  // ou "username", selon ce que tu préfères
+
+                    LoginFragment loginFragment = new LoginFragment();
+                    loginFragment.setArguments(bundle);
+
+                    // Affiche le LoginFragment avec les données
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.container, loginFragment)
+                            .addToBackStack(null)
+                            .commit();
+
                 } else {
                     Toast.makeText(getContext(), "Échec de l'inscription", Toast.LENGTH_SHORT).show();
                 }
@@ -65,6 +77,7 @@ public class RegisterFragment extends Fragment {
                 Toast.makeText(getContext(), "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
             }
         });
+
 
         return rootView;  // Retourner la vue gonflée
     }

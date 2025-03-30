@@ -1,11 +1,13 @@
 package iut.dam.sae_s04.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -28,12 +30,28 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.activity_login, container, false);
+        ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
+
 
         idInput = rootView.findViewById(R.id.et_id_login);
+        idInput.requestFocus();
+        idInput.post(() -> {
+            idInput.requestFocus();
+            InputMethodManager imm = (InputMethodManager) requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(idInput, InputMethodManager.SHOW_IMPLICIT);
+        });
         passwordInput = rootView.findViewById(R.id.et_password_login);
         loginButton = rootView.findViewById(R.id.btn_login);
         Showadherent = rootView.findViewById(R.id.btn_view_users);
         dbHelper = new DatabaseHelper(getActivity());
+
+        Bundle args = getArguments();
+        if (args != null) {
+            String email = args.getString("email");
+            if (email != null) {
+                idInput.setText(email);
+            }
+        }
 
         loginButton.setOnClickListener(v -> {
             String identifier = idInput.getText().toString().trim();
@@ -50,7 +68,7 @@ public class LoginFragment extends Fragment {
                 // Affiche immédiatement le fragment Resume après connexion
                 MainActivity.getInstance().getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.container, new ResumeFragment())
+                        .replace(R.id.container, new AdminProfileFragment())
                         .commit();
 
                 return;

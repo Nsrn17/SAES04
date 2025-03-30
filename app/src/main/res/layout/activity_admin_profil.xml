@@ -29,106 +29,99 @@
                 android:layout_marginBottom="20dp" />
 
 
-            <EditText
-                android:id="@+id/et_id_register"
+            <TextView
+                android:id="@+id/admin_profil_email"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/edittext_background"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/textview_background"
                 android:fontFamily="sans-serif-medium"
-                android:hint="@string/hint_id"
-                android:inputType="textEmailAddress"
+                android:hint="@string/profil_mail"
                 android:padding="12dp"
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
 
-            <EditText
-                android:id="@+id/et_password_register"
+            <TextView
+                android:id="@+id/admin_profil_name"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/edittext_background"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/textview_background"
                 android:fontFamily="sans-serif-medium"
-                android:hint="@string/hint_password"
-                android:inputType="textPassword"
+                android:hint="@string/profil_nom"
                 android:padding="12dp"
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
 
-            <EditText
-                android:id="@+id/et_name_register"
+            <TextView
+                android:id="@+id/admin_profil_username"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/edittext_background"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/textview_background"
                 android:fontFamily="sans-serif-medium"
-                android:hint="@string/tv_full_name"
-                android:inputType="textPersonName"
+                android:hint="@string/profil_username"
                 android:padding="12dp"
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
 
-            <EditText
-                android:id="@+id/et_username_register"
+            <TextView
+                android:id="@+id/admin_profil_asso"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_marginBottom="20dp"
-                android:background="@drawable/edittext_background"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/textview_background"
                 android:fontFamily="sans-serif-medium"
-                android:hint="@string/tv_username"
-                android:inputType="textPersonName"
+                android:hint="@string/admin_profil_asso"
                 android:padding="12dp"
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:id="@+id/admin_cadenas"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/cadenas"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:adjustViewBounds="true"
+                    android:layout_marginBottom="20dp" />
+
+                <TextView
+                    android:id="@+id/text_resume_dons"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:text="@string/admin_acces_resume"
+                    android:textColor="@color/darkblue"
+                    android:textSize="16sp"
+                    android:textStyle="bold" /> <!-- ou autre drawable stylisé -->
+
+            </LinearLayout>
 
             <Button
-                android:id="@+id/btn_signup"
+                android:id="@+id/btn_deconnexion"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="?attr/colorPrimary"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:padding="12dp"
-                android:text="@string/btn_signup"
+                android:text="@string/btn_deconnexion"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginBottom="12dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tv_have_account"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tv_have_account"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp" />
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <Button
-                    android:id="@+id/btn_page_login"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:text="@string/btn_login"
-                    android:textColor="?attr/colorPrimary"
-                    android:textStyle="bold"
-                    android:textSize="14sp"
-                    android:background="@android:color/transparent"
-                    android:padding="5dp"
-                    android:minHeight="0dp"
-                    android:minWidth="0dp" />
-            </LinearLayout>
 
 
         </LinearLayout>

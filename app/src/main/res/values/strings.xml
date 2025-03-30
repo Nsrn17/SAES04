@@ -10,7 +10,7 @@
     <string name="dons_par_ann_e">DONS PAR ANNÉE</string>
     <string name="fr_quence">Fréquence</string>
     <string name="dons_r_currents">DONS RÉCURRENTS</string>
-    <string name="hint_id">Adresse e-mail, nom d\'utilisateur ou numéro de tél.</string>
+    <string name="hint_id">Adresse e-mail ou nom d\'utilisateur</string>
     <string name="hint_id_register">Adresse e-mail ou numéro de tél.</string>
     <string name="hint_password">Mot de passe</string>
     <string name="tv_full_name">Nom complet</string>
@@ -78,4 +78,10 @@
     <string name="vousvoulez" translatable="false">Vous voulez faire un don mas vous ne savez pas
 a quelle association ? Chercher un mot clé dans la barre de recherche ou consultez les associations par themes</string>
     <string name="motcle" translatable="false">Rechercher unmot cle</string>
+    <string name="profil_mail">Votre mail :</string>
+    <string name="profil_nom">Votre nom :</string>
+    <string name="profil_username">Votre nom d\'utilisateur :</string>
+    <string name="btn_deconnexion">DÉCONNEXION</string>
+    <string name="admin_acces_resume">ACCÈS ADMIN : RÉSUMÉ DES DONS</string>
+    <string name="admin_profil_asso">Votre association :</string>
 </resources>
