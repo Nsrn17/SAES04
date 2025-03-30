@@ -13,10 +13,13 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
 import java.util.HashMap;
 import iut.dam.sae_s04.R;
 import iut.dam.sae_s04.activities.MainActivity;
+import iut.dam.sae_s04.database.DatabaseHelper;
 
 public class ParametresFragment extends Fragment {
     private Spinner spinnerDaltonien;
@@ -72,6 +75,13 @@ public class ParametresFragment extends Fragment {
             Intent intent = requireActivity().getIntent();
             requireActivity().finish();
             requireActivity().startActivity(intent);
+        });
+
+        Button btnResetAdmins = rootView.findViewById(R.id.btn_reset_admins);
+        btnResetAdmins.setOnClickListener(v -> {
+            DatabaseHelper dbHelper = new DatabaseHelper(getContext());
+            dbHelper.resetAdmins();
+            Toast.makeText(getContext(), "Admins réinitialisés", Toast.LENGTH_SHORT).show();
         });
 
 

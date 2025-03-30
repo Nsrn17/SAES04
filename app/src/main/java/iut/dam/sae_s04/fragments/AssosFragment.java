@@ -8,8 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 import iut.dam.sae_s04.models.Association;
 import iut.dam.sae_s04.models.AssociationData;
@@ -56,10 +55,10 @@ public class AssosFragment extends Fragment {
             imageView.setImageResource(logoResId);
             descriptionView.setText(description);
         }
-        //Debut cariusel
-       RecyclerView viewPager = rootView.findViewById(R.id.recycler_progress_bar);
+        //Debut carrousel
+       //RecyclerView viewPager = rootView.findViewById(R.id.recycler_progress_bar);
 
-        viewPager.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)); // Exemple pour un carrousel horizontal
+        //viewPager.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)); // Exemple pour un carrousel horizontal
 
 
         List<Association> associations = AssociationData.getInstance().getAssociations();
@@ -90,7 +89,7 @@ public class AssosFragment extends Fragment {
                     .commit();
         });
 
-        viewPager.setAdapter(padapter);
+        //viewPager.setAdapter(padapter);
         Log.d("Error","cc");
         Log.d("AssosFragment", "Adapter set with size: " + associations.size());
 

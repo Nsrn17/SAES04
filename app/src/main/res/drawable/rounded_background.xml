@@ -4,5 +4,5 @@
 
     <solid android:color="@color/white"/> <!-- Couleur de fond -->
 
-    <corners android:radius="10dp"/> <!-- Rayon des coins -->
+    <corners android:radius="5dp"/> <!-- Rayon des coins -->
 </shape>

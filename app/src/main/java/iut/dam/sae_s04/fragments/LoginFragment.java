@@ -22,7 +22,7 @@ import iut.dam.sae_s04.utils.SessionManager;
 public class LoginFragment extends Fragment {
 
     private EditText idInput, passwordInput;
-    private Button loginButton, Showadherent;
+    private Button loginButton;
     private DatabaseHelper dbHelper;
 
     public LoginFragment() {}
@@ -42,7 +42,6 @@ public class LoginFragment extends Fragment {
         });
         passwordInput = rootView.findViewById(R.id.et_password_login);
         loginButton = rootView.findViewById(R.id.btn_login);
-        Showadherent = rootView.findViewById(R.id.btn_view_users);
         dbHelper = new DatabaseHelper(getActivity());
 
         Bundle args = getArguments();
@@ -81,8 +80,13 @@ public class LoginFragment extends Fragment {
                 User user = dbHelper.getUserByIdentifier(identifier);
                 SessionManager.setCurrentUser(getActivity(), user);
 
-                startActivity(new Intent(getActivity(), MainActivity.class));
-                getActivity().finish();
+
+                // Affiche immédiatement le fragment Resume après connexion
+                MainActivity.getInstance().getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.container, new ProfileFragment())
+                        .commit();
+
                 return;
             }
 
@@ -93,13 +97,6 @@ public class LoginFragment extends Fragment {
         rootView.findViewById(R.id.btn_page_signup).setOnClickListener(v -> {
             getActivity().getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, new RegisterFragment())
-                    .addToBackStack(null)
-                    .commit();
-        });
-
-        Showadherent.setOnClickListener(v -> {
-            getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, new UsersFragment())
                     .addToBackStack(null)
                     .commit();
         });

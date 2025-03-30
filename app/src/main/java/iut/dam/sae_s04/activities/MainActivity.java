@@ -26,6 +26,7 @@ import iut.dam.sae_s04.fragments.ResumeFragment;
 import iut.dam.sae_s04.models.Admin;
 import iut.dam.sae_s04.models.User;
 import iut.dam.sae_s04.utils.SessionManager;
+import iut.dam.sae_s04.database.DatabaseHelper;
 
 public class MainActivity extends AppCompatActivity {
 

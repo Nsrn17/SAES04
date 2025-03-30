@@ -141,6 +141,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Log.d("DB", "Admin ajouté ? " + (result != -1));
     }
 
+    public void resetAdmins() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TABLE_ADMINS);
+        Log.d("DB", "Tous les admins supprimés");
+
+        // Réinsertion d'exemple
+        insertAdmin(db, "Amina Karmenova", "aminakarmen@gmail.com", "aminak", "amina", "Association nationale de défense des malades, invalides et handicapés");
+        insertAdmin(db, "Nesrine Hajjem", "nesrinehajjem@gmail.com", "nesrineh", "nesrine", "Association B");
+        insertAdmin(db, "Alya Ayinde", "alyaayinde@gmail.com", "alyaa", "alya", "Association C");
+
+        db.close();
+    }
+
+
     // Methode pour hacher le mot de passe avec bcrypt
     private String hashPassword(String password) {
         return BCrypt.hashpw(password, BCrypt.gensalt(12)); // On genere un sel avec un facteur de coût de 12

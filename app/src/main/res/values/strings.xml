@@ -75,9 +75,8 @@
         <item> Association 2 </item>
         <item> Association 3 </item>
     </string-array>
-    <string name="vousvoulez" translatable="false">Vous voulez faire un don mas vous ne savez pas
-a quelle association ? Chercher un mot clé dans la barre de recherche ou consultez les associations par themes</string>
-    <string name="motcle" translatable="false">Rechercher unmot cle</string>
+    <string name="vousvoulez" translatable="false">Vous voulez faire un don mais vous ne savez pas à quelle association ? Cherchez un mot clé dans la barre de recherche ou consultez les associations par thèmes.</string>
+    <string name="motcle" translatable="false">Rechercher un mot clé</string>
     <string name="profil_mail">Votre mail :</string>
     <string name="profil_nom">Votre nom :</string>
     <string name="profil_username">Votre nom d\'utilisateur :</string>

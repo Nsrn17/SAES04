@@ -4,6 +4,11 @@
 
     </style>
 
+    <style name="Theme.MySplash.NoSplash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@android:color/white</item>
+    </style>
+
+
     <!--<style name="Theme.SAES04" parent="Base.Theme.SAES04" /> -->
 
     <!-- Mode Normal -->
@@ -41,7 +46,6 @@
         <item name="colorSecondaryVariant">@color/tri_lighterblue</item>
         <item name="colorSecondaryContainer"> @color/tri_violet</item>
     </style>
-
 
 
 

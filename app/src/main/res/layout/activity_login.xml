@@ -116,12 +116,6 @@
                     android:minWidth="0dp" />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/btn_view_users"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Voir les adhérents"
-                android:layout_marginTop="20dp"/>
 
 
         </LinearLayout>

@@ -131,7 +131,7 @@
                         android:id="@+id/title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Parametrre"
+                        android:text="@string/parametres"
                         android:textAlignment="center"
                         android:textSize="18sp"
                         android:textColor="@color/white"/>

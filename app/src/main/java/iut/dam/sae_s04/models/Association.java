@@ -11,6 +11,7 @@ public class Association implements Parcelable {
     private int logoResId; // ID de l'image drawable
     private String cat;
     private String acro;
+
     public Association(String title, int logoResId, String description, String cat,String acro) {
         this.title = title;
         this.description = description;
@@ -32,6 +33,7 @@ public class Association implements Parcelable {
     public String toString() {
         return title;
     }
+
     protected Association(Parcel in) {
         title = in.readString();
         logoResId = in.readInt();

@@ -1,75 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_gravity="center"
-    android:orientation="vertical"
     android:background="@color/white">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_progress_bar"
-        android:layout_width="match_parent"
-        android:layout_height="146dp"
-        android:layout_marginTop="66dp"
-        android:layout_marginBottom="16dp" />
 
     <ScrollView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content">
-    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="10dp"
-        android:layout_marginTop="55dp">
+        android:layout_height="wrap_content">
 
-
-        <ImageView
-            android:id="@+id/association_image"
-            android:layout_width="411dp"
-            android:layout_height="208dp"
-            android:layout_marginTop="10dp" />
-
-        <TextView
-            android:id="@+id/association_title"
-
-            android:layout_width="361dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="56dp"
-            android:background="@drawable/rounded_background"
-            android:backgroundTint="#ECF7F8"
-            android:textColor="@color/black"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
 
+            <ImageView
+                android:id="@+id/association_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp" />
 
+            <TextView
+                android:id="@+id/association_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_background"
+                android:textColor="?attr/colorPrimaryVariant"
+                android:textSize="25sp"
+                android:fontFamily="@font/poppinsmedium"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/association_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:fontFamily="@font/poppinsitalic"
+                android:textSize="16sp" />
 
-                />
+            <Space
+                android:layout_width="95dp"
+                android:layout_height="41dp" />
 
+            <Button
+                android:id="@+id/btn_don"
+                android:layout_width="204dp"
+                android:layout_height="65dp"
+                android:backgroundTint="?attr/colorPrimary"
+                android:text="@string/btn_don"
+                android:fontFamily="@font/poppinsbold"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
 
-        <Space
-            android:layout_width="95dp"
-            android:layout_height="41dp" />
+        </LinearLayout>
+    </ScrollView>
 
-        <Button
-            android:id="@+id/btn_don"
-            android:layout_width="204dp"
-            android:layout_height="65dp"
-            android:backgroundTint="?attr/colorPrimaryVariant"
-            android:text="@string/btn_don"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-    </LinearLayout>
-  </ScrollView>
-
-</FrameLayout>
+</RelativeLayout>
