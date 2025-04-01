@@ -111,6 +111,10 @@ public class MainActivity extends AppCompatActivity {
         return currentAdmin;
     }
 
+    public void setCurrentUser(User user) {
+        this.currentUser = user;
+    }
+
     private void applySavedColors() {
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         int modeDaltonien = prefs.getInt("daltonien_mode", 0);

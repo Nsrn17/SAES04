@@ -79,6 +79,7 @@ public class LoginFragment extends Fragment {
 
                 User user = dbHelper.getUserByIdentifier(identifier);
                 SessionManager.setCurrentUser(getActivity(), user);
+                MainActivity.getInstance().setCurrentUser(user);
 
 
                 // Affiche immédiatement le fragment Resume après connexion
