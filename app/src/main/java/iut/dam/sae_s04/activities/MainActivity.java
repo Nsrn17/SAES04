@@ -110,10 +110,10 @@ public class MainActivity extends AppCompatActivity {
     public Admin getCurrentAdmin() {
         return currentAdmin;
     }
-
     public void setCurrentUser(User user) {
         this.currentUser = user;
     }
+
 
     private void applySavedColors() {
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
