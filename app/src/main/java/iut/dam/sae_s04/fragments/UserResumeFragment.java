@@ -1,6 +1,7 @@
 package iut.dam.sae_s04.fragments;
 
 import android.database.Cursor;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,7 +80,21 @@ public class UserResumeFragment extends Fragment {
                 android.R.layout.simple_list_item_2,
                 new String[]{"line1", "line2"},
                 new int[]{android.R.id.text1, android.R.id.text2}
-        );
+        ) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+
+                Typeface customFont = getResources().getFont(R.font.poppinsmedium);
+
+                TextView text1 = view.findViewById(android.R.id.text1);
+                TextView text2 = view.findViewById(android.R.id.text2);
+                text1.setTypeface(customFont);
+                text2.setTypeface(customFont);
+
+                return view;
+            }
+        };
 
         listDons.setAdapter(adapter);
     }
