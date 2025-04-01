@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name">SAE-S04</string>
+    <string name="r_sum_des_dons">ملخص التبرعات</string>
+    <string name="total_des_dons">المجموع كامل</string>
+    <string name="_500">500 يورو</string>
+    <string name="_6_donations">6 تبرعات</string>
+    <string name="ann_e">السنة</string>
+    <string name="nombre_de_dons">عدد التبرعات</string>
+    <string name="montant_total">المبلغ كامل</string>
+    <string name="dons_par_ann_e">تبرعات في السنة</string>
+    <string name="fr_quence">المرات</string>
+    <string name="dons_r_currents">تبرعات دائمة</string>
+    <string name="hint_id">البريد الإلكتروني أو السمية</string>
+    <string name="hint_id_register">البريد الإلكتروني أو رقم التلفون</string>
+    <string name="hint_password">الكلمة السرية</string>
+    <string name="tv_full_name">السمية كاملة</string>
+    <string name="tv_username">السمية ديال المستخدم</string>
+    <string name="tv_forgot_password">نسيت الكلمة السرية؟</string>
+    <string name="btn_login">دخل</string>
+    <string name="tv_no_account">ما عندكش حساب؟</string>
+    <string name="tv_have_account">عندك حساب؟</string>
+    <string name="btn_signup">سجل</string>
+    <string name="search_input">دور على جمعية...</string>
+    <string name="search_button">دور</string>
+    <string name="btn_don">تبرع</string>
+    <string name="_2024">2024</string>
+    <string name="_4">4</string>
+    <string name="_170_00">170 يورو</string>
+    <string name="_2023">2023</string>
+    <string name="_2">2</string>
+    <string name="_100_00">100 يورو</string>
+    <string name="ann_e_2024">سنة 2024</string>
+    <string name="_4_me_dons">الرابع في التبرعات</string>
+    <string name="_170_euros">170 يورو</string>
+    <string name="ann_e_2023">سنة 2023</string>
+    <string name="_2_eme_dons">التاني في التبرعات</string>
+    <string name="_100_euros">100 يورو</string>
+    <string name="nombre_de_dons_par_ann_e">عدد التبرعات في السنة</string>
+    <string name="montant_total_par_ann_e">المبلغ كامل في السنة</string>
+    <string name="fr_quence_en_2024">المرات في 2024</string>
+    <string name="fr_quence_en_2023">المرات في 2023</string>
+    <string name="nombre_de_dons_r_currents">عدد التبرعات الدائمة</string>
+    <string name="_4_eme_dons_par_ann_ee_en_2024">الرابع في التبرعات في 2024</string>
+    <string name="_170_euros_par_ann_e">170 يورو في السنة</string>
+    <string name="_100_euros_par_ann_e">100 يورو في السنة</string>
+    <string name="calendrier">التقويم</string>
+    <string name="selectionnezmodepaiement">اختر طريقة الدفع</string>
+    <string name="nomtitulaire">سمية صاحب البطاقة</string>
+    <string name="numerocarte">رقم البطاقة</string>
+    <string name="dateexpiration">تاريخ الإنتهاء</string>
+    <string name="ccv">CCV</string>
+    <string name="enregistrerinfos">سجل المعلومات ديالي</string>
+    <string name="annuler">ألغي</string>
+    <string name="suivant">جاي</string>
+    <string name="confirmer">أكد</string>
+    <string name="donunique">مرة وحدة</string>
+    <string name="donrecurrent">دائم</string>
+    <string name="cinqeuros">5 يورو</string>
+    <string name="dixeuros">10 يورو</string>
+    <string name="vingteuros">20 يورو</string>
+    <string name="entrersommeperso">دخل المبلغ اللي بغيتي:</string>
+    <string name="donanonyme">تبرع من غير ما تعرف</string>
+    <string name="realiserdon">عملية التبرع</string>
+    <string name="annuel">كل عام</string>
+    <string name="mensuel">كل شهر</string>
+    <string name="entrezccv">دخل CCV</string>
+    <string name="appliquerparametres">طبق</string>
+    <string name="parametres">الإعدادات</string>
+    <string name="modedaltonien">وضعية عمى الألوان</string>
+    <string name="tailledutexte">تكبير الكتابة</string>
+    <string name="choisirasso">اختر جمعية</string>
+    <string-array name="associations">
+        <item>اختر جمعية</item>
+        <item>الجمعية 1</item>
+        <item>الجمعية 2</item>
+        <item>الجمعية 3</item>
+    </string-array>
+    <string name="vousvoulez" translatable="false">بغيتي تبرع ولكن ما تعرفش لاش جمعية؟ دور على كلمة في البحث أو شوف الجمعيات حسب المواضيع.</string>
+    <string name="motcle" translatable="false">دور على كلمة</string>
+    <string name="profil_mail">البريد الإلكتروني ديالك:</string>
+    <string name="profil_nom">السمية ديالك:</string>
+    <string name="profil_username">السمية ديال المستخدم:</string>
+    <string name="btn_deconnexion">خرج</string>
+    <string name="admin_acces_resume">مدير: ملخص التبرعات</string>
+    <string name="admin_profil_asso">الجمعية ديالك:</string>
+    <string name="btn_partenaires">شوف الشركاء ديالنا</string>
+</resources>
