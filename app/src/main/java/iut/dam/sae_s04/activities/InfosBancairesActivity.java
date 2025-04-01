@@ -1,5 +1,6 @@
 package iut.dam.sae_s04.activities;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -60,6 +61,7 @@ public class InfosBancairesActivity extends AppCompatActivity {
         btnValider.setOnClickListener(v -> processPayment());
     }
 
+    @SuppressLint("DefaultLocale")
     private void setupSpinners() {
         String[] months = new String[12];
         for (int i = 0; i < 12; i++) {

@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name">SAE-S04</string>
+    <string name="r_sum_des_dons">捐款摘要</string>
+    <string name="total_des_dons">捐款总额</string>
+    <string name="_500">500欧元</string>
+    <string name="_6_donations">6笔捐款</string>
+    <string name="ann_e">年</string>
+    <string name="nombre_de_dons">捐款数量</string>
+    <string name="montant_total">总金额</string>
+    <string name="dons_par_ann_e">年度捐款</string>
+    <string name="fr_quence">频率</string>
+    <string name="dons_r_currents">定期捐款</string>
+    <string name="hint_id">电子邮件或用户名</string>
+    <string name="hint_id_register">电子邮件或电话号码</string>
+    <string name="hint_password">密码</string>
+    <string name="tv_full_name">全名</string>
+    <string name="tv_username">用户名</string>
+    <string name="tv_forgot_password">忘记密码？</string>
+    <string name="btn_login">登录</string>
+    <string name="tv_no_account">没有账户？</string>
+    <string name="tv_have_account">已有账户？</string>
+    <string name="btn_signup">注册</string>
+    <string name="search_input">搜索协会...</string>
+    <string name="search_button">搜索</string>
+    <string name="btn_don">捐款</string>
+    <string name="_2024">2024年</string>
+    <string name="_4">4</string>
+    <string name="_170_00">170欧元</string>
+    <string name="_2023">2023年</string>
+    <string name="_2">2</string>
+    <string name="_100_00">100欧元</string>
+    <string name="ann_e_2024">2024年</string>
+    <string name="_4_me_dons">第4次捐款</string>
+    <string name="_170_euros">170欧元</string>
+    <string name="ann_e_2023">2023年</string>
+    <string name="_2_eme_dons">第2次捐款</string>
+    <string name="_100_euros">100欧元</string>
+    <string name="nombre_de_dons_par_ann_e">每年捐款数量</string>
+    <string name="montant_total_par_ann_e">每年总金额</string>
+    <string name="fr_quence_en_2024">2024年频率</string>
+    <string name="fr_quence_en_2023">2023年频率</string>
+    <string name="nombre_de_dons_r_currents">定期捐款数量</string>
+    <string name="_4_eme_dons_par_ann_ee_en_2024">2024年第4次捐款</string>
+    <string name="_170_euros_par_ann_e">每年170欧元</string>
+    <string name="_100_euros_par_ann_e">每年100欧元</string>
+    <string name="calendrier">日历</string>
+    <string name="selectionnezmodepaiement">选择支付方式</string>
+    <string name="nomtitulaire">持卡人姓名</string>
+    <string name="numerocarte">卡号</string>
+    <string name="dateexpiration">有效期</string>
+    <string name="ccv">安全码</string>
+    <string name="enregistrerinfos">保存我的信息</string>
+    <string name="annuler">取消</string>
+    <string name="suivant">下一步</string>
+    <string name="confirmer">确认</string>
+    <string name="donunique">单次</string>
+    <string name="donrecurrent">定期</string>
+    <string name="cinqeuros">5欧元</string>
+    <string name="dixeuros">10欧元</string>
+    <string name="vingteuros">20欧元</string>
+    <string name="entrersommeperso">输入自定义金额：</string>
+    <string name="donanonyme">匿名捐款</string>
+    <string name="realiserdon">进行捐款</string>
+    <string name="annuel">年度</string>
+    <string name="mensuel">月度</string>
+    <string name="entrezccv">输入安全码</string>
+    <string name="appliquerparametres">应用</string>
+    <string name="parametres">设置</string>
+    <string name="modedaltonien">色盲模式</string>
+    <string name="tailledutexte">文字放大</string>
+    <string name="choisirasso">选择协会</string>
+    <string-array name="associations">
+        <item>请选择协会</item>
+        <item>协会1</item>
+        <item>协会2</item>
+        <item>协会3</item>
+    </string-array>
+    <string name="vousvoulez" translatable="false">您想捐款但不知道捐给哪个协会？请在搜索栏输入关键词或按主题浏览协会。</string>
+    <string name="motcle" translatable="false">搜索关键词</string>
+    <string name="profil_mail">您的邮箱：</string>
+    <string name="profil_nom">您的姓名：</string>
+    <string name="profil_username">您的用户名：</string>
+    <string name="btn_deconnexion">退出登录</string>
+    <string name="admin_acces_resume">管理员访问：捐款摘要</string>
+    <string name="admin_profil_asso">您的协会：</string>
+    <string name="btn_partenaires">了解我们的合作伙伴</string>
+</resources>
