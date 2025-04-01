@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import androidx.fragment.app.Fragment;
@@ -61,7 +62,7 @@ public class AccueilFragment extends Fragment {
                 "https://www.france-assos-sante.org/communique_presse/comite-interministeriel-metiers-interdits-les-associations-de-patients-claquent-la-porte/",
                 "https://www.france-assos-sante.org/communique_presse/une-loi-trans-partisane-pour-interdire-la-promotion-de-lalcool-aupres-des-jeunes-france-assos-sante-signe/"
         );
-      cadapter = new CarouselAdapter(requireContext(), images, urls);
+       cadapter = new CarouselAdapter(requireContext(), images, urls);
         viewPager.setAdapter(cadapter);
         Handler handler = new Handler(Looper.getMainLooper());
         Runnable runnable = new Runnable() {
@@ -75,11 +76,19 @@ public class AccueilFragment extends Fragment {
             }
         };
 
+        rootView.findViewById(R.id.btn_partner).setOnClickListener(v -> {
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new ExplorerFragment())
+                    .addToBackStack(null)
+                    .commit();
+        });
+
         // Lancer le défilement automatique
         handler.postDelayed(runnable, DELAY_MS);
         ///fincarousel
         searchInput = rootView.findViewById(R.id.search_input);
         searchResults = rootView.findViewById(R.id.search_results);
+
 
 
         // Liste d'associations à utiliser pour le filtrage
@@ -114,6 +123,7 @@ public class AccueilFragment extends Fragment {
         });
 
 
+
         setupSearch();
 
         return rootView;  // Retourne la vue gonflée
@@ -140,6 +150,7 @@ public class AccueilFragment extends Fragment {
         filteredList.clear();
 
         if (text.isEmpty()) {
+            // Réinitialiser la liste complète
             filteredList.addAll(dataList);
         } else {
             for (String item : dataList) {
@@ -149,9 +160,12 @@ public class AccueilFragment extends Fragment {
             }
         }
 
-        Log.d("FILTER", "Résultats après filtrage : " + filteredList.toString()); // Debug
+        Log.d("FILTER", "Résultats après filtrage : " + filteredList.toString());
 
         adapter.notifyDataSetChanged();
-        searchResults.setVisibility(filteredList.isEmpty() ? View.GONE : View.VISIBLE);
+
+        // Afficher ou masquer les résultats de recherche (mais rien d’autre ne change)
+        searchResults.setVisibility(filteredList.isEmpty() || text.isEmpty() ? View.GONE : View.VISIBLE);
     }
+
 }

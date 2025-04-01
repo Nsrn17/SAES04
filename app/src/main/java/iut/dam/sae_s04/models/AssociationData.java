@@ -24,7 +24,9 @@ public class AssociationData {
                 "Par nos actions, nous recréons des liens leur permettant de retrouver une dynamique de vie.\n" +
                 "\n" +
                 "Par notre voix, nous incitons la société à changer de regard sur la vieillesse, nous témoignons des situations inacceptables que nous rencontrons, nous alertons les pouvoirs publics sur la nécessité d’agir, nous favorisons l’engagement citoyen, nous proposons des réponses nouvelles.","famille" , "PFP"));
-        associations.add(new Association("Association pour le Droit de Mourir dans la Dignité ", R.drawable.assodmd, "Depuis 1980, l’Association pour le Droit de Mourir dans la Dignité milite pour que chaque Française et chaque Français puisse choisir les conditions de sa propre fin de vie.\n" + "\n" + "Conformément à ses conceptions personnelles de dignité et de liberté.","santé" , "DMD"));
+        associations.add(new Association("Association pour le Droit de Mourir dans la Dignité", R.drawable.assodmd, "Depuis 1980, l’Association pour le Droit de Mourir dans la Dignité milite pour que chaque Française et chaque Français puisse choisir les conditions de sa propre fin de vie.\n" + "\n" + "Conformément à ses conceptions personnelles de dignité et de liberté.","santé" , "DMD"));
+        associations.add(new Association("Association Familles Rurales", R.drawable.assofr, "Familles Rurales est une association nationale reconnue d’utilité publique qui agit en faveur des familles sur tout le territoire, en milieu rural et périurbain.","famille" , "FR"));
+        associations.add(new Association("Fédération Française Sésame-Autisme", R.drawable.assoffsa, "Créée par des parents d’enfants, adolescents et adultes avec autisme pour créer des conditions de vie meilleures pour ces derniers, quels que soient leur âge et la sévérité de leurs troubles, la Fédération Française Sésame-Autisme comprends un réseau de près de 32 associations, 4.000 salariés et une centaine d’établissements pour personnes avec autisme.","mentale" , "FFSA"));
 
     }
 

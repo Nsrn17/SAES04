@@ -30,10 +30,11 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
                     android:background="@drawable/search_box_background"
                     android:orientation="horizontal"
-                    android:padding="4dp">
+                    android:padding="5dp">
 
                     <EditText
                         android:id="@+id/search_input"
@@ -91,8 +92,9 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/vousvoulez"
+                    android:fontFamily="@font/poppinslight"
                     android:textColor="@color/white"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
             </LinearLayout>

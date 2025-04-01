@@ -28,6 +28,8 @@ public class ExplorerFragment extends Fragment {
     private List<String> dataList; // Liste complète des données
     private List<String> filteredList; // Liste temporaire après filtrage
     private CustomAdapter adapter;
+    private LinearLayout logosSante, logosMentale, logosFamille;
+
 
     public ExplorerFragment() {
         // Le constructeur par défaut
@@ -43,9 +45,9 @@ public class ExplorerFragment extends Fragment {
         searchInput = rootView.findViewById(R.id.search_input);
         searchResults = rootView.findViewById(R.id.search_results);
 
-        LinearLayout logosSante = rootView.findViewById(R.id.logos_sante);
-        LinearLayout logosMentale = rootView.findViewById(R.id.logos_mentale);
-        LinearLayout logosFamille = rootView.findViewById(R.id.logos_famille);
+        logosSante = rootView.findViewById(R.id.logos_sante);
+        logosMentale = rootView.findViewById(R.id.logos_mentale);
+        logosFamille = rootView.findViewById(R.id.logos_famille);
 
         // Liste d'associations à utiliser pour le filtrage
         List<Association> associations = AssociationData.getInstance().getAssociations();
@@ -131,18 +133,35 @@ public class ExplorerFragment extends Fragment {
         filteredList.clear();
 
         if (text.isEmpty()) {
-            filteredList.addAll(dataList);
-        } else {
-            for (String item : dataList) {
-                if (item.toLowerCase().contains(text.toLowerCase())) {
-                    filteredList.add(item);
-                }
+            // Masquer la liste de résultats
+            searchResults.setVisibility(View.GONE);
+
+            // Réafficher les logos
+            logosSante.setVisibility(View.VISIBLE);
+            logosMentale.setVisibility(View.VISIBLE);
+            logosFamille.setVisibility(View.VISIBLE);
+
+            adapter.notifyDataSetChanged();
+            return;
+        }
+
+        // Masquer les logos pendant la recherche
+//        logosSante.setVisibility(View.GONE);
+//        logosMentale.setVisibility(View.GONE);
+//        logosFamille.setVisibility(View.GONE);
+
+        // Sinon, filtrer les résultats
+        for (String item : dataList) {
+            if (item.toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
             }
         }
 
-        Log.d("FILTER", "Résultats après filtrage : " + filteredList.toString()); // Debug
+        Log.d("FILTER", "Résultats après filtrage : " + filteredList.toString());
 
         adapter.notifyDataSetChanged();
         searchResults.setVisibility(filteredList.isEmpty() ? View.GONE : View.VISIBLE);
     }
+
+
 }

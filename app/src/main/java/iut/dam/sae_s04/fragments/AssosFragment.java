@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
@@ -60,7 +61,6 @@ public class AssosFragment extends Fragment {
 
         //viewPager.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)); // Exemple pour un carrousel horizontal
 
-
         List<Association> associations = AssociationData.getInstance().getAssociations();
         int n=0;
         for (Association association : associations) {
@@ -70,6 +70,7 @@ public class AssosFragment extends Fragment {
                 }
 
             }}
+
         padapter = new ProgressAdapter(associations.size(), n, position -> {
             // Affiche la position cliquée
             Log.d("RecyclerView", "Item cliqué à la position : " + position);
@@ -92,6 +93,14 @@ public class AssosFragment extends Fragment {
         //viewPager.setAdapter(padapter);
         Log.d("Error","cc");
         Log.d("AssosFragment", "Adapter set with size: " + associations.size());
+
+        Button btnDon = rootView.findViewById(R.id.btn_don);
+        btnDon.setOnClickListener(v -> {
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new DonUniqueFragment())
+                    .addToBackStack(null)
+                    .commit();
+        });
 
         ///fincarousel
 
