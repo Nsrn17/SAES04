@@ -53,6 +53,16 @@ public class ProfileFragment extends Fragment {
             getActivity().finish();
         });
 
+        Button btnResume = rootView.findViewById(R.id.btn_resume_user);
+
+        btnResume.setOnClickListener(v -> {
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new UserResumeFragment())
+                    .addToBackStack(null)
+                    .commit();
+        });
+
+
         return rootView;
     }
 }
