@@ -347,6 +347,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return null;
     }
 
+    public Cursor getDonsByUserEmail(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT d.montant, d.association FROM dons d " +
+                "JOIN users u ON d.user_id = u.id " +
+                "WHERE u.email = ?";
+        return db.rawQuery(query, new String[]{email});
+    }
+
+    public Cursor getAllDonsByUserId(int userId) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM dons WHERE user_id = ?", new String[]{String.valueOf(userId)});
+    }
+
     public static String getColumnEmail() {
         return COLUMN_EMAIL;
     }
