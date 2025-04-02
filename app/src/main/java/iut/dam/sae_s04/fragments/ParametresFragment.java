@@ -5,6 +5,7 @@ import static android.content.Context.MODE_PRIVATE;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +28,9 @@ public class ParametresFragment extends Fragment {
     private SeekBar seekBarTailleTexte;
     private Button btnAppliquer;
     private ViewGroup rootLayout;
-    private HashMap<TextView, Float> originalTextSizes = new HashMap<>(); // Stocke les tailles originales
+    private HashMap<TextView, Float> originalTextSizes = new HashMap<>();// Stocke les tailles originales
+
+    private Switch switchDyslexie;
 
     public ParametresFragment() {
         // Constructeur vide requis
@@ -38,45 +42,52 @@ public class ParametresFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.activity_parametres, container, false);
         ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
 
+        // Initialisation des vues
         spinnerDaltonien = rootView.findViewById(R.id.spinner_daltonien);
         seekBarTailleTexte = rootView.findViewById(R.id.seekbar_taille_texte);
         btnAppliquer = rootView.findViewById(R.id.btn_appliquer);
         rootLayout = rootView.findViewById(R.id.main); // ID du layout parent
+        switchDyslexie = rootView.findViewById(R.id.sw_status);
+
+        // Charger les préférences enregistrées
+        boolean isDyslexicMode = getSavedDyslexicMode(); // Récupère l'état du switch
+        int savedMode = getSavedMode();
+        float savedTextSizeFactor = getSavedTextSizeFactor();
+
+        // Appliquer les préférences
+        switchDyslexie.setChecked(isDyslexicMode); // Le switch est éteint par défaut (false)
+        spinnerDaltonien.setSelection(savedMode);
+        saveOriginalTextSizes(rootLayout);
+        applyTextSizeFactor(savedTextSizeFactor);
+        seekBarTailleTexte.setProgress((int) savedTextSizeFactor);
 
         // Définir les options du spinner pour les modes daltonien
-        String[] modesDaltoniens = {"Normal", "Protanopie", "Deutéranopie", "Tritanopie"};
+        String[] modesDaltoniens = {"Par Défaut", "Protanopie", "Deutéranopie", "Tritanopie"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, modesDaltoniens);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDaltonien.setAdapter(adapter);
 
-        // Récupérer et appliquer les préférences
-        int savedMode = getSavedMode();
-        float savedTextSizeFactor = getSavedTextSizeFactor();
+        // Écouteur sur le Switch (applique immédiatement sans redémarrer toute l'activité)
+        switchDyslexie.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            saveDyslexicMode(isChecked);
+            requireActivity().recreate();
+            Log.d("e","fonction use");// Redémarre l'activité pour appliquer la police immédiatement
+        });
 
-        spinnerDaltonien.setSelection(savedMode);
-
-        // Sauvegarder les tailles originales des TextView
-        saveOriginalTextSizes(rootLayout);
-
-        // Appliquer la taille de texte en fonction du facteur sauvegardé
-        applyTextSizeFactor(savedTextSizeFactor);
-
-        // Ajuster la SeekBar en fonction du facteur sauvegardé
-        seekBarTailleTexte.setProgress((int) savedTextSizeFactor);
-
-        // Écouteur sur le bouton Appliquer
+        // Écouteur sur le bouton "Appliquer" (seul ce bouton redémarre la page)
         btnAppliquer.setOnClickListener(v -> {
             int selectedMode = spinnerDaltonien.getSelectedItemPosition();
             float textSizeFactor = seekBarTailleTexte.getProgress();
 
             savePreferences(selectedMode, textSizeFactor);
 
-            // Redémarrer MainActivity pour appliquer le changement immédiatement
+            // Redémarrer l'activité pour appliquer tous les changements
             Intent intent = requireActivity().getIntent();
             requireActivity().finish();
             requireActivity().startActivity(intent);
         });
 
+        // Bouton pour réinitialiser les admins
         Button btnResetAdmins = rootView.findViewById(R.id.btn_reset_admins);
         btnResetAdmins.setOnClickListener(v -> {
             DatabaseHelper dbHelper = new DatabaseHelper(getContext());
@@ -84,9 +95,9 @@ public class ParametresFragment extends Fragment {
             Toast.makeText(getContext(), "Admins réinitialisés", Toast.LENGTH_SHORT).show();
         });
 
-
         return rootView;
     }
+
 
     /**
      * Sauvegarde les tailles originales des TextView
@@ -135,4 +146,19 @@ public class ParametresFragment extends Fragment {
         SharedPreferences prefs = requireActivity().getSharedPreferences("AppPrefs", MODE_PRIVATE);
         return prefs.getFloat("text_size_factor", 0);  // Valeur par défaut = 0 (taille normale)
     }
+
+    private void saveDyslexicMode(boolean isEnabled) {
+        SharedPreferences prefs = requireActivity().getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean("dyslexic_mode", isEnabled);
+        editor.apply();
+    }
+
+    private boolean getSavedDyslexicMode() {
+        SharedPreferences prefs = requireActivity().getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        return prefs.getBoolean("dyslexic_mode", false); // false par défaut (éteint)
+    }
+
+
+
 }

@@ -4,8 +4,11 @@ package iut.dam.sae_s04.utils;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import androidx.core.content.res.ResourcesCompat;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -29,7 +32,9 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         applySavedColors();
+
         super.onCreate(savedInstanceState);
+        applyDyslexicFont();
         setupBottomNavigation();
     }
 
@@ -135,6 +140,75 @@ public class BaseActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         return prefs.getFloat("text_size_factor", 0); // 0 = pas de changement
     }
+
+    private void applyDyslexicFont() {
+        SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        boolean isDyslexicMode = prefs.getBoolean("dyslexic_mode", false);
+        Log.d("DYSLEXIE", "Mode dyslexique lu: " + isDyslexicMode);
+
+        if (isDyslexicMode) {
+            Log.d("DYSLEXIE", "Tentative de chargement de la police");
+            Typeface dyslexicFont = ResourcesCompat.getFont(this, Typeface.ITALIC);
+
+            if (dyslexicFont == null) {
+                Log.e("DYSLEXIE", "Échec du chargement de la police");
+                return;
+            }
+
+            Log.d("DYSLEXIE", "Police chargée avec succès");
+            View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
+
+            if (rootView == null) {
+                Log.e("DYSLEXIE", "RootView est null");
+                return;
+            }
+
+            if (rootView instanceof ViewGroup) {
+                Log.d("DYSLEXIE", "Application de la police aux vues");
+                setFontToAllTextViews((ViewGroup) rootView, dyslexicFont);
+            }
+        } else {
+            Log.d("DYSLEXIE", "Mode dyslexique désactivé - aucune action");
+        }
+    }
+//    private void applyDyslexicFont() {
+//        boolean isDyslexicMode = getSavedDyslexicMode();
+//        Log.d("DyslexicMode", "Mode dyslexique: " + isDyslexicMode);
+//
+////        Typeface dyslexicFont = isDyslexicMode
+////                ? ResourcesCompat.getFont(this, R.font.poppinsbold)
+////                : Typeface.DEFAULT;
+//
+//        Typeface dyslexicFont = Typeface.MONOSPACE;
+//        View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
+//        if (rootView instanceof ViewGroup) {
+//            setFontToAllTextViews((ViewGroup) rootView, dyslexicFont);
+//        }
+//    }
+
+
+
+    private void setFontToAllTextViews(ViewGroup parent, Typeface typeface) {
+        if (parent == null || typeface == null) return;
+
+        for (int i = 0; i < parent.getChildCount(); i++) {
+            View child = parent.getChildAt(i);
+            if (child instanceof TextView) {
+                TextView textView = (TextView) child;
+                textView.setTypeface(typeface);
+            } else if (child instanceof ViewGroup) {
+                setFontToAllTextViews((ViewGroup) child, typeface);
+            }
+        }
+    }
+
+
+
+    private boolean getSavedDyslexicMode() {
+        SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        return prefs.getBoolean("dyslexic_mode", false);
+    }
+
 //    public int getSelectedNavItem() {
 //        if (this instanceof AccueilActivity) return R.id.navigation_home;
 //        if (this instanceof ExplorerActivity) return R.id.navigation_explore;

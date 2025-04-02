@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/main"
-    android:background="@android:color/white">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    tools:context=".fragments.ParametresFragment"
+    android:id="@+id/main">
+
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        >
 
         <LinearLayout
+            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -55,10 +61,33 @@
                 android:id="@+id/seekbar_taille_texte"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:max="4"
+                android:max="10"
                 android:progress="2"
                 android:layout_marginBottom="24dp"/>
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Mode Dyslexie"
+                    android:layout_marginStart="10dp"
+                    android:textColorHint="@color/black"
+                    android:textSize="18sp"
+
+                    android:layout_marginBottom="30dp"/>
+
+                <Switch
+                    android:id="@+id/sw_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+            </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_appliquer"
@@ -70,6 +99,14 @@
                 android:background="@drawable/bouton_confirmer"
                 android:padding="16dp"
                 android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/btn_reset_admins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reset Admins"
+                android:layout_marginTop="24dp" />
+
         </LinearLayout>
 
     </ScrollView>

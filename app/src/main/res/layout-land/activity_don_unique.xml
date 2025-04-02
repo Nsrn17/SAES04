@@ -1,21 +1,27 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
-
-    <LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        android:padding="16dp">
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:orientation="vertical"
-            android:layout_marginEnd="16dp">
+            android:background="@color/white"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/user_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                android:layout_marginBottom="16dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -71,23 +77,18 @@
             <Spinner
                 android:id="@+id/spinner_association"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:background="@drawable/champsaisie"
                 android:padding="12dp"
                 android:layout_marginBottom="24dp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
 
             <RadioGroup
                 android:id="@+id/radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:layout_marginStart="100dp"
+                android:layout_marginEnd="100dp"
                 android:layout_marginBottom="24dp">
 
                 <RadioButton
@@ -125,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/entrersommeperso"
                 android:textSize="18sp"
-                android:textColorHint="?attr/colorPrimaryVariant"
+                android:textColorHint="@color/black"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="8dp"
                 android:textStyle="bold"/>
@@ -133,34 +134,14 @@
             <EditText
                 android:id="@+id/edit_custom_amount"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:hint="@string/montant_total"
+                android:textColorHint="@color/black"
                 android:inputType="numberDecimal"
                 android:textSize="16sp"
                 android:padding="12dp"
                 android:background="@drawable/champsaisie"
                 android:layout_marginBottom="24dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="8dp">
-
-                <CheckBox
-                    android:id="@+id/check_save_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="?attr/colorPrimaryVariant"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/enregistrerinfos"
-                    android:textSize="16sp"
-                    android:textColorHint="@color/black"
-                    android:layout_gravity="center_vertical"/>
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -171,7 +152,7 @@
                     android:id="@+id/check_anonymous"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:buttonTint="?attr/colorPrimaryVariant"/>
+                    android:buttonTint="?attr/colorPrimary"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -181,40 +162,43 @@
                     android:textColorHint="@color/black"
                     android:layout_gravity="center_vertical"/>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
+                android:weightSum="2">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/annuler"
+                    android:textSize="16sp"
+                    android:textColorHint="?attr/colorPrimary"
+                    android:background="@drawable/bouton_annuler"
+                    android:padding="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:textAllCaps="false"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_confirm"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/confirmer"
+                    android:textSize="16sp"
+                    android:textColorHint="@android:color/white"
+                    android:background="@drawable/bouton_confirmer"
+                    android:padding="16dp"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
+
+
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="24dp"
-        android:gravity="center">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_cancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/annuler"
-            android:textSize="16sp"
-            android:textColorHint="?attr/colorPrimaryVariant"
-            android:background="@drawable/bouton_annuler"
-            android:padding="16dp"
-            android:layout_marginEnd="8dp"
-            android:textAllCaps="false"/>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_confirm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="@string/confirmer"
-            android:textSize="16sp"
-            android:textColorHint="@android:color/white"
-            android:background="@drawable/bouton_confirmer"
-            android:padding="16dp"
-            android:textAllCaps="false"/>
-    </LinearLayout>
-
-
-</ScrollView>
+</RelativeLayout>
