@@ -6,14 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.util.HashMap;
-
 import iut.dam.sae_s04.R;
 import iut.dam.sae_s04.fragments.AccueilFragment;
 import iut.dam.sae_s04.fragments.AdminProfileFragment;
@@ -47,26 +43,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         applyTextSizeToAllViews();
 
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
+
+        currentUser = SessionManager.getCurrentUser(this, dbHelper);
+        currentAdmin = SessionManager.getCurrentAdmin(this, dbHelper);
+
         setupBottomNavigation();
 
-        if (currentAdmin != null) {
-            MainActivity.getInstance().setCurrentAdmin(currentAdmin);
-
-            // Admin connecté → affiche directement ResumeFragment
-            if (savedInstanceState == null) {
+        if (savedInstanceState == null) {
+            if (currentAdmin != null) {
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, new ResumeFragment())
+                        .replace(R.id.container, new AdminProfileFragment())
                         .commit();
-            }
-        } else {
-            // Affichage AccueilFragment pour un utilisateur classique
-            if (savedInstanceState == null) {
+            } else if (currentUser != null) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, new ProfileFragment())
+                        .commit();
+            } else {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.container, new AccueilFragment())
                         .commit();
             }
         }
     }
+
 
     private void setupBottomNavigation() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);

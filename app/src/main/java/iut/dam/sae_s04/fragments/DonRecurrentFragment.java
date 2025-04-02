@@ -1,6 +1,5 @@
 package iut.dam.sae_s04.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,15 +7,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.widget.AppCompatButton;
 import iut.dam.sae_s04.R;
-import iut.dam.sae_s04.activities.InfosBancairesActivity;
 import iut.dam.sae_s04.activities.MainActivity;
 import iut.dam.sae_s04.database.DatabaseHelper;
 import iut.dam.sae_s04.models.Admin;
@@ -31,7 +27,7 @@ public class DonRecurrentFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_don_recurrent, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_don_recurrent, container, false);
         ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
 
         dbHelper = new DatabaseHelper(getContext());

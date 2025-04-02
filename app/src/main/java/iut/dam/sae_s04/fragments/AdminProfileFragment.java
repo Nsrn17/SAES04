@@ -30,7 +30,7 @@ public class AdminProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_admin_profil, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_admin_profil, container, false);
         ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
 
         // Initialisation des vues
@@ -39,7 +39,7 @@ public class AdminProfileFragment extends Fragment {
         textUsername = rootView.findViewById(R.id.admin_profil_username);
         textAsso = rootView.findViewById(R.id.admin_profil_asso);
         textResume = rootView.findViewById(R.id.text_resume_dons);
-        imageCadenas = rootView.findViewById(R.id.admin_cadenas);
+        //imageCadenas = rootView.findViewById(R.id.admin_cadenas);
         btnDeconnexion = rootView.findViewById(R.id.btn_deconnexion);
 
         // Récupération de l'admin connecté

@@ -2,6 +2,7 @@
  Base application theme.
     <style name="Base.Theme.SAES04" parent="Theme.Material3.DayNight.NoActionBar">
     customize your dark theme here.
+    <!--<item name="colorPrimary">@color/my_dark_primary</item>-->
 
     </style>
 </resources>

@@ -37,7 +37,7 @@ public class AssosFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_assos, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_assos, container, false);
         ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
 
         ImageView imageView = rootView.findViewById(R.id.association_image);

@@ -1,7 +1,6 @@
 package iut.dam.sae_s04.fragments;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.widget.AppCompatButton;
-import iut.dam.sae_s04.activities.InfosBancairesActivity;
+
 import iut.dam.sae_s04.models.Admin;
 import iut.dam.sae_s04.models.Association;
 import iut.dam.sae_s04.models.AssociationData;
@@ -33,7 +32,7 @@ public class DonUniqueFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_don_unique, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_don_unique, container, false);
         ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
 
         dbHelper = new DatabaseHelper(getContext());
