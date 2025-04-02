@@ -1,127 +1,139 @@
 package iut.dam.sae_s04.utils;
 
-
-
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import androidx.core.content.res.ResourcesCompat;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.HashMap;
 
+import iut.dam.sae_s04.R;
 import iut.dam.sae_s04.fragments.AccueilFragment;
 import iut.dam.sae_s04.fragments.DonUniqueFragment;
 import iut.dam.sae_s04.fragments.ExplorerFragment;
 import iut.dam.sae_s04.fragments.LoginFragment;
-import iut.dam.sae_s04.R;
 
 public class BaseActivity extends AppCompatActivity {
-    private final HashMap<TextView, Float> originalTextSizes = new HashMap<>(); // Stocke les tailles de base
+    private final HashMap<TextView, Float> originalTextSizes = new HashMap<>();
+    private final HashMap<TextView, Typeface> originalTypefaces = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Appliquer les couleurs avant super.onCreate()
         applySavedColors();
-
         super.onCreate(savedInstanceState);
-        applyDyslexicFont();
-        setupBottomNavigation();
+
+        // Initialisation des polices et tailles de texte
+        initFontAndTextSize();
     }
 
+    @Override
+    public void setContentView(int layoutResID) {
+        super.setContentView(layoutResID);
+
+        // Configuration après le setContentView
+        setupBottomNavigation();
+        applyCurrentSettings();
+    }
+
+    private void initFontAndTextSize() {
+        View decorView = getWindow().getDecorView();
+        if (decorView instanceof ViewGroup) {
+            saveOriginalSettings((ViewGroup) decorView);
+        }
+    }
+
+    private void saveOriginalSettings(ViewGroup parent) {
+        for (int i = 0; i < parent.getChildCount(); i++) {
+            View child = parent.getChildAt(i);
+
+            if (child instanceof TextView) {
+                TextView textView = (TextView) child;
+                // Sauvegarde taille texte
+                if (!originalTextSizes.containsKey(textView)) {
+                    originalTextSizes.put(textView, textView.getTextSize());
+                }
+                // Sauvegarde police
+                if (!originalTypefaces.containsKey(textView)) {
+                    originalTypefaces.put(textView, textView.getTypeface());
+                }
+            } else if (child instanceof ViewGroup) {
+                saveOriginalSettings((ViewGroup) child);
+            }
+        }
+    }
+
+    private void applyCurrentSettings() {
+        applyTextSizeToAllViews();
+        applyDyslexicFont();
+    }
+
+    // Gestion de la navigation
     public void setupBottomNavigation() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        if (bottomNavigationView == null) return;
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
-
-            int itemId = item.getItemId();
             Fragment selectedFragment = null;
+            int itemId = item.getItemId();
 
-            if (itemId == R.id.navigation_home ) {
+            if (itemId == R.id.navigation_home) {
                 selectedFragment = new AccueilFragment();
-            } else if (itemId == R.id.navigation_explore ) {
+            } else if (itemId == R.id.navigation_explore) {
                 selectedFragment = new ExplorerFragment();
-            } else if (itemId == R.id.navigation_add ) {
+            } else if (itemId == R.id.navigation_add) {
                 selectedFragment = new DonUniqueFragment();
-            } else if (itemId == R.id.navigation_profile ) {
+            } else if (itemId == R.id.navigation_profile) {
                 selectedFragment = new LoginFragment();
             }
 
-            if(selectedFragment != null){
+            if (selectedFragment != null) {
                 navigateToFragment(selectedFragment);
                 return true;
             }
-
             return false;
         });
     }
 
-    public void navigateToFragment(Fragment fragment) {
+    public void navigateToFragment(@NonNull Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.container, fragment)
                 .commit();
     }
 
-
+    // Gestion des couleurs (daltonisme)
     private void applySavedColors() {
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         int modeDaltonien = prefs.getInt("daltonien_mode", 0);
 
         switch (modeDaltonien) {
-            case 1:
-                setTheme(R.style.Colors_Protanopie);
-                break;
-            case 2:
-                setTheme(R.style.Colors_Deuteranopie);
-                break;
-            case 3:
-                setTheme(R.style.Colors_Tritanopie);
-                break;
-            default:
-                setTheme(R.style.Colors_Normal);
+            case 1: setTheme(R.style.Colors_Protanopie); break;
+            case 2: setTheme(R.style.Colors_Deuteranopie); break;
+            case 3: setTheme(R.style.Colors_Tritanopie); break;
+            default: setTheme(R.style.Colors_Normal);
         }
     }
 
+    // Gestion de la taille du texte
     private void applyTextSizeToAllViews() {
         float textSizeFactor = getSavedTextSizeFactor();
         ViewGroup rootLayout = findViewById(android.R.id.content);
         if (rootLayout != null) {
-            saveOriginalTextSizes(rootLayout); // S'assure qu'on a les tailles originales
             updateTextViewSize(rootLayout, textSizeFactor);
         }
     }
 
-    /**
-     * Sauvegarde les tailles originales des TextView
-     */
-    private void saveOriginalTextSizes(ViewGroup parent) {
-        for (int i = 0; i < parent.getChildCount(); i++) {
-            View child = parent.getChildAt(i);
-
-            if (child instanceof TextView) {
-                TextView textView = (TextView) child;
-                if (!originalTextSizes.containsKey(textView)) { // On ne l'ajoute qu'une fois
-                    originalTextSizes.put(textView, textView.getTextSize());
-                }
-            } else if (child instanceof ViewGroup) {
-                saveOriginalTextSizes((ViewGroup) child);
-            }
-        }
-    }
-
-    /**
-     * Applique un facteur de mise à l'échelle aux TextView
-     */
     private void updateTextViewSize(ViewGroup parent, float factor) {
         for (int i = 0; i < parent.getChildCount(); i++) {
             View child = parent.getChildAt(i);
@@ -137,83 +149,108 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     private float getSavedTextSizeFactor() {
-        SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
-        return prefs.getFloat("text_size_factor", 0); // 0 = pas de changement
+        return getSharedPreferences("AppPrefs", MODE_PRIVATE)
+                .getFloat("text_size_factor", 0);
     }
 
+    // Gestion des polices dyslexiques
     private void applyDyslexicFont() {
-        SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
-        boolean isDyslexicMode = prefs.getBoolean("dyslexic_mode", false);
-        Log.d("DYSLEXIE", "Mode dyslexique lu: " + isDyslexicMode);
-
-        if (isDyslexicMode) {
-            Log.d("DYSLEXIE", "Tentative de chargement de la police");
-            Typeface dyslexicFont = ResourcesCompat.getFont(this, Typeface.ITALIC);
-
-            if (dyslexicFont == null) {
-                Log.e("DYSLEXIE", "Échec du chargement de la police");
-                return;
-            }
-
-            Log.d("DYSLEXIE", "Police chargée avec succès");
-            View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
-
-            if (rootView == null) {
-                Log.e("DYSLEXIE", "RootView est null");
-                return;
-            }
-
-            if (rootView instanceof ViewGroup) {
-                Log.d("DYSLEXIE", "Application de la police aux vues");
-                setFontToAllTextViews((ViewGroup) rootView, dyslexicFont);
+        if (getSavedDyslexicMode()) {
+            Typeface dyslexicFont = ResourcesCompat.getFont(this, R.font.opendyslexic3_regular);
+            if (dyslexicFont != null) {
+                applyFontToAllTextViews(dyslexicFont);
             }
         } else {
-            Log.d("DYSLEXIE", "Mode dyslexique désactivé - aucune action");
+            restoreOriginalFonts();
         }
     }
-//    private void applyDyslexicFont() {
-//        boolean isDyslexicMode = getSavedDyslexicMode();
-//        Log.d("DyslexicMode", "Mode dyslexique: " + isDyslexicMode);
-//
-////        Typeface dyslexicFont = isDyslexicMode
-////                ? ResourcesCompat.getFont(this, R.font.poppinsbold)
-////                : Typeface.DEFAULT;
-//
-//        Typeface dyslexicFont = Typeface.MONOSPACE;
-//        View rootView = getWindow().getDecorView().findViewById(android.R.id.content);
-//        if (rootView instanceof ViewGroup) {
-//            setFontToAllTextViews((ViewGroup) rootView, dyslexicFont);
-//        }
-//    }
 
+    private void applyFontToAllTextViews(Typeface typeface) {
+        View rootView = getWindow().getDecorView();
+        if (rootView instanceof ViewGroup) {
+            applyFontToView((ViewGroup) rootView, typeface);
+        }
+    }
 
+    private void applyFontToView(ViewGroup parent, Typeface typeface) {
+        for (int i = 0; i < parent.getChildCount(); i++) {
+            View child = parent.getChildAt(i);
 
-    private void setFontToAllTextViews(ViewGroup parent, Typeface typeface) {
-        if (parent == null || typeface == null) return;
+            if (child instanceof TextView) {
+                TextView textView = (TextView) child;
+                Typeface original = originalTypefaces.get(textView);
+                textView.setTypeface(typeface, original != null ? original.getStyle() : Typeface.NORMAL);
+            } else if (child instanceof ViewGroup) {
+                applyFontToView((ViewGroup) child, typeface);
+            }
+        }
+    }
+
+    private void restoreOriginalFonts() {
+        View rootView = getWindow().getDecorView();
+        if (rootView instanceof ViewGroup) {
+            restoreFonts((ViewGroup) rootView);
+        }
+    }
+
+    private void restoreFonts(ViewGroup parent) {
+        for (int i = 0; i < parent.getChildCount(); i++) {
+            View child = parent.getChildAt(i);
+
+            if (child instanceof TextView) {
+                TextView textView = (TextView) child;
+                Typeface original = originalTypefaces.get(textView);
+                if (original != null) {
+                    textView.setTypeface(original);
+                }
+            } else if (child instanceof ViewGroup) {
+                restoreFonts((ViewGroup) child);
+            }
+        }
+    }
+
+    // Méthodes publiques pour les fragments
+    public void setDyslexicModeEnabled(boolean enabled) {
+        getSharedPreferences("AppPrefs", MODE_PRIVATE)
+                .edit()
+                .putBoolean("dyslexic_mode", enabled)
+                .apply();
+        applyDyslexicFont();
+    }
+
+    public boolean getSavedDyslexicMode() {
+        return getSharedPreferences("AppPrefs", MODE_PRIVATE)
+                .getBoolean("dyslexic_mode", false);
+    }
+
+    public void applySettingsToFragment(View fragmentView) {
+        if (fragmentView instanceof ViewGroup) {
+            saveOriginalSettings((ViewGroup) fragmentView);
+            applyCurrentSettingsToView((ViewGroup) fragmentView);
+        }
+    }
+
+    private void applyCurrentSettingsToView(ViewGroup parent) {
+        float textSizeFactor = getSavedTextSizeFactor();
+        Typeface currentFont = getSavedDyslexicMode()
+                ? ResourcesCompat.getFont(this, R.font.opendyslexic3_regular)
+                : Typeface.DEFAULT;
 
         for (int i = 0; i < parent.getChildCount(); i++) {
             View child = parent.getChildAt(i);
+
             if (child instanceof TextView) {
                 TextView textView = (TextView) child;
-                textView.setTypeface(typeface);
+                // Taille du texte
+                float originalSize = originalTextSizes.getOrDefault(textView, textView.getTextSize());
+                textView.setTextSize(originalSize / getResources().getDisplayMetrics().scaledDensity + textSizeFactor);
+
+                // Police
+                Typeface original = originalTypefaces.get(textView);
+                textView.setTypeface(currentFont, original != null ? original.getStyle() : Typeface.NORMAL);
             } else if (child instanceof ViewGroup) {
-                setFontToAllTextViews((ViewGroup) child, typeface);
+                applyCurrentSettingsToView((ViewGroup) child);
             }
         }
     }
-
-
-
-    private boolean getSavedDyslexicMode() {
-        SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
-        return prefs.getBoolean("dyslexic_mode", false);
-    }
-
-//    public int getSelectedNavItem() {
-//        if (this instanceof AccueilActivity) return R.id.navigation_home;
-//        if (this instanceof ExplorerActivity) return R.id.navigation_explore;
-//        if (this instanceof DonUniqueActivity) return R.id.navigation_add;
-//        if (this instanceof LoginActivity) return R.id.navigation_profile;
-//        return R.id.navigation_home; // Par défaut, on met Accueil si on ne sait pas
-//    }
 }

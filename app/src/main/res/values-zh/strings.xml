@@ -84,4 +84,14 @@
     <string name="admin_acces_resume">管理员访问：捐款摘要</string>
     <string name="admin_profil_asso">您的协会：</string>
     <string name="btn_partenaires">了解我们的合作伙伴</string>
+
+    <string name="accueil">主页</string>
+    <string name="explorer">探索</string>
+    <string name="don">捐赠</string>
+    <string name="profil">个人资料</string>
+    <string name="param_tre">设置</string>
+    <string name="d_couvrir_nos_partenaires">发现我们的合作伙伴</string>
+    <string name="votre_espace">您的空间</string>
+    <string name="votre_carte">您的卡片</string>
+
 </resources>

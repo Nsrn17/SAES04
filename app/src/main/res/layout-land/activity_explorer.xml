@@ -8,7 +8,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_above="@id/bottom_navigation"
-    tools:context=".fragments.ExplorerFragment">
+    tools:context=".fragments.ExplorerFragment"
+    tools:ignore="MissingDefaultResource">
 
 
     <ScrollView
@@ -75,7 +76,6 @@
                 android:background="@drawable/gradient_background"
                 android:elevation="8dp"
                 android:gravity="center"
-                android:layout_gravity="center"
                 android:orientation="vertical"
                 android:outlineProvider="background">
 

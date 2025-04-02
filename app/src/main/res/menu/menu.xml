@@ -3,26 +3,26 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/home"
-        android:title="Accueil"
+        android:title="@string/accueil"
         />
     <item
         android:id="@+id/navigation_explore"
         android:icon="@drawable/search"
-        android:title="Explorer"
+        android:title="@string/explorer"
         />
     <item
         android:id="@+id/navigation_add"
         android:icon="@drawable/iconplus"
-        android:title="Don"
+        android:title="@string/don"
         />
     <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/user"
-        android:title="Profil"
+        android:title="@string/profil"
       />
     <item
         android:id="@+id/settings"
         android:icon="@drawable/settings"
-        android:title="Paramètre"
+        android:title="@string/param_tre"
         />
 </menu>

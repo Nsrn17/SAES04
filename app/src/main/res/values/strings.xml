@@ -1,87 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SAE-S04</string>
-    <string name="r_sum_des_dons">Résumé des dons</string>
-    <string name="total_des_dons">Total des dons</string>
-    <string name="_500">500€</string>
-    <string name="_6_donations">6 donations</string>
-    <string name="ann_e">Année</string>
-    <string name="nombre_de_dons">Nombre de dons</string>
-    <string name="montant_total">Montant Total</string>
-    <string name="dons_par_ann_e">DONS PAR ANNÉE</string>
-    <string name="fr_quence">Fréquence</string>
-    <string name="dons_r_currents">DONS RÉCURRENTS</string>
-    <string name="hint_id">Adresse e-mail ou nom d\'utilisateur</string>
-    <string name="hint_id_register">Adresse e-mail ou numéro de tél.</string>
-    <string name="hint_password">Mot de passe</string>
-    <string name="tv_full_name">Nom complet</string>
-    <string name="tv_username">Nom d\'utilisateur</string>
-    <string name="tv_forgot_password">Mot de passe oublié ?</string>
-    <string name="btn_login">SE CONNECTER</string>
-    <string name="tv_no_account">Vous n\'avez pas de compte ? </string>
-    <string name="tv_have_account">Vous avez déjà un compte ? </string>
-    <string name="btn_signup">S\'INSCRIRE</string>
-    <string name="search_input">Rechercher une association…</string>
-    <string name="search_button">Lancer la recherche</string>
-    <string name="btn_don">Faire un don</string>
+    <string name="r_sum_des_dons">Donation Summary</string>
+    <string name="total_des_dons">Total Donations</string>
     <string name="_2024">2024</string>
     <string name="_4">4</string>
-    <string name="_170_00">170€</string>
+    <string name="_170_00">170 €</string>
     <string name="_2023">2023</string>
     <string name="_2">2</string>
-    <string name="_100_00">100€</string>
-    <string name="ann_e_2024">Année 2024</string>
-    <string name="_4_me_dons">4ème don</string>
-    <string name="_170_euros">170 euros</string>
-    <string name="ann_e_2023">Année 2023</string>
-    <string name="_2_eme_dons">2ème don</string>
-    <string name="_100_euros">100 euros</string>
-    <string name="nombre_de_dons_par_ann_e">Nombre de dons par année</string>
-    <string name="montant_total_par_ann_e">Montant total par année</string>
-    <string name="fr_quence_en_2024">Fréquence en 2024</string>
-    <string name="fr_quence_en_2023">Fréquence en 2023</string>
-    <string name="nombre_de_dons_r_currents">Nombre de dons récurrents</string>
-    <string name="_4_eme_dons_par_ann_ee_en_2024">4ème dons par année en 2024</string>
-    <string name="_170_euros_par_ann_e">170 euros par année</string>
-    <string name="_100_euros_par_ann_e">100 euros par année</string>
-    <string name="calendrier">Calendrier</string>
-    <string name="selectionnezmodepaiement">Sélectionnez un mode de paiement</string>
-    <string name="nomtitulaire">Nom du titulaire de la carte</string>
-    <string name="numerocarte">Numéro de carte</string>
-    <string name="dateexpiration">Date d\'expiration</string>
-    <string name="ccv">CCV</string>
-    <string name="enregistrerinfos">Enregistrer mes informations</string>
-    <string name="annuler">Annuler</string>
-    <string name="suivant">Suivant</string>
-    <string name="confirmer">Confirmer</string>
-    <string name="donunique">Unique</string>
-    <string name="donrecurrent">Récurrent</string>
+    <string name="_100_00">100 €</string>
+    <string name="ann_e_2024">Year 2024</string>
+    <string name="_4_me_dons">4th Donation</string>
+    <string name="_170_euros">170 Euros</string>
+    <string name="ann_e_2023">Year 2023</string>
+    <string name="_2_eme_dons">2nd Donation</string>
+    <string name="_100_euros">100 Euros</string>
+    <string name="nombre_de_dons_par_ann_e">Number of Donations per Year</string>
+    <string name="montant_total_par_ann_e">Total Amount per Year</string>
+    <string name="fr_quence_en_2024">Frequency in 2024</string>
+    <string name="fr_quence_en_2023">Frequency in 2023</string>
+    <string name="nombre_de_dons_r_currents">Number of Recurring Donations</string>
+    <string name="_4_eme_dons_par_ann_ee_en_2024">4th Donation per Year in 2024</string>
+    <string name="_170_euros_par_ann_e">170 Euros per Year</string>
+    <string name="_100_euros_par_ann_e">100 Euros per Year</string>
+    <string name="calendrier">Calendar</string>
+    <string name="_500">500 €</string>
+    <string name="_6_donations">6 Donations</string>
+    <string name="ann_e">Year</string>
+    <string name="nombre_de_dons">Number of Donations</string>
+    <string name="montant_total">Total Amount</string>
+    <string name="dons_par_ann_e">Donations per Year</string>
+    <string name="fr_quence">Frequency</string>
+    <string name="dons_r_currents">Recurring Donations</string>
+    <string name="hint_id">Email address, username, or phone number</string>
+    <string name="hint_id_register">Email address or phone number</string>
+    <string name="hint_password">Password</string>
+    <string name="tv_full_name">Full Name</string>
+    <string name="tv_username">Username</string>
+    <string name="tv_forgot_password">Forgot Password?</string>
+    <string name="tv_no_account">Don\'t have an account?</string>
+    <string name="tv_have_account">Already have an account?</string>
+    <string name="btn_signup">Sign Up</string>
+    <string name="btn_login">Log In</string>
+    <string name="search_input">Search for an association…</string>
+    <string name="search_button">Start the Search</string>
+    <string name="btn_don">Make a Donation</string>
+    <string name="selectionnezmodepaiement">Select a Payment Method</string>
+    <string name="nomtitulaire">Cardholder Name</string>
+    <string name="numerocarte">Card Number</string>
+    <string name="dateexpiration">Expiration Date</string>
+    <string name="ccv">CVV</string>
+    <string name="enregistrerinfos">Save My Information</string>
+    <string name="annuler">Cancel</string>
+    <string name="suivant">Next</string>
+    <string name="confirmer">Confirm</string>
+    <string name="donunique">One-Time</string>
+    <string name="donrecurrent">Recurring</string>
     <string name="cinqeuros">5€</string>
     <string name="dixeuros">10€</string>
     <string name="vingteuros">20€</string>
-    <string name="entrersommeperso">Entrer une somme personnalisée :</string>
-    <string name="donanonyme">Effectuer le don anonymement</string>
-    <string name="realiserdon">Réaliser un don</string>
-    <string name="annuel">Annuel</string>
-    <string name="mensuel">Mensuel</string>
-    <string name="entrezccv">Entrez le CCV</string>
-    <string name="appliquerparametres">Appliquer</string>
-    <string name="parametres">Paramètres</string>
-    <string name="modedaltonien">Mode daltonien</string>
-    <string name="tailledutexte"> Amplification du texte </string>
-    <string name="choisirasso">Choisir une association</string>
+    <string name="entrersommeperso">Enter a Custom Amount:</string>
+    <string name="donanonyme">Make an Anonymous Donation</string>
+    <string name="realiserdon">Make a Donation</string>
+    <string name="annuel">Annual</string>
+    <string name="mensuel">Monthly</string>
+    <string name="entrezccv">Enter the CVV</string>
+    <string name="appliquerparametres">Apply</string>
+    <string name="parametres">Settings</string>
+    <string name="modedaltonien">Colorblind Mode</string>
+    <string name="tailledutexte">Text Magnification</string>
+    <string name="choisirasso">Choose an Association</string>
     <string-array name="associations">
-        <item> Sélectionnez une association</item>
-        <item> Association 1 </item>
-        <item> Association 2 </item>
-        <item> Association 3 </item>
+        <item>Select an Association</item>
+        <item>Association 1</item>
+        <item>Association 2</item>
+        <item>Association 3</item>
     </string-array>
-    <string name="vousvoulez" translatable="false">Vous voulez faire un don mais vous ne savez pas à quelle association ? Cherchez un mot clé dans la barre de recherche ou consultez les associations par thèmes.</string>
-    <string name="motcle" translatable="false">Rechercher un mot clé</string>
-    <string name="profil_mail">Votre mail :</string>
-    <string name="profil_nom">Votre nom :</string>
-    <string name="profil_username">Votre nom d\'utilisateur :</string>
-    <string name="btn_deconnexion">DÉCONNEXION</string>
-    <string name="admin_acces_resume">ACCÈS ADMIN</string>
-    <string name="admin_profil_asso">Votre association :</string>
-    <string name="btn_partenaires">Découvrir nos partenaires</string>
+    <string name="vousvoulez" translatable="false">Do you want to donate but don\'t know which association? Search for a keyword or explore associations by theme.</string>
+    <string name="motcle" translatable="false">Search for a keyword</string>
+    <string name="profil_mail">Your Email Address:</string>
+    <string name="profil_nom">Your Name:</string>
+    <string name="profil_username">Username:</string>
+    <string name="btn_deconnexion">Log Out</string>
+    <string name="admin_acces_resume">Admin: Donation Summary</string>
+    <string name="admin_profil_asso">Your Association:</string>
+    <string name="btn_partenaires">See Our Partners</string>
+    <string name="accueil">Home</string>
+    <string name="explorer">Explore</string>
+    <string name="don">Donate</string>
+    <string name="profil">Profile</string>
+    <string name="param_tre">Settings</string>
+    <string name="d_couvrir_nos_partenaires">Discover Our Partners</string>
+    <string name="votre_espace">Your Space</string>
+    <string name="votre_carte">Your Card</string>
+
+
 </resources>

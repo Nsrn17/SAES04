@@ -76,4 +76,21 @@
         <item> Ассоциация 2 </item>
         <item> Ассоциация 3 </item>
     </string-array>
+
+    <string name="profil_mail">Ваш адрес электронной почты:</string>
+    <string name="profil_nom">Ваше имя:</string>
+    <string name="profil_username">Имя пользователя:</string>
+    <string name="btn_deconnexion">Выйти</string>
+    <string name="admin_acces_resume">Админ: Сводка пожертвований</string>
+    <string name="admin_profil_asso">Ваша ассоциация:</string>
+    <string name="btn_partenaires">Посмотреть наших партнеров</string>
+    <string name="accueil">Главная</string>
+    <string name="explorer">Исследовать</string>
+    <string name="don">Пожертвование</string>
+    <string name="profil">Профиль</string>
+    <string name="param_tre">Настройки</string>
+    <string name="d_couvrir_nos_partenaires">Откройте для себя наших партнеров</string>
+    <string name="votre_espace">Ваше пространство</string>
+    <string name="votre_carte">Ваша карта</string>
+
 </resources>
