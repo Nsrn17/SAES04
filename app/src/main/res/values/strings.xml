@@ -81,7 +81,7 @@
     <string name="profil_nom">Votre nom :</string>
     <string name="profil_username">Votre nom d\'utilisateur :</string>
     <string name="btn_deconnexion">DÉCONNEXION</string>
-    <string name="admin_acces_resume">ACCÈS ADMIN : RÉSUMÉ DES DONS</string>
+    <string name="admin_acces_resume">ACCÈS ADMIN</string>
     <string name="admin_profil_asso">Votre association :</string>
     <string name="btn_partenaires">Découvrir nos partenaires</string>
 </resources>

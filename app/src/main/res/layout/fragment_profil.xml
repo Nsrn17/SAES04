@@ -30,13 +30,13 @@
 
 
             <TextView
-                android:id="@+id/admin_profil_email"
+                android:id="@+id/profil_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/textview_background"
                 android:backgroundTint="?attr/colorPrimaryVariant"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="@font/poppinsmedium"
                 android:text="@string/profil_mail"
                 android:padding="12dp"
                 android:textColorHint="@color/white"
@@ -44,13 +44,13 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/admin_profil_name"
+                android:id="@+id/profil_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/textview_background"
                 android:backgroundTint="?attr/colorPrimaryVariant"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="@font/poppinsmedium"
                 android:text="@string/profil_nom"
                 android:padding="12dp"
                 android:textColorHint="@color/white"
@@ -58,40 +58,37 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/admin_profil_username"
+                android:id="@+id/profil_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
                 android:background="@drawable/textview_background"
                 android:backgroundTint="?attr/colorPrimaryVariant"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="@font/poppinsmedium"
                 android:text="@string/profil_username"
                 android:padding="12dp"
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"
                 android:textSize="15sp" />
 
-
-            <TextView
-                android:id="@+id/admin_profil_asso"
-                android:layout_width="match_parent"
+            <!--<Button
+                android:id="@+id/btn_resume_user"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/textview_background"
-                android:backgroundTint="?attr/colorPrimaryVariant"
-                android:fontFamily="sans-serif-medium"
-                android:text="@string/admin_profil_asso"
+                android:text="Résumé de mes dons"
+                android:textColor="@android:color/white"
+                android:backgroundTint="?attr/colorPrimary"
+                android:layout_marginTop="20dp"
                 android:padding="12dp"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="15sp" />
+                android:fontFamily="sans-serif-condensed-medium"
+                android:textStyle="bold" />-->
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center">
 
-                <ImageView
+                <!--<ImageView
                     android:id="@+id/admin_cadenas"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
@@ -99,21 +96,37 @@
                     android:layout_marginTop="30dp"
                     android:gravity="center"
                     android:adjustViewBounds="true"
-                    android:layout_marginBottom="20dp" />
+                    android:layout_marginBottom="20dp" />-->
 
                 <TextView
-                    android:id="@+id/text_resume_dons"
+                    android:id="@+id/text_debut_acces_admin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="20dp"
                     android:gravity="center"
-                    android:padding="12dp"
-                    android:text="@string/admin_acces_resume"
-                    android:textColor="@color/darkblue"
+                    android:padding="0dp"
+                    android:text="Accéder à vos dons ?"
+                    android:fontFamily="@font/poppinslight"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" /> <!-- ou autre drawable stylisé -->
+
+                <TextView
+                    android:id="@+id/text_appuyez"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Appuyez ici"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold" /> <!-- ou autre drawable stylisé -->
 
             </LinearLayout>
+
 
             <Button
                 android:id="@+id/btn_deconnexion"
@@ -121,11 +134,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="?attr/colorPrimary"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:padding="12dp"
+                android:fontFamily="@font/poppinsbold"
+                android:padding="0dp"
                 android:text="@string/btn_deconnexion"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
+
+
 
 
         </LinearLayout>

@@ -35,7 +35,7 @@ public class ParametresFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Gonfler le layout du fragment
-        View rootView = inflater.inflate(R.layout.activity_parametres, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_parametres, container, false);
         ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
 
         spinnerDaltonien = rootView.findViewById(R.id.spinner_daltonien);
@@ -44,7 +44,7 @@ public class ParametresFragment extends Fragment {
         rootLayout = rootView.findViewById(R.id.main); // ID du layout parent
 
         // Définir les options du spinner pour les modes daltonien
-        String[] modesDaltoniens = {"Normal", "Protanopie", "Deutéranopie", "Tritanopie"};
+        String[] modesDaltoniens = {"Par défaut", "Protanopie", "Deutéranopie", "Tritanopie"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, modesDaltoniens);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDaltonien.setAdapter(adapter);

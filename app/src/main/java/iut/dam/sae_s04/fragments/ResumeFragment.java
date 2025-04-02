@@ -29,7 +29,7 @@ public class ResumeFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_resume, container, false);
+        View view = inflater.inflate(R.layout.fragment_resume, container, false);
 
         textTotalDons = view.findViewById(R.id.text_total_dons);
         textTotalCount = view.findViewById(R.id.text_total_count);

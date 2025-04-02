@@ -66,7 +66,8 @@ public class UserResumeFragment extends Fragment {
 
                 HashMap<String, String> map = new HashMap<>();
                 map.put("line1", association);
-                map.put("line2", "Montant : " + montant + "€ | Date : " + date);
+//                map.put("line2", "Montant : " + montant + "€ | Date : " + date);
+                map.put("line2", "Montant : " + montant + "€");
                 data.add(map);
             } while (cursor.moveToNext());
         }

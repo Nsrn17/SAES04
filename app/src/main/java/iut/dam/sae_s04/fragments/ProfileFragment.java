@@ -24,7 +24,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activity_profil, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_profil, container, false);
 
         dbHelper = new DatabaseHelper(getContext());
 
@@ -35,6 +35,7 @@ public class ProfileFragment extends Fragment {
         TextView textNom = rootView.findViewById(R.id.profil_name);
         TextView textUsername = rootView.findViewById(R.id.profil_username);
         Button btnDeconnexion = rootView.findViewById(R.id.btn_deconnexion);
+        TextView textResume = rootView.findViewById(R.id.text_appuyez);
 
         if (currentUser != null) {
             textEmail.setText("Votre e-mail : " + currentUser.getEmail());
@@ -53,9 +54,7 @@ public class ProfileFragment extends Fragment {
             getActivity().finish();
         });
 
-        Button btnResume = rootView.findViewById(R.id.btn_resume_user);
-
-        btnResume.setOnClickListener(v -> {
+        textResume.setOnClickListener(v -> {
             requireActivity().getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, new UserResumeFragment())
                     .addToBackStack(null)

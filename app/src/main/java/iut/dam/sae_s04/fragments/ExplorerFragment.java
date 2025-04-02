@@ -38,7 +38,7 @@ public class ExplorerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Gonfle la vue du fragment
-        View rootView = inflater.inflate(R.layout.activity_explorer, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_explorer, container, false);
         ((MainActivity) requireActivity()).applyTextSizeToFragment(rootView);
 
         // Référence aux vues dans le fragment
