@@ -90,9 +90,16 @@
     <string name="don">Donate</string>
     <string name="profil">Profile</string>
     <string name="param_tre">Settings</string>
-    <string name="d_couvrir_nos_partenaires">Discover Our Partners</string>
-    <string name="votre_espace">Your Space</string>
-    <string name="votre_carte">Your Card</string>
+    <string name="d_couvrir_nos_partenaires">Discover our partners</string>
+    <string name="votre_espace">Your space</string>
+    <string name="votre_carte">Your card</string>
+    <string name="appuyez_ici">Click here</string>
+    <string name="acc_der_l_espace_admin">Admin access?</string>
+    <string name="acc_der_vos_dons">Access your donations?</string>
+    <string name="sante_mentale">Mental health</string>
+    <string name="sante_physique">Physical health</string>
+    <string name="famille">Family</string>
+    <string name="mode_dyslexie">Dyslexia Mode</string>
 
 
 </resources>

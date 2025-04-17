@@ -102,7 +102,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Santé"
+                android:text="@string/sante_physique"
                 android:textColor="@android:color/black"
                 android:fontFamily="@font/poppinsmedium"
                 android:layout_marginStart="15dp"
@@ -119,7 +119,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mental"
+                android:text="@string/sante_mentale"
                 android:textColor="@android:color/black"
                 android:fontFamily="@font/poppinsmedium"
                 android:layout_marginStart="15dp"
@@ -136,7 +136,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Famille"
+                android:text="@string/famille"
                 android:textColor="@android:color/black"
                 android:fontFamily="@font/poppinsmedium"
                 android:layout_marginStart="15dp"

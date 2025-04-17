@@ -54,7 +54,7 @@ public class ParametresFragment extends Fragment {
         setupSpinner();
         setupSwitchListener();
         setupApplyButton();
-        setupResetAdminsButton(rootView);
+        //setupResetAdminsButton(rootView);
 
         return rootView;
     }
@@ -129,14 +129,14 @@ public class ParametresFragment extends Fragment {
         });
     }
 
-    private void setupResetAdminsButton(View rootView) {
+    /*private void setupResetAdminsButton(View rootView) {
         Button btnResetAdmins = rootView.findViewById(R.id.btn_reset_admins);
         btnResetAdmins.setOnClickListener(v -> {
             DatabaseHelper dbHelper = new DatabaseHelper(getContext());
             dbHelper.resetAdmins();
             Toast.makeText(getContext(), "Admins réinitialisés", Toast.LENGTH_SHORT).show();
         });
-    }
+    }*/
 
     private void applyDyslexicFont(ViewGroup parent) {
         try {

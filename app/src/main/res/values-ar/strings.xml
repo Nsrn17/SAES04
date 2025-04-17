@@ -75,15 +75,22 @@
         <item>الجمعية 2</item>
         <item>الجمعية 3</item>
     </string-array>
-    <string name="vousvoulez" translatable="false">بغيتي تبرع ولكن ما تعرفش لاش جمعية؟ دور على كلمة في البحث أو شوف الجمعيات حسب المواضيع.</string>
-    <string name="motcle" translatable="false">دور على كلمة</string>
-    <string name="profil_mail">البريد الإلكتروني ديالك:</string>
-    <string name="profil_nom">السمية ديالك:</string>
-    <string name="profil_username">السمية ديال المستخدم:</string>
-    <string name="btn_deconnexion">خرج</string>
-    <string name="admin_acces_resume">مدير: ملخص التبرعات</string>
-    <string name="admin_profil_asso">الجمعية ديالك:</string>
-    <string name="btn_partenaires">شوف الشركاء ديالنا</string>
+    <string name="vousvoulez" translatable="false">هل ترغب في التبرع ولكن لا تعرف لأي جمعية؟ ابحث باستخدام كلمة مفتاحية أو تصفح الجمعيات حسب المواضيع.</string>
+    <string name="motcle" translatable="false">ابحث بكلمة مفتاحية</string>
+    <string name="profil_mail">بريدك الإلكتروني:</string>
+    <string name="profil_nom">اسمك:</string>
+    <string name="profil_username">اسم المستخدم الخاص بك:</string>
+    <string name="btn_deconnexion">تسجيل الخروج</string>
+    <string name="admin_acces_resume">وصول المدير</string>
+    <string name="admin_profil_asso">جمعيتك:</string>
+    <string name="btn_partenaires">اكتشف شركاءنا</string>
+    <string name="appuyez_ici">اضغط هنا</string>
+    <string name="acc_der_l_espace_admin">الدخول إلى مساحة المدير؟</string>
+    <string name="acc_der_vos_dons">الدخول إلى تبرعاتك؟</string>
+    <string name="sante_physique">الصحة الجسدية</string>
+    <string name="sante_mentale">الصحة النفسية</string>
+    <string name="famille">العائلة</string>
+
     <string name="accueil">الرئيسية</string>
     <string name="explorer">استكشاف</string>
     <string name="don">تبرع</string>
@@ -92,5 +99,6 @@
     <string name="d_couvrir_nos_partenaires">اكتشف شركاءنا</string>
     <string name="votre_espace">مساحتك الخاصة</string>
     <string name="votre_carte">بطاقتك</string>
+    <string name="mode_dyslexie">Mode Dyslexie</string>
 
 </resources>

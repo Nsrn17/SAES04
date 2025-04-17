@@ -3,8 +3,6 @@ package iut.dam.sae_s04.fragments;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.provider.Settings;
-import android.speech.tts.TextToSpeech;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -12,14 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 
+import iut.dam.sae_s04.database.DatabaseHelper;
 import iut.dam.sae_s04.models.Association;
 import iut.dam.sae_s04.models.AssociationData;
 import iut.dam.sae_s04.adapters.CarouselAdapter;
@@ -27,6 +26,7 @@ import iut.dam.sae_s04.adapters.CustomAdapter;
 import iut.dam.sae_s04.utils.NavigationUtils;
 import iut.dam.sae_s04.R;
 import iut.dam.sae_s04.activities.MainActivity;
+import iut.dam.sae_s04.utils.SessionManager;
 
 public class AccueilFragment extends Fragment {
 
@@ -39,15 +39,8 @@ public class AccueilFragment extends Fragment {
     private CustomAdapter adapter;
     private CarouselAdapter cadapter;
     private int currentPage = 0;
-
-    private TextToSpeech textToSpeech;
     private static final int DELAY_MS = 2000;
-   private List<String> descriptions = Arrays.asList(
-            "Sensibilisation aux droits des usagers de la santé.",
-            "Suppression du droit au séjour pour soins et ses conséquences.",
-            "Les associations de patients quittent le comité interministeriel.",
-            "Proposition de loi pour limiter la promotion de l'alcool aux jeunes."
-    );
+
     public AccueilFragment() { }
 
     @Override
@@ -82,9 +75,6 @@ public class AccueilFragment extends Fragment {
                     currentPage = 0; // Retour au début
                 }
                 viewPager.setCurrentItem(currentPage++, true);
-//                if (isAccessibilityEnabled()) {
-//                    speakDescription(currentPage);
-//                }
                 handler.postDelayed(this, DELAY_MS);
             }
         };
@@ -98,11 +88,6 @@ public class AccueilFragment extends Fragment {
 
         // Lancer le défilement automatique
         handler.postDelayed(runnable, DELAY_MS);
-//        textToSpeech = new TextToSpeech(requireContext(), status -> {
-//            if (status == TextToSpeech.SUCCESS) {
-//                textToSpeech.setLanguage(Locale.FRANCE);
-//            }
-//        });
         ///fincarousel
         searchInput = rootView.findViewById(R.id.search_input);
         searchResults = rootView.findViewById(R.id.search_results);
@@ -144,6 +129,37 @@ public class AccueilFragment extends Fragment {
 
         setupSearch();
 
+        // Navigation vers les sections
+        LinearLayout parametresSection = rootView.findViewById(R.id.parametres_section);
+        LinearLayout espaceSection = rootView.findViewById(R.id.votre_espace_section);
+
+        parametresSection.setOnClickListener(v -> {
+            requireActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new ParametresFragment())
+                    .addToBackStack(null)
+                    .commit();
+        });
+
+        espaceSection.setOnClickListener(v -> {
+            if (SessionManager.getCurrentUser(getContext(), new DatabaseHelper(getContext())) != null) {
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, new ProfileFragment())
+                        .addToBackStack(null)
+                        .commit();
+            } else if (SessionManager.getCurrentAdmin(getContext(), new DatabaseHelper(getContext())) != null) {
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, new AdminProfileFragment())
+                        .addToBackStack(null)
+                        .commit();
+            } else {
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, new LoginFragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
+
         return rootView;  // Retourne la vue gonflée
     }
 
@@ -184,31 +200,6 @@ public class AccueilFragment extends Fragment {
 
         // Afficher ou masquer les résultats de recherche (mais rien d’autre ne change)
         searchResults.setVisibility(filteredList.isEmpty() || text.isEmpty() ? View.GONE : View.VISIBLE);
-    }
-    private void speakDescription(int position) {
-        if (textToSpeech != null && position < descriptions.size()) {
-            textToSpeech.speak(descriptions.get(position), TextToSpeech.QUEUE_FLUSH, null, null);
-        }
-    }
-//    private boolean isAccessibilityEnabled() {
-//        int accessibilityEnabled = 0;
-//        try {
-//            accessibilityEnabled = Settings.Secure.getInt(
-//                    requireContext().getContentResolver(),
-//                    Settings.Secure.ACCESSIBILITY_ENABLED
-//            );
-//        } catch (Settings.SettingNotFoundException e) {
-//            Log.e("ACCESSIBILITY", "Erreur lors de la vérification", e);
-//        }
-//        return accessibilityEnabled == 1;
-//    }
-    @Override
-    public void onDestroy() {
-        if (textToSpeech != null) {
-            textToSpeech.stop();
-            textToSpeech.shutdown();
-        }
-        super.onDestroy();
     }
 
 }

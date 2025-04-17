@@ -150,8 +150,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // Réinsertion d'exemple
         insertAdmin(db, "Amina Karmenova", "aminakarmen@gmail.com", "aminak", "amina", "Association nationale de défense des malades, invalides et handicapés");
-        insertAdmin(db, "Nesrine Hajjem", "nesrinehajjem@gmail.com", "nesrineh", "nesrine", "Association B");
-        insertAdmin(db, "Alya Ayinde", "alyaayinde@gmail.com", "alyaa", "alya", "Association C");
+        insertAdmin(db, "Nesrine Hajjem", "nesrinehajjem@gmail.com", "nesrineh", "nesrine", "Association Alliance Maladies Rares");
+        insertAdmin(db, "Oweys Chabane", "oweyschabane@gmail.com", "oweysc", "oweys", "Association Schizo-Oui");
+        insertAdmin(db, "Kachy N'guessan", "kachynguessan@gmail.com", "kachyn", "kachy", "Association Ligue Contre le Cancer");
+        insertAdmin(db, "Alya Ayinde", "alyaayinde@gmail.com", "alyaa", "alya", "Association Le Planning Familial");
+        insertAdmin(db, "Rita Hdidou", "ritahdidou@gmail.com", "ritah", "rita", "Association Petits Frères des Pauvres");
+        insertAdmin(db, "Iris Njikam", "irisnjikam@gmail.com", "irisn", "iris", "Association pour le Droit de Mourir dans la Dignité");
+        insertAdmin(db, "Safaa Batal", "safaabatal@gmail.com", "safaab", "safaa", "Association Familles Rurales");
+        insertAdmin(db, "Danya Belmokhtar", "danyabelmokhtar@gmail.com", "danyab", "danya", "Fédération Française Sésame-Autisme");
 
         db.close();
     }

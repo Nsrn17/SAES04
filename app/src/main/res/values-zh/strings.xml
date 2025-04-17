@@ -93,5 +93,13 @@
     <string name="d_couvrir_nos_partenaires">发现我们的合作伙伴</string>
     <string name="votre_espace">您的空间</string>
     <string name="votre_carte">您的卡片</string>
+    <string name="appuyez_ici">点击这里</string>
+    <string name="acc_der_l_espace_admin">管理员访问？</string>
+    <string name="acc_der_vos_dons">访问您的捐赠？</string>
+    <string name="sante_mentale">心理健康</string>
+    <string name="sante_physique">身体健康</string>
+    <string name="famille">家庭</string>
+    <string name="mode_dyslexie">Mode Dyslexie</string>
+
 
 </resources>

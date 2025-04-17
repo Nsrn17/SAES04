@@ -93,4 +93,12 @@
     <string name="d_couvrir_nos_partenaires">Découvrir nos partenaires</string>
     <string name="votre_espace">Votre espace</string>
     <string name="votre_carte">Votre carte</string>
+    <string name="appuyez_ici">Appuyez ici</string>
+    <string name="acc_der_l_espace_admin">Accès à l’espace admin ?</string>
+    <string name="acc_der_vos_dons">Accès à vos dons ?</string>
+    <string name="sante_mentale">Santé mentale</string>
+    <string name="sante_physique">Santé physique</string>
+    <string name="famille">Famille</string>
+    <string name="mode_dyslexie">Mode Dyslexie</string>
+
 </resources>

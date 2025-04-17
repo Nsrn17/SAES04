@@ -43,29 +43,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         applyTextSizeToAllViews();
 
+        // Récupérer les infos depuis la session
         DatabaseHelper dbHelper = new DatabaseHelper(this);
-
         currentUser = SessionManager.getCurrentUser(this, dbHelper);
         currentAdmin = SessionManager.getCurrentAdmin(this, dbHelper);
 
         setupBottomNavigation();
 
+        // 🌟 Afficher TOUJOURS AccueilFragment au démarrage
         if (savedInstanceState == null) {
-            if (currentAdmin != null) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, new AdminProfileFragment())
-                        .commit();
-            } else if (currentUser != null) {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, new ProfileFragment())
-                        .commit();
-            } else {
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.container, new AccueilFragment())
-                        .commit();
-            }
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, new AccueilFragment())
+                    .commit();
         }
     }
+
 
 
     private void setupBottomNavigation() {

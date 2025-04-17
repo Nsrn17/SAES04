@@ -76,14 +76,21 @@
         <item> Ассоциация 2 </item>
         <item> Ассоциация 3 </item>
     </string-array>
-
-    <string name="profil_mail">Ваш адрес электронной почты:</string>
+    <string name="vousvoulez" translatable="false">Вы хотите сделать пожертвование, но не знаете, в какую ассоциацию? Введите ключевое слово в строке поиска или просмотрите ассоциации по темам.</string>
+    <string name="motcle" translatable="false">Поиск по ключевому слову</string>
+    <string name="profil_mail">Ваш email:</string>
     <string name="profil_nom">Ваше имя:</string>
-    <string name="profil_username">Имя пользователя:</string>
-    <string name="btn_deconnexion">Выйти</string>
-    <string name="admin_acces_resume">Админ: Сводка пожертвований</string>
+    <string name="profil_username">Ваше имя пользователя:</string>
+    <string name="btn_deconnexion">ВЫХОД</string>
+    <string name="admin_acces_resume">АДМИН ДОСТУП</string>
     <string name="admin_profil_asso">Ваша ассоциация:</string>
-    <string name="btn_partenaires">Посмотреть наших партнеров</string>
+    <string name="btn_partenaires">Нашими партнёры</string>
+    <string name="appuyez_ici">Нажмите сюда</string>
+    <string name="acc_der_l_espace_admin">Админ доступ ?</string>
+    <string name="acc_der_vos_dons">Доступ к вашим пожертвованиям ?</string>
+    <string name="sante_mentale">Ментальное здоровье</string>
+    <string name="sante_physique">Здоровье тела</string>
+    <string name="famille">Famille</string>
     <string name="accueil">Главная</string>
     <string name="explorer">Исследовать</string>
     <string name="don">Пожертвование</string>
@@ -92,5 +99,6 @@
     <string name="d_couvrir_nos_partenaires">Откройте для себя наших партнеров</string>
     <string name="votre_espace">Ваше пространство</string>
     <string name="votre_carte">Ваша карта</string>
+    <string name="mode_dyslexie">Режим дислексия</string>
 
 </resources>
